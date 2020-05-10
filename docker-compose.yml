@@ -1,4 +1,4 @@
-version: '2'
+version: '3.5'
 
 volumes:
   jmeter_bin:
@@ -27,7 +27,8 @@ services:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /usr/bin/docker:/usr/bin/docker
-    - /opt/jks/:/var/jenkins_home
+    - /opt/jenkins_home/:/var/jenkins_home
+    - jmeter_dir:/jmeter
   depends_on:
     - nexus
     - sonar
@@ -70,7 +71,7 @@ services:
    networks:
      - prodnetwork
    volumes:
-     - jmeter_bin:/
+     - jmeter_dir:/jmeter
      - /opt/jmeter/results:/results
      - /opt/jmeter/scripts:/scripts
 
