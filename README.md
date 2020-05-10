@@ -15,8 +15,10 @@ Cette plateforme est disponible seulement sous Linux.
 ```
 sudo yum -y update 
 sudo yum -y install git
-git clone https://github.com/system-dev-formation/jenkins-cicd.git
-cd ci-cd
+git clone https://github.com/system-dev-formation/jenkins-pic.git
+cd jenkins-pic 
+sudo yum install -y git wget 
+sudo yum install epel-release 
 ```
 
 ### Installation de la derniere version de Docker sous Centos 
@@ -52,18 +54,22 @@ sudo yum install docker-compose
 ## Installation de Docker avec un script Ansible 
 ### Packages de pre-requis pour installer Ansible 
 ```
-sudo yum -y install epel-release python-pip 
+sudo yum -y install python3 
 ```
-Installation d'Ansible avec Python Pip pour obtenir la derniere version d'Ansible
-```
-sudo pip install ansible
-```
+
+### Set up a python virtualenv, and install ansible
+```shell script
+  # in the jenkins-pic directory 
+  python3 -m venv venv
+  source venv/bin/activate 
+  pip3 install wheel  
+  pip3 install ansible
 
 ### Lancement de la commande ansible-playbook
 ```
-ansible-playbook -i inventory setup-docker 
-```
+ansible-playbook -i inventory  playbook.yml
 
+``
 ## Plateforme CI/CD
 ### Lancement avec un docker-compose
 
