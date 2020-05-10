@@ -1,0 +1,99 @@
+version: '2'
+
+volumes:
+  jmeter_bin:
+
+networks:
+  prodnetwork:
+    driver: bridge
+
+services:
+ nexus:
+  hostname: nexus
+  build: ./nexus
+  ports:
+    - "18081:8081"
+  networks:
+    - prodnetwork
+
+ jenkins:
+  hostname: jenkins
+  image: systemdevformations/jenkins-sonar:v2
+  ports:
+    - "18080:8080"
+    - "50000:50000"
+  networks:
+    - prodnetwork
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/bin/docker:/usr/bin/docker
+    - /opt/jks/:/var/jenkins_home
+  depends_on:
+    - nexus
+    - sonar
+    - jmeter
+    - gitlab-ce
+  environment:
+    - NEXUS_PORT=8081
+    - SONAR_PORT=9000
+    - SONAR_DB_PORT=5432
+
+ sonar:
+  hostname: sonar
+  image: systemdevformations/sonar-cicd:v1
+  ports:
+   - "19000:9000"
+   - "5432:5432"
+  networks:
+    - prodnetwork
+  depends_on:
+    - sonardb
+  environment:
+   - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
+   - SONARQUBE_JDBC_USERNAME=sonar
+   - SONARQUBE_JDBC_PASSWORD=sonar
+
+ sonardb:
+  hostname: sonardb
+  networks:
+    - prodnetwork
+  image: postgres
+  environment:
+   - POSTGRES_USER=sonar
+   - POSTGRES_PASSWORD=sonar
+  volumes:
+    - /opt/postgres/data:/var/lib/postgresql/data
+
+ jmeter:
+   hostname: jmeter
+   build: ./jmeter
+   networks:
+     - prodnetwork
+   volumes:
+     - jmeter_bin:/
+     - /opt/jmeter/results:/results
+     - /opt/jmeter/scripts:/scripts
+
+
+ gitlab-ce:
+  hostname: gitlab-ce
+  networks:
+    - prodnetwork
+  image: gitlab/gitlab-ce:latest
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      gitlab_rails['gitlab_shell_ssh_port'] = 2222
+  ports:
+    - "443:443"
+    - "8181:80"
+    - "2222:22"
+  volumes:
+    - /opt/gitlab/config:/etc/gitlab
+    - /opt/gitlab/logs:/var/log/gitlab
+    - /opt/gitlab/data:/var/opt/gitlab
+
+
+
+
+
+

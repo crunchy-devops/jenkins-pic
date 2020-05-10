@@ -1,0 +1,51 @@
+---
+- name: Install Jenkins CI/CD
+  hosts: localhost
+  become: true
+  tasks:
+    - name: upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+        exclude: kernel*
+    - name: Install packages needed for docker and its ecosystem
+      yum:
+        name:
+          - yum-utils
+          - device-mapper-persistent-data
+          - lvm2
+          - python3
+          - python3-pip
+        state: present
+    - name: Set up a stable docker repository
+      command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    - name: Install docker packages
+      yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+    - name: start service
+      service:
+        name: docker
+        state: started
+    - name: Set current user to docker group
+      command: usermod -aG docker {{ ansible_user }}
+    - name: install docker-compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/1.25.0/docker-compose-Linux-x86_64
+        dest: /usr/bin/docker-compose
+        mode: '0775'
+    - name: Get jks repository
+      git:
+       repo: 'https://github.com/system-dev-formations/jks.git'
+       dest: /opt/jks
+    - name: Start docker-compose
+      shell: docker-compose up -d
+
+
+
+
+
+

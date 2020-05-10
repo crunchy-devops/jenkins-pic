@@ -1,0 +1,42 @@
+version: '3.5'
+
+volumes:
+  jmeter_dir:
+
+networks:
+  jmeter_network:
+    driver: bridge
+
+services:
+ jenkins:
+  hostname: jenkins
+  image: systemdevformations/jenkins-sonar:v1
+  ports:
+    - "28080:8080"
+    - "25000:50000"
+  networks:
+    - jmeter_network
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/bin/docker:/usr/bin/docker
+    - /opt/jks/:/var/jenkins_home
+    - jmeter_dir:/jmeter
+  depends_on:
+    - jmeter
+
+ jmeter:
+   hostname: jmeter
+   build: .
+   networks:
+     - jmeter_network
+   volumes:
+     - jmeter_dir:/jmeter
+     - /opt/jmeter/results:/results
+     - /opt/jmeter/scripts:/scripts
+
+
+
+
+
+
+
