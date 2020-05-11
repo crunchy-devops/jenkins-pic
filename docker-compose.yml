@@ -27,7 +27,7 @@ services:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /usr/bin/docker:/usr/bin/docker
-    - /opt/jenkins_home/:/var/jenkins_home
+    - /opt/jenkins-home/:/var/jenkins_home
     - jmeter_dir:/jmeter
   depends_on:
     - nexus
