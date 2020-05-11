@@ -51,7 +51,7 @@ Installation de Docker compose
 sudo yum install docker-compose
 ```
 
-## Installation de Docker avec un script Ansible 
+## Ou Installation de Docker avec un script Ansible 
 ### Packages de pre-requis pour installer Ansible 
 ```
 sudo yum -y install python3 
@@ -64,29 +64,34 @@ sudo yum -y install python3
   source venv/bin/activate 
   pip3 install wheel  
   pip3 install ansible
-
-### Lancement de la commande ansible-playbook
 ```
-ansible-playbook -i inventory  playbook.yml
+### Lancement de la commande ansible-playbook qui va installer Docker
+```
+  ansible-playbook -i inventory  playbook.yml
+```
 
-``
-## Plateforme CI/CD
-### Lancement avec un docker-compose
+### Installer docker-compose 
+```shell script
+  pip3 install docker-compose
+```
 
-Tapez la commande suivante pour installer et demarrer l'ensemble des containers de la plateforme de CI/CD
+### Install jenkins_home 
+For getting all Jenkins jobs, pipelines and plugins you have to install a repository   
+in the directory /opt so a sudo 
+```shell script
+sudo -s 
+cd /opt
+git clone  https://github.com/crunchy-devops/jenkins-home.git
+```
+
+## Launch all containers
+Tapez la commande suivante pour installer et demarrer l'ensemble   
+des containers de la plateforme de CI/CD
 ```
 docker-compose up -d 
 ```
 
 
-# Sauvegarder votre plateforme
-Dans votre repo jenkis-cicd sous le prompt venv.  
-Faire   
-```jsunicoderegexp
-docker-compose down 
-sudo rm /opt/jks.tgz
-sudo tar -cvzf /opt/jks.tgz /opt/jks
-```
 
 
 
