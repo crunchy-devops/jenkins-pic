@@ -8,6 +8,11 @@
         name: '*'
         state: latest
         exclude: kernel*
+    - name: Add package epel-release
+      yum:
+        name:
+          - epel-release
+        state: present
     - name: Install packages needed for docker and its ecosystem
       yum:
         name:
@@ -16,6 +21,9 @@
           - lvm2
           - python3
           - python3-pip
+          - htop
+          - iotop
+          - iftop
         state: present
     - name: Set up a stable docker repository
       command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo

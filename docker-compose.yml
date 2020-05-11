@@ -87,7 +87,7 @@ services:
       gitlab_rails['gitlab_shell_ssh_port'] = 2222
   ports:
     - "443:443"
-    - "8181:80"
+    - "80:80"
     - "2222:22"
   volumes:
     - /opt/gitlab/config:/etc/gitlab
