@@ -2,6 +2,10 @@ version: '3.3'
 
 volumes:
   jmeter_dir:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+  sonarqube_temp:
 
 networks:
   prodnetwork:
@@ -55,10 +59,10 @@ services:
    - SONARQUBE_JDBC_USERNAME=sonar
    - SONARQUBE_JDBC_PASSWORD=sonar
   volumes:
-    - /opt/sonar/data:/opt/sonarqube/data
-    - /opt/sonar/extensions:/opt/sonarqube/extensions
-    - /opt/sonar/logs:/opt/sonarqube/logs
-    #- /opt/sonar/temp:/opt/sonarqube/temp
+    - sonarqube_data:/opt/sonarqube/data
+    - sonarqube_extensions:/opt/sonarqube/extensions
+    - sonarqube_logs:/opt/sonarqube/logs
+    - sonarqube_temp:/opt/sonarqube/temp
 
  sonardb:
   hostname: sonardb
