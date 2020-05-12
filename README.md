@@ -91,8 +91,23 @@ des containers de la plateforme de CI/CD
 docker-compose up -d 
 ```
 
+## Screenshots
+Here is an overview of all tools:
+
+- GitLab is used for storing the Source Code
+- Jenkins contains build job and is triggered once projects in GitLab are updated
+- As part of the CI build, Jenkins triggers a static code analysis and the results are stored in SonarQube
+- The Maven build uses Nexus as a Proxy Repository for all 3rd party libs. The build artifacts are deployed to the Nexus Release Repository
+- The Selenium Grid contains Docker containers running Chrome and Firefox and is used for UI tests
 
 
-
-
-
+## Access Tools
+### With docker containers
+| *Tool* | *Link* | *Credentials* |
+| ------------- | ------------- | ------------- |
+| Jenkins | http://${docker-machine ip default}:18080/ | admin/12345678 |
+| SonarQube | http://${docker-machine ip default}:19000/ | admin/admin |
+| Nexus | http://${docker-machine ip default}:18081/nexus | admin/admin123 |
+| GitLab | http://${docker-machine ip default}/ | stagiaire/priem-vex |
+| Selenium Grid | http://${docker-machine ip default}:4444/grid/console | no login required |
+| Conference App | http://${docker-machine ip default}:48080/currentSessions | no login required |
