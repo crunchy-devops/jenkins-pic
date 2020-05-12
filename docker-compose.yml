@@ -58,7 +58,7 @@ services:
     - /opt/sonar/data:/opt/sonarqube/data
     - /opt/sonar/extensions:/opt/sonarqube/extensions
     - /opt/sonar/logs:/opt/sonarqube/logs
-    - /opt/sonar/temp:/opt/sonarqube/temp
+    #- /opt/sonar/temp:/opt/sonarqube/temp
 
  sonardb:
   hostname: sonardb
