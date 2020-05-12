@@ -42,6 +42,7 @@ VOLUME "$SONARQUBE_HOME/data"
 
 WORKDIR $SONARQUBE_HOME
 COPY --chown=sonarqube:sonarqube run.sh ${SONARQUBE_HOME}/bin/
+RUN  chmod x+ ${SONARQUBE_HOME}/bin/run.sh
 #COPY run.sh $SONARQUBE_HOME/bin/
 
 USER sonarqube
