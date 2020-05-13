@@ -45,8 +45,7 @@ services:
 
  sonar:
   hostname: sonar
-  #image: systemdevformations/sonar-cicd:v1
-  build: ./sonar
+  image: systemdevformations/sonar-cicd:v1
   ports:
    - "19000:9000"
    - "5432:5432"
