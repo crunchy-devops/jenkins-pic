@@ -14,11 +14,11 @@ Cette plateforme est disponible seulement sous Linux.
 
 ```
 sudo yum -y update 
-sudo yum -y install git
-git clone https://github.com/system-dev-formation/jenkins-pic.git
-cd jenkins-pic 
-sudo yum install -y git wget 
-sudo yum install epel-release 
+sudo yum -y install git web
+sudo yum -y install epel-release 
+suod yum -y install htop iotop iftop  
+git clone https://github.com/crunchy-devops/jenkins-pic.git
+cd jenkins-pic  
 ```
 
 ### Installation de la derniere version de Docker sous Centos 
@@ -60,16 +60,20 @@ sudo yum -y install python3
 ### Set up a python virtualenv, and install ansible
 ```shell script
   # in the jenkins-pic directory 
+  sudo yum install -y python3
   python3 -m venv venv
   source venv/bin/activate 
   pip3 install wheel  
   pip3 install ansible
+  ansible --version
 ```
+Please log out and log in again of your shell screen for 
+the changes take effect. 
+
 ### Lancement de la commande ansible-playbook qui va installer Docker
 ```
   ansible-playbook -i inventory  playbook.yml
 ```
-
 ### Installer docker-compose 
 ```shell script
   pip3 install docker-compose
@@ -82,18 +86,27 @@ in the directory /opt so a sudo
 sudo -s 
 cd /opt
 git clone  https://github.com/crunchy-devops/jenkins-home.git
+exit 
+cd jenkins-pic
 ```
-
 ## Launch all containers
 Tapez la commande suivante pour installer et demarrer l'ensemble   
 des containers de la plateforme de CI/CD
 ```
 docker-compose up -d 
 ```
+## Go to jenkins
+Open your Chrome Browser    
+type the URL  http://<your_ip_address>:18080   
+username: admin   
+password: 12345678  
+
+
+
+
 
 ## Screenshots
 Here is an overview of all tools:
-
 - GitLab is used for storing the Source Code
 - Jenkins contains build job and is triggered once projects in GitLab are updated
 - As part of the CI build, Jenkins triggers a static code analysis and the results are stored in SonarQube
@@ -110,4 +123,4 @@ Here is an overview of all tools:
 | Nexus | http://${docker-machine ip default}:18081/nexus | admin/admin123 |
 | GitLab | http://${docker-machine ip default}/ | stagiaire/priem-vex |
 | Selenium Grid | http://${docker-machine ip default}:4444/grid/console | no login required |
-| Conference App | http://${docker-machine ip default}:48080/currentSessions | no login required |
+| Petclinic | http://${docker-machine ip default}:8090/petclinic | no login required |

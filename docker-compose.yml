@@ -2,10 +2,6 @@ version: '3.3'
 
 volumes:
   jmeter_dir:
-  sonarqube_data:
-  sonarqube_extensions:
-  sonarqube_logs:
-  sonarqube_temp:
 
 networks:
   prodnetwork:
