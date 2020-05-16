@@ -13,10 +13,10 @@ Cette plateforme est disponible seulement sous Linux.
 ## Pre-requis pour Centos 7
 
 ```
-sudo yum -y update 
-sudo yum -y install git web
-sudo yum -y install epel-release 
-suod yum -y install htop iotop iftop  
+sudo yum -y update   # update all packages 
+sudo yum -y install git wget   # install git and wget 
+sudo yum -y install epel-release  # added extra packages
+sudo yum -y install htop iotop iftop  # added monitoring tools
 git clone https://github.com/crunchy-devops/jenkins-pic.git
 cd jenkins-pic  
 ```
@@ -60,22 +60,28 @@ sudo yum -y install python3
 ### Set up a python virtualenv, and install ansible
 ```shell script
   # in the jenkins-pic directory 
-  sudo yum install -y python3
-  python3 -m venv venv
-  source venv/bin/activate 
-  pip3 install wheel  
-  pip3 install ansible
-  ansible --version
+  python3 -m venv venv  # install virutalenv module dans la directroy venv
+  source venv/bin/activate # activate the python virtualenv
+  pip3 install wheel  # install pip package wheel for permission usage
+  pip3 install ansible # install ansible
+  ansible --version  # check
 ```
-Please log out and log in again of your shell screen for 
-the changes take effect. 
 
 ### Lancement de la commande ansible-playbook qui va installer Docker
 ```
   ansible-playbook -i inventory  playbook.yml
 ```
+
+Please log out and log in again of your shell screen for 
+the changes take effect. 
+```shell script
+   docker ps    # check if docker is up and running 
+```
+
 ### Installer docker-compose 
 ```shell script
+  cd jenkins-pic
+  source venv/bin/activate
   pip3 install docker-compose
 ```
 
@@ -83,11 +89,12 @@ the changes take effect.
 For getting all Jenkins jobs, pipelines and plugins you have to install a repository   
 in the directory /opt so a sudo 
 ```shell script
-sudo -s 
-cd /opt
+sudo -s    # switch to root 
+cd /opt    # opt directory
 git clone  https://github.com/crunchy-devops/jenkins-home.git
-exit 
-cd jenkins-pic
+exit       # back to normal user 
+cd         # set to home directory
+cd jenkins-pic  # back to the jenkins project 
 ```
 ## Launch all containers
 Tapez la commande suivante pour installer et demarrer l'ensemble   

@@ -18,8 +18,9 @@ Hit New Item, enter a name hello-world-sonar
 Tick in build environment 'Prepare SonarQube Scanner ...'  
 Goals are : clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL
 
-## check in Sonar
-Type ```http://<your_ip_address:19000``` in your browser  
+## How to check code quality in Sonar
+Type ```http://<your_ip_address:19000>`` in your browser  
 Login using user: admin  password : admin  
 See the result in the project  
  
+## Deploy your code to Nexus
