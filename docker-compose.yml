@@ -41,7 +41,8 @@ services:
 
  sonar:
   hostname: sonar
-  image: systemdevformations/sonar-cicd:v1
+  #image: systemdevformations/sonar-cicd:v1
+  image: sonarqube
   ports:
    - "19000:9000"
    - "5432:5432"
@@ -53,7 +54,6 @@ services:
    - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
    - SONARQUBE_JDBC_USERNAME=sonar
    - SONARQUBE_JDBC_PASSWORD=sonar
-
 
  sonardb:
   hostname: sonardb

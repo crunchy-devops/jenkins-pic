@@ -10,13 +10,13 @@ and install Jenkins Control Plugin
 You got a right-hand side tab named Jenkins   
 Click on the wrench to get the configuration dialog window
 ![Jenkins_config](screenshots/jenkins_config_plugin.png)
-### How to get the Crumb data 
+### How to get the Crumb data  
 Use your browser and hit  
 ```http://<your_ip_address:18080/crumbIssuer/api/json?tree=crumb```  
-Copy and paste the crumb token value  
+Copy and paste the crumb token value.    
 
 ## Remove CSRF failed check 
-Go to Manage Jenkins -> Script console and run the following groovy script
+Go to Manage Jenkins -> Script console and run the following groovy script.
 ```gwt javascript
 import jenkins.model.Jenkins
 def instance = Jenkins.instance
