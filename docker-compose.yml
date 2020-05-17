@@ -42,7 +42,7 @@ services:
  sonar:
   hostname: sonar
   #image: systemdevformations/sonar-cicd:v1
-  image: sonarqube
+  image: sonarqube:developer
   ports:
    - "19000:9000"
    - "5432:5432"
