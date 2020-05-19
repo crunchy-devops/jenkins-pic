@@ -84,8 +84,11 @@ the changes take effect.
   source venv/bin/activate
   pip3 install docker-compose
 ```
+### Using the lts jenkins version, the jenkins home is a docker volume 
+See in the docker-compose file jenkins volume and services  
 
-### Install jenkins_home 
+### if jenkins-home is pre-registred 
+#### Install jenkins-home   
 For getting all Jenkins jobs, pipelines and plugins you have to install a repository   
 in the directory /opt so a sudo 
 ```shell script
@@ -100,6 +103,7 @@ cd jenkins-pic  # back to the jenkins project
 Tapez la commande suivante pour installer et demarrer l'ensemble   
 des containers de la plateforme de CI/CD
 ```
+docker-compose build
 docker-compose up -d 
 ```
 ## Go to jenkins
@@ -108,6 +112,10 @@ type the URL  http://<your_ip_address>:18080
 username: admin   
 password: 12345678  
 
+
+## Get the secret key 
+``` docker logs jenkins-pic_jenkins_1 ```
+scroll the log file for getting the value
 
 
 
