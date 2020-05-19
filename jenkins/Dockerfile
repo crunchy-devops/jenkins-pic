@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
 
-RUN sudo ln -s /jmeter/bin/jmeter /usr/bin/jmeter
+USER root
+RUN  ln -s /jmeter/bin/jmeter /usr/bin/jmeter
 
