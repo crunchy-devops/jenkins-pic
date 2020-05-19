@@ -1,4 +1,4 @@
-FROM systemdevformations/jenkins-sonar:v1
+FROM jenkins/jenkins:lts
 
 RUN ln -s /jmeter/bin/jmeter /usr/bin/jmeter
 

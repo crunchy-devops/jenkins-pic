@@ -2,6 +2,7 @@ version: '3.3'
 
 volumes:
   jmeter_dir:
+  jenkins-home:
 
 networks:
   prodnetwork:
@@ -18,7 +19,8 @@ services:
 
  jenkins:
   hostname: jenkins
-  image: systemdevformations/jenkins-sonar:v3
+  #image: systemdevformations/jenkins-sonar:v3
+  build: ./jenkins
   ports:
     - "18080:8080"
     - "50000:50000"
@@ -27,7 +29,7 @@ services:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /usr/bin/docker:/usr/bin/docker
-    - /opt/jenkins-home/:/var/jenkins_home
+    - jenkins-home:/var/jenkins_home
     - jmeter_dir:/jmeter
   depends_on:
     - nexus
