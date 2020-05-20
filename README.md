@@ -116,7 +116,7 @@ password: 12345678
 ## Get the secret key 
 ``` docker logs jenkins-pic_jenkins_1 ```
 scroll the log file for getting the value
-
+Don't install any plugins now, we have a fresh install 
 
 
 
