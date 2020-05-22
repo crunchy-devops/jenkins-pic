@@ -133,9 +133,9 @@ Here is an overview of all tools:
 ### With docker containers
 | *Tool* | *Link* | *Credentials* |
 | ------------- | ------------- | ------------- |
-| Jenkins | http://${docker-machine ip default}:18080/ | admin/12345678 |
+| Jenkins | http://${docker-machine ip default}:18080/ | to be defined |
 | SonarQube | http://${docker-machine ip default}:19000/ | admin/admin |
 | Nexus | http://${docker-machine ip default}:18081/nexus | admin/admin123 |
-| GitLab | http://${docker-machine ip default}/ | stagiaire/priem-vex |
+| GitLab | http://${docker-machine ip default}:8080/ | defined using the console |
 | Selenium Grid | http://${docker-machine ip default}:4444/grid/console | no login required |
 | Petclinic | http://${docker-machine ip default}:8090/petclinic | no login required |
