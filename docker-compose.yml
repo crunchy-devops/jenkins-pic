@@ -11,7 +11,8 @@ networks:
 services:
  nexus:
   hostname: nexus
-  build: ./nexus
+  image: sonatype/nexus3
+  #build: ./nexus
   ports:
     - "18081:8081"
   networks:
