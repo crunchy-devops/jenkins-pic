@@ -9,10 +9,12 @@ Go to File -> Settings  -> Plugins
 and install Jenkins Control Plugin 
 You got a right-hand side tab named Jenkins   
 Click on the wrench to get the configuration dialog window
+Fill Server Address, username, passwords, crumb data , jenkins version ver 2.x
+Tick use green color....
 ![Jenkins_config](screenshots/jenkins_config_plugin.png)
 ### How to get the Crumb data  
 Use your browser and hit  
-```http://<your_ip_address>18080/crumbIssuer/api/json?tree=crumb```  
+```http://<your_ip_address>:18080/crumbIssuer/api/json?tree=crumb```  
 Copy and paste the crumb token value.    
 
 ## Remove CSRF failed check 

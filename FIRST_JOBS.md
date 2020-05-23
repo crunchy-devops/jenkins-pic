@@ -1,15 +1,21 @@
-# Change admin password 
+# First Jobs
+## Change admin password 
 click on admin in a left upper right hand side of a screen  
 Hit configure  
 and change the password by pressing    
 
-# First jobs
+## First jobs
 We are going to set up our first jobs    
 
-## Hello world 
+## echo "Test" 
 Go to jenkins, select New Items  
-Type a name, hit freestyle and OK    
-select build Execute a shell  
+Type a name my_first_job, hit freestyle and OK    
+select build Execute a shell 
+type echo "test" 
+and press  apply and save 
+Press Build Now
+See the result by pressing the build #1
+and got to console output 
 
 ## install github plugin and maven plugin   
 manage jenkins -> plugin manager       
