@@ -70,7 +70,7 @@ Type ```http://<your_ip_address:19000>``` in your browser
 Login using user: admin  password : admin  
 See the result in the project  
  
-## Deploy your war file to the repositiory Nexus
+## Deploy your war file to the repository Nexus
 Go to your first maven build select configure   
 and press post build actions  
 select archive the artifacts, in the textedit files to archive type ```**/*.war```      
@@ -87,8 +87,23 @@ Server ID :  Nexus
 Server URL: http://nexus:8081  
 Create a credentials user/password  admin/admin123 ID: nexuslogin   
 Check with a Test Connection  
+and then Apply and save
 Create a job, freestyle as hello_world_nexus    
-Go to Build, select copy artifacts from another project 
+Go to Build, select copy artifacts from another project   
+add an another build, Nexus Repository Manage Publisher  
+Nexus instances:  Nexus  
+Nexus Repo: Release   
+add Package maven   
+Group and artifact are coming from your project pom.xml  
+Version: 1.00  
+Packaging: war  
+Add artifact Path:  
+File Path:  webapp/target/webapp.war  
+Apply and Save  
+Build Now  
+And check in Nexus http://<your_ip>:18081/  
+Login admin and admin123  
+Select in the left  Repositories, click on release and browser down to find your war file
 
 
 
