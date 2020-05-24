@@ -109,18 +109,16 @@ docker-compose up -d
 ## Go to jenkins
 Open your Chrome Browser    
 type the URL  http://<your_ip_address>:18080   
-username: admin   
-password: 12345678  
-
 
 ## Get the secret key 
-``` docker logs jenkins-pic_jenkins_1 ```
-scroll the log file for getting the value
-Don't install any plugins now, we have a fresh install 
+type ``` docker logs jenkins-pic_jenkins_1 ```  
+scroll the log fil, and get the secret value  
+Don't install any plugins now, we need a fresh install 
 
+## Create an admin user 
+Provides all information and the new password
 
-
-## Screenshots
+## Overview
 Here is an overview of all tools:
 - GitLab is used for storing the Source Code
 - Jenkins contains build job and is triggered once projects in GitLab are updated
@@ -128,14 +126,13 @@ Here is an overview of all tools:
 - The Maven build uses Nexus as a Proxy Repository for all 3rd party libs. The build artifacts are deployed to the Nexus Release Repository
 - The Selenium Grid contains Docker containers running Chrome and Firefox and is used for UI tests
 
-
 ## Access Tools
 ### With docker containers
 | *Tool* | *Link* | *Credentials* |
 | ------------- | ------------- | ------------- |
 | Jenkins | http://${docker-machine ip default}:18080/ | to be defined |
 | SonarQube | http://${docker-machine ip default}:19000/ | admin/admin |
-| Nexus | http://${docker-machine ip default}:18081/nexus | admin/admin123 |
+| Nexus | http://${docker-machine ip default}:18081/nexus | admin/xxxx |
 | GitLab | http://${docker-machine ip default}:8080/ | defined using the console |
 | Selenium Grid | http://${docker-machine ip default}:4444/grid/console | no login required |
 | Petclinic | http://${docker-machine ip default}:8090/petclinic | no login required |
