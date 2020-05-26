@@ -40,6 +40,7 @@ Copy and paste these excluded files
 
 
 ## Create a Jenkins Job
+### Define 
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
 Check and install without restart   
 
@@ -51,9 +52,18 @@ Execute shell copy /paste
 ```shell script 
 jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t jmeter_test_plan.jmx  -l testresult.jlt
 ```
-Post-build Actions   
+### Post-build Actions   
 Select Console ouptut (build log) parsing  
 Tick Mark build Failed on Error  
 Tick Use project rule  
-Path to rule file in workspace :  parserules  
+Path to rule file in workspace :  parserules    
+
+### Performance Plugin 
+Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Performance Plugin   
+Check and install without restart   
+
+Select Publish Performance test result report  
+Source data files :  testresult.jlt  
+![Jenkins_perf](screenshots/performance_trend.png)  
+
 
