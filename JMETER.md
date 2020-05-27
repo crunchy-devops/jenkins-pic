@@ -37,8 +37,6 @@ Copy and paste these excluded files
    .*\.(txt|bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2|ttf).*
 ```
 
-
-
 ## Create a Jenkins Job
 ### Define 
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 

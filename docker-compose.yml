@@ -101,6 +101,8 @@ services:
   image: selenium/hub
   ports:
     - "4444:4444"
+  volumes:
+    - /opt/selenium:/opt/selenium
   networks:
     - prodnetwork
  firefox:
