@@ -102,7 +102,7 @@ services:
   ports:
     - "4444:4444"
   volumes:
-    - /opt/selenium:/opt/selenium
+    - /opt/selenium:/tmp
   networks:
     - prodnetwork
  firefox:
