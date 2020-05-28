@@ -105,8 +105,8 @@ services:
     - /opt/selenium:/tmp
   networks:
     - prodnetwork
-  environment:
-    - JAVA_OPTS="-Dwebdriver.chrome.whitelistedIps="
+  #environment:
+  #  - JAVA_OPTS="-Dwebdriver.chrome.whitelistedIps="
  firefox:
   image: selenium/node-firefox
   depends_on:
@@ -121,7 +121,6 @@ services:
   depends_on:
     - seleniumhub
   environment:
-    #- JAVA_OPTS="-Dwebdriver.chrome.whitelistedIps="
     - HUB_PORT_4444_TCP_ADDR=seleniumhub
     - HUB_PORT_4444_TCP_PORT=4444
   networks:
