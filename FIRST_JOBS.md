@@ -2,7 +2,7 @@
 ## Change admin password 
 click on admin in a left upper right hand side of a screen  
 Hit configure  
-and change the password by pressing    
+and change the password by pressing  apply and save  
 
 ## First jobs
 We are going to set up our first jobs    
@@ -11,7 +11,7 @@ We are going to set up our first jobs
 Go to jenkins, select New Items  
 Type a name my_first_job, hit freestyle and OK      
 select build Execute a shell   
-type echo "test" 
+type ```echo "test"```  
 and press  apply and save   
 Press Build Now  
 See the result by pressing the build #1  
@@ -19,8 +19,8 @@ and got to console output
 
 ## install github plugin and maven plugin   
 manage jenkins -> plugin manager -> tab available     
-filter github and select github integration  
-filter maven and select maven integration     
+filter github type enter and select github integration  
+filter maven type entrer and select maven integration     
 and hit install without restart  
 
 go to manage jenkins -> global tool configuration 
@@ -30,9 +30,10 @@ install automatically from Apache select version 3.6.3
 Hit apply and save
 
 ## Hello world using Maven 
-New Item -> maven project and ok 
-select git as a source 
-https://github.com/crunchy-devops/hello-world.git  
+New Item -> Name Hello-world-maven, select  maven project and ok 
+select git as a source   
+fork and clone that https://github.com/crunchy-devops/hello-world.git
+Copy and paste your own repo hello-world  
 Build uses a pom.xml file   
 Goals are: clean install package 
 Hit apply and save 
@@ -44,26 +45,33 @@ filter sonar and select Sonarqube Scanner
 and install without restart  
 Go to manage jenkins ->configuration system   
 Sonarqube server   
-Tick enable injection  
+Tick enable injection  ....
+Clic on the button add sonarQube
 Name SonarQube  
-ServerURL:  http://sonar:9000  
-Create a credential jenkins   
-in the credential screen select kind as secret text 
+ServerURL: http://sonar:9000    
+Type this URL without whitespaces  
+click on  add , select jenkins   
+you are going to create a new credential for sonar     
+in the credential screen select kind as a secret text   
 Open an other browser tab, go to  
-Type ```http://<your_ip_address:19000>`` in your browser    
+Type ```http://<your_ip_address:19000>``` in your browser    
+click on login in left-up side of the screen    
 Login using user: admin  password : admin  
-Go to administration, security , user, token  
-Type a name and generate    
-Copy the token in the credential as a secret text   
-Set an ID text as SonarToken for this credential  
-and a description  SonarToken   
-Hit Add
- 
-Hit New Item,  enter a name hello-world-sonar
+Go to administration, security , user, click on the icon token  
+Type a name jks and  press generate     
+Back to the Jenkins screen, copy the token in the credential as a secret text in jenkins     
+Set an ID text as SonarToken for this credential    
+and a description SonarToken     
+Hit Add  
+In the server authentication token select SonarToken 
+Press apply and save 
+
+Hit New Item,  enter a name hello-world-sonar  
 copy from  My_first_maven_build  
 hit ok  
 Tick in build environment 'Prepare SonarQube Scanner ...'    
-Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```  
+Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```    
+Press apply and save 
 
 ## How to check the code quality with Sonar
 Type ```http://<your_ip_address:19000>``` in your browser  

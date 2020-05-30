@@ -87,18 +87,6 @@ the changes take effect.
 ### Using the lts jenkins version, the jenkins home is a docker volume 
 See in the docker-compose file jenkins volume and services  
 
-### if jenkins-home is pre-registred 
-#### Install jenkins-home   
-For getting all Jenkins jobs, pipelines and plugins you have to install a repository   
-in the directory /opt so a sudo 
-```shell script
-sudo -s    # switch to root 
-cd /opt    # opt directory
-git clone  https://github.com/crunchy-devops/jenkins-home.git
-exit       # back to normal user 
-cd         # set to home directory
-cd jenkins-pic  # back to the jenkins project 
-```
 ## Launch all containers
 Tapez la commande suivante pour installer et demarrer l'ensemble   
 des containers de la plateforme de CI/CD
