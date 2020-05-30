@@ -81,13 +81,15 @@ See the result in the project
 ## Deploy your war file to the repository Nexus
 Open a browser tab :  
 http://<your-ip_address:18081/  
+get nexus token access     
+```docker exec -i jenkins-pic_nexus_1 cat /nexus-data/admin.password```  
+Set your password for nexus  
+Tick enable anonymous access  
 
-get nexus password   
-```docker exec -i jenkins-pic_nexus_1 cat /nexus-data/admin.password```
-
-Go to your first maven build select configure   
+Go to your first hello-world maven build select configure   
 and press post build actions  
-select archive the artifacts, in the textedit files to archive type ```**/*.war```      
+select archive the artifacts, in the text-edit files to archive type ```**/*.war```
+Press apply and save      
 Build now this job again    
 Go to manage jenkins -> Plugin Manager -> Tab available  
 Filter copy artifact, check and 
@@ -95,15 +97,16 @@ Filter Nexus, select Nexus Platform,  check
 install without restart  
 Go to manage jenkins ->configuration system     
 find Sonatype Nexus  
-Select 2.x Server   
+Select 3.x Server   
 Display Name :  Nexus  
 Server ID :  Nexus  
 Server URL: http://nexus:8081  
 Create a credentials user/password  admin/xxxxx ID: nexuslogin   
 Check with a Test Connection  
-and then Apply and save
+and then click Apply and save
 Create a job, freestyle as hello_world_nexus    
-Go to Build, select copy artifacts from another project   
+Go to Build, select copy artifacts from another project  
+Set artifacts to copy to **/*.war
 add an another build, Nexus Repository Manage Publisher  
 Nexus instances:  Nexus  
 Nexus Repo: Release   
@@ -119,9 +122,6 @@ And check in Nexus http://<your_ip>:18081/
 Login admin and xxxxx 
 Select in the left  Repositories, click on release and browser down to find your war file
 
-## Get Nexus artifacts
-curl -u admin:xxxx -X GET 'http://<ip_address>:18081/service/rest/v1/search/assets?repository=maven-releases&group=com.example.maven-project&maven.extension=war'
-wget --user=admin --password=tcwowa12
 
 
 
