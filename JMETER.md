@@ -1,7 +1,7 @@
 # JMeter tests
 Install JMeter on your localhost  
 
-## Create a test plan for Hello-world web site
+## Create a test plan for Hello-world website
 Install Jmeter on your localhost, start JMeter and create the following test plan.  
 
 ![Jmeter TestPlan](screenshots/test_plan.png)  
@@ -45,8 +45,21 @@ Remove all code in Build  Execute build and copy/paste
 ```shell script 
 jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t jmeter_test_plan.jmx  -l testresult.jlt
 ```
---------------------------------------------------------------
-## Recording a test plan for Petclinic website
+
+### Add a Post-build actions 
+### Add a plugin
+Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
+Check and install without restart   
+
+### Parserules   
+Select Console ouptut (build log) parsing  
+Tick Mark build Failed on Error  
+Tick Use project rule  
+Path to rule file in workspace :  parserules    
+
+
+##FOR PETCLINIC PROJECT
+### Recording a test plan for Petclinic website
 Install Firefox and download an add-on named FoxyProxy  
 In foxyproxy added a proxy  
 Enter a title Jmeter  
