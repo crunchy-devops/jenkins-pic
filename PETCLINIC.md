@@ -75,4 +75,5 @@ docker build -t petclinic:latest .
 ``` 
 
   ## Step 6 -- Set up JMeter test 
-    
+  go to JMETER.md file see the PART PETCLINIC PROJECT
+  
