@@ -27,9 +27,12 @@ Press run, and click on the right of the screen ->  enable auto refresh
 **Attention: Sonar**   
 If you have done a docker-compose down you have to set up again the sonar token in sonar and copy this 
 token in Jenkins   
-**Attention: Nexus**
-Log on to Nexus go to administration select repositories 
-Find Hosted  and change the deployment policy to allow redeploy 
+**Attention: Nexus**  
+Log on to Nexus  
+go to administration  
+select repositories 
+Find Hosted  
+and change the deployment policy to allow redeploy 
 click save 
 
 ## Set a github webhook 
