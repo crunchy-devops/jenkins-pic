@@ -131,11 +131,14 @@ Tick Use project rule
 Path to rule file in workspace :  parserules    
 
 ### Performance Plugin 
-Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Performance Plugin   
+Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Performance  
 Check and install without restart   
+Go to configure petclinic-jmeter  
+Go to post-build Action  
+Select Publish Performance test result report    
+Source data files :  testresult.jlt   
+Press apply and save
 
-Select Publish Performance test result report  
-Source data files :  testresult.jlt  
 ![Jenkins_perf](screenshots/performance_trend.png)  
 
 

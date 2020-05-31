@@ -75,5 +75,17 @@ docker build -t petclinic:latest .
 ``` 
 
   ## Step 6 -- Set up JMeter test 
-  go to JMETER.md file see the PART PETCLINIC PROJECT
+  go to JMETER.md file,  see the PART PETCLINIC PROJECT  
+  Click on new item enter a name petclinic-jmeter   
+  Go down and copy from :  hello_world_jmeter   
+  click ok  
+  Replace the git repo with your repo spring-framework-petclinic  
+   ```
+     https://github.com/<your_repo>/spring-framework-petclinic.git 
+   ``` 
+   In Execute shell replace  
+   ```shell script
+   jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
+   ```
+  Add performance plugin 
   
