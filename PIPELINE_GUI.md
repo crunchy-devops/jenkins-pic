@@ -33,6 +33,33 @@ Find Hosted  and change the deployment policy to allow redeploy
 click save 
 
 ## Set a github webhook 
+Hit a tab in your browser and go to your personnal github account.   
+Select the hello-world repo   
+Type on settings, it's located on the middle menu on the right side    
+On the left menu select Webhooks   
+click on add webhook  
+Confirm with your password  
+In the page, enter in Payload URL:
+````shell script
+  htpp://<jenkins_ip_address>:18080/github-webhook/
+````
+Select for content type :  application/json   
+Press the green button Add webhook  
+Refresh the screen so you can check if the url is ticked.  
+
+## Configure the webhook in Jenkins  
+Go to jenkins and configure hello-world-maven    
+in Build Triggers , Check Github hook trigger for GITScm polling 
+Press apply and save  
+
+## Restart the Jenkins Pipeline automatically 
+Go to the Jenkins pipeline graph, the refresh should be enabled  
+On the other screen in Intellij IDEA   
+change the file  
+```hello-world/webapp/src/main/webapp/index.jsp```  
+Replace AFIP by TEAM or vice-versa  
+Commit and Push  
+Check the pipeline graph, the build starts automatically
 
 
 
