@@ -89,3 +89,23 @@ docker build -t petclinic:latest .
    ```
   Add performance plugin 
   
+   ## Step 7 -- Define petclinic pipeline 
+  Go to  petclinic job     
+  Configure        
+  Post build actions Select build other projects   
+ type petclinic-sonar   
+ Do the same with  
+ petclinic-sonar   
+ petclinic-nexus  
+ petclinic-docker-build  
+ petclinic-docker-test  
+ petcliner-jmeter  
+ Clich on the tab + in the dashboard screen   
+ Enter view name petclinic pipeline 
+ tick build pipeline view  
+ press ok   
+ Enter petclinic in select initial job   
+ press apply and save   
+ Check the pipeline graph   
+ Hit run  
+  

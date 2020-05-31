@@ -32,7 +32,7 @@ Log on to Nexus
 go to administration  
 select repositories 
 Find Hosted  
-and change the deployment policy to allow redeploy 
+and change the deployment policy to allow redeploy  
 click save 
 
 ## Set a github webhook 
