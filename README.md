@@ -17,7 +17,10 @@ sudo yum -y update   # update all packages
 sudo yum -y install git wget   # install git and wget 
 sudo yum -y install epel-release  # added extra packages
 sudo yum -y install htop iotop iftop  # added monitoring tools
-git clone https://github.com/crunchy-devops/jenkins-pic.git
+Fork  
+     https://github.com/crunchy-devops/jenkins-pic.git
+and git clone your personnal repository of jenkins-pic
+git clone https://github.com/<your-repo>/jenkins-pic.git
 cd jenkins-pic  
 ```
 
