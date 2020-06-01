@@ -86,8 +86,9 @@ the changes take effect.
   cd jenkins-pic
   source venv/bin/activate
   pip3 install docker-compose
+  docker-compose --version 
 ```
-### Using the lts jenkins version, the jenkins home is a docker volume 
+Using the lts jenkins version, the jenkins home is a docker volume   
 See in the docker-compose file jenkins volume and services  
 
 ## Launch all containers
@@ -104,7 +105,7 @@ type the URL  http://<your_ip_address>:18080
 ## Get the secret key 
 type ``` docker logs jenkins-pic_jenkins_1 ```  
 scroll the log fil, and get the secret value  
-Don't install any plugins now, we need a fresh install 
+**DO NOT install any plugins now, we need a fresh install** 
 
 ## Create an admin user 
 Provides all information and the new password

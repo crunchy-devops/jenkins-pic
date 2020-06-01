@@ -2,7 +2,10 @@
 ## Change admin password 
 click on admin in a left upper right hand side of a screen  
 Hit configure  
-and change the password by pressing  apply and save  
+and change the password  
+go to Defined time zone. Select Europe/Paris
+apply and save  
+You got some error so you need to login in again using your new password 
 
 ## First jobs
 We are going to set up our first jobs    
@@ -19,8 +22,8 @@ and got to console output
 
 ## install github plugin and maven plugin   
 manage jenkins -> plugin manager -> tab available     
-filter github type enter and select github integration  
-filter maven type entrer and select maven integration     
+filter github type enter and tick github integration  
+filter maven type entrer and tick maven integration     
 and hit install without restart  
 
 go to manage jenkins -> global tool configuration 
@@ -30,13 +33,13 @@ install automatically from Apache select version 3.6.3
 Hit apply and save
 
 ## Hello world using Maven 
-New Item -> Name Hello-world-maven, select  maven project and ok 
-select git as a source   
-fork and clone that https://github.com/crunchy-devops/hello-world.git
-Copy and paste your own repo hello-world  
-Build uses a pom.xml file   
-Goals are: clean install package 
-Hit apply and save 
+New Item -> Name Hello-world-maven, select  maven project and ok   
+select git as a source code management   
+in your github tab fork and clone that https://github.com/crunchy-devops/hello-world.git
+Copy and paste your own repo hello-world    
+Build uses a pom.xml file     
+Goals are: clean install package   
+Hit apply and save   
 and press Build now 
 
 ## Hello world under Sonar 
