@@ -9,7 +9,7 @@ type ```echo "test"```
 and press  apply and save   
 Press Build Now  
 See the result by pressing the build #1  
-and got to console output  
+and go to console output  
 
 ## install github plugin and maven plugin   
 manage jenkins -> plugin manager -> tab available     
@@ -28,22 +28,22 @@ New Item -> Name Hello-world-maven, select  maven project and ok
 select git as a source code management   
 in your github tab fork and clone that https://github.com/crunchy-devops/hello-world.git
 Copy and paste your own repo hello-world    
-Build uses a pom.xml file     
+Build uses a: pom.xml file     
 Goals are: clean install package   
 Hit apply and save   
 and press Build now 
 
-## Hello world under Sonar 
+## Hello world Q/A with Sonar 
 manage jenkins -> manage plugins  tab Available     
 filter sonar and select Sonarqube Scanner  
 and install without restart  
-Go to manage jenkins ->configuration system   
+Go to manage Manage jenkins ->Configuration system   
 Sonarqube server   
 Tick enable injection  ....
-Clic on the button add sonarQube
-Name SonarQube  
+Press the button add sonarQube
+Name: SonarQube  
 ServerURL: http://sonar:9000    
-Type this URL without whitespaces  
+Type this URL without leading whitespaces  
 click on  add , select jenkins   
 you are going to create a new credential for sonar     
 in the credential screen select kind as a secret text   
@@ -52,7 +52,7 @@ Type ```http://<your_ip_address:19000>``` in your browser
 click on login in left-up side of the screen    
 Login using user: admin  password : admin  
 Go to administration, security , user, click on the icon token  
-Type a name jks and  press generate     
+Type a name jks and press generate     
 Back to the Jenkins screen, copy the token in the credential as a secret text in jenkins     
 Set an ID text as SonarToken for this credential    
 and a description SonarToken     
@@ -65,9 +65,10 @@ copy from  My_first_maven_build
 hit ok  
 Tick in build environment 'Prepare SonarQube Scanner ...'    
 Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```    
-Press apply and save 
+Press apply and save
+Hit Build Now  
 
-## How to check the code quality with Sonar
+### How to check the code quality with Sonar
 Type ```http://<your_ip_address:19000>``` in your browser  
 Login using user: admin  password : admin  
 See the result in the project  
