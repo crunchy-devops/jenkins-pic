@@ -1,13 +1,4 @@
 # First Jobs
-## Change admin password 
-click on admin in a left upper right hand side of a screen  
-Hit configure  
-and change the password  
-go to Defined time zone. Select Europe/Paris
-apply and save  
-You got some error so you need to login in again using your new password 
-
-## First jobs
 We are going to set up our first jobs    
 
 ## echo "Test" 

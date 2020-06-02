@@ -107,8 +107,17 @@ type ``` docker logs jenkins-pic_jenkins_1 ```
 scroll the log fil, and get the secret value  
 **DO NOT install any plugins now, we need a fresh install** 
 
-## Create an admin user 
-Provides all information and the new password
+## Change admin password 
+click on admin in a left upper right hand side of a screen  
+Hit configure  
+and change the password  
+go to Defined time zone. Select Europe/Paris
+Press apply and save  
+You may get some errors so you need to login in again using your new password. 
+
+
+
+
 
 ## Overview
 Here is an overview of all tools:
