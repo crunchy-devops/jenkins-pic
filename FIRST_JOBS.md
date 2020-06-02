@@ -85,9 +85,14 @@ See the result in the project
 Open a browser tab :  
 http://<your-ip_address:18081/  
 get nexus token access     
-```docker exec -i jenkins-pic_nexus_1 cat /nexus-data/admin.password```  
+```shell script
+docker exec -i jenkins-pic_nexus_1 cat /nexus-data/admin.password
+```  
 Set your password for nexus  
 Tick enable anonymous access  
+Go to the wheel , select repositories , go to Hosted 
+Set Allow redeploy
+Press Save 
 
 Go to your first hello-world maven build select configure   
 and press post build actions  

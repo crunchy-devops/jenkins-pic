@@ -80,22 +80,22 @@ services:
      - /opt/jmeter/results:/results
      - /opt/jmeter/scripts:/scripts
 
- gitlab-ce:
-  hostname: gitlab-ce
-  networks:
-    - prodnetwork
-  image: gitlab/gitlab-ce:latest
-  environment:
-    GITLAB_OMNIBUS_CONFIG: |
-      gitlab_rails['gitlab_shell_ssh_port'] = 2222
-  ports:
-    - "443:443"
-    - "8080:80"
-    - "2222:22"
-  volumes:
-    - /opt/gitlab/config:/etc/gitlab
-    - /opt/gitlab/logs:/var/log/gitlab
-    - /opt/gitlab/data:/var/opt/gitlab
+ #gitlab-ce:
+ # hostname: gitlab-ce
+ # networks:
+ #   - prodnetwork
+ # image: gitlab/gitlab-ce:latest
+ # environment:
+ #   GITLAB_OMNIBUS_CONFIG: |
+ #     gitlab_rails['gitlab_shell_ssh_port'] = 2222
+ # ports:
+ #   - "443:443"
+ #   - "8080:80"
+ #   - "2222:22"
+ # volumes:
+ #   - /opt/gitlab/config:/etc/gitlab
+ #   - /opt/gitlab/logs:/var/log/gitlab
+ #   - /opt/gitlab/data:/var/opt/gitlab
 
  seleniumhub:
   image: selenium/hub

@@ -128,7 +128,9 @@ jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.res
 Select Console ouptut (build log) parsing  
 Tick Mark build Failed on Error  
 Tick Use project rule  
-Path to rule file in workspace :  parserules    
+Path to rule file in workspace :  parserules   
+parserules file contains a regex for checking if there is an error 
+
 
 ### Performance Plugin 
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Performance  
