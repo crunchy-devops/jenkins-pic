@@ -1,5 +1,5 @@
 # Set up Jenkins Pipeline by using the graphic interface
- Go to hell_world_maven   
+ Go to hello_world_maven   
  Go to Post-Build Action   
  Add Post-Build Action   
 select Build other projects and type hello_world_sonar

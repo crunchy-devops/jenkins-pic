@@ -73,7 +73,8 @@ Type ```http://<your_ip_address:19000>``` in your browser
 Login using user: admin  password : admin  
 See the result in the project  
  
-## Deploy your war file to the repository Nexus
+## Deploy your war file to repository Nexus
+### Configure Nexus
 Open a browser tab :  
 http://<your-ip_address:18081/  
 get nexus token access     
@@ -86,6 +87,7 @@ Go to the wheel , select repositories , go to Hosted
 Set Allow redeploy
 Press Save 
 
+## Create your Job
 Go to your first hello-world maven build select configure   
 and press post build actions  
 select archive the artifacts, in the text-edit files to archive type ```**/*.war```
@@ -118,6 +120,8 @@ Add artifact Path:
 File Path:  webapp/target/webapp.war  
 Apply and Save  
 Build Now  
+
+### Find the saved artifact
 And check in Nexus http://<your_ip>:18081/  
 Login admin and xxxxx 
 Select in the left  Repositories, click on release and browser down to find your war file

@@ -7,7 +7,6 @@ Docker qui simule un systeme de **Continuous** **Integration** et de **Delivery*
 
 ![Docker CI Tools](screenshots/schema_total.png)
 
-
 Cette plateforme est disponible seulement sous Linux. 
 
 ## Pre-requis pour Centos 7
@@ -17,8 +16,8 @@ sudo yum -y update   # update all packages
 sudo yum -y install git wget   # install git and wget 
 sudo yum -y install epel-release  # added extra packages
 sudo yum -y install htop iotop iftop  # added monitoring tools
-Fork  
-     https://github.com/crunchy-devops/jenkins-pic.git
+//Fork  
+//     https://github.com/crunchy-devops/jenkins-pic.git
 and git clone your personnal repository of jenkins-pic
 git clone https://github.com/<your-repo>/jenkins-pic.git
 cd jenkins-pic  
@@ -63,7 +62,7 @@ sudo yum -y install python3
 ### Set up a python virtualenv, and install ansible
 ```shell script
   # in the jenkins-pic directory 
-  python3 -m venv venv  # install virutalenv module dans la directroy venv
+  python3 -m venv venv  # install virtualenv module dans la directory venv
   source venv/bin/activate # activate the python virtualenv
   pip3 install wheel  # install pip package wheel for permission usage
   pip3 install ansible # install ansible
@@ -96,15 +95,17 @@ Tapez la commande suivante pour installer et demarrer l'ensemble
 des containers de la plateforme de CI/CD
 ```
 docker-compose build
-docker-compose up -d 
+docker-compose up -d
+docker ps 
 ```
+
 ## Go to jenkins
 Open your Chrome Browser    
 type the URL  http://<your_ip_address>:18080   
 
 ## Get the secret key 
 type ``` docker logs jenkins-pic_jenkins_1 ```  
-scroll the log fil, and get the secret value  
+scroll the log file, and get the secret value  
 **DO NOT install any plugins now, we need a fresh install** 
 
 ## Change admin password 
