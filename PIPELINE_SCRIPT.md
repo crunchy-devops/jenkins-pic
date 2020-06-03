@@ -3,7 +3,7 @@ Go to manage Jenkins -> manage plugins -> tab available ->filter Pipeline
 Tick pipeline and press install without restart  
 Go to New Item  
 Type a name hello-world-pipeline   
-Select pipeline and press ok 
+Select Pipeline and press ok 
 
 
 ## First Jenkins DSL script
@@ -13,7 +13,8 @@ Go to Pipeline
 Definition  Select  Pipeline script from SCM     
 SCM git  
 Enter the hello-world github repo url    
-copy and paste the source from the file build-hello-world-pipeline to Jenkinsfile  
+copy and paste the source from the file build-hello-world-pipeline to Jenkinsfile 
+Script past Jenkinsfile
 Commit and push  
 Check the job and log file
 ![Jenkins_perf](screenshots/pipeline_first_script.png)  

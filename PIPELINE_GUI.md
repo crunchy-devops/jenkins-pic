@@ -19,11 +19,11 @@ Go back to the Dashboard
 View name :  hello-world pipeline  
 Check Build Pipeline view   
 Press ok   
-Verify if select initial job is hello-world-maven  
+Verify if select initial job is set to  hello-world-maven  
 See the graph   
 ![jenkins_pipeline](screenshots/pipeline_view.png)
 
-Press run, and click on the right of the screen ->  enable auto refresh  
+Press run, and click on the right of the screen -> press enable auto refresh  
 **Attention: Sonar**   
 If you have done a docker-compose down you have to set up again the sonar token in sonar and copy this 
 token in Jenkins   

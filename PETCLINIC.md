@@ -35,7 +35,7 @@ Version: 1.0
 File Path: target/petclinic.war  
 Remove for the time being, build other project in Post-build actions     
 Hit Build now and check  
-Check the result in sonar website , so you can see other metrics
+Check the result in nexus website , so you can see the war file saved.
 
 ## Step 4 --  docker Build with the artifact
  Click on new item enter a name petclinic-docker-build      
@@ -56,7 +56,7 @@ docker build -t petclinic:latest .
   
 ## Step 5 --  docker Test 
  Click on new item enter a name petclinic-docker-test      
- Go down and copy from :  hello_world_docker_build
+ Go down and copy from :  hello_world_docker_test
  click ok   
  In Execute shell replace
  ```shell script
@@ -99,7 +99,7 @@ docker build -t petclinic:latest .
  petclinic-nexus  
  petclinic-docker-build  
  petclinic-docker-test  
- petcliner-jmeter  
+ petclinic-jmeter  
  Clich on the tab + in the dashboard screen   
  Enter view name petclinic pipeline 
  tick build pipeline view  

@@ -7,6 +7,7 @@ https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&co
 ## In the IDE 
 Go to File -> Settings  -> Plugins 
 and install Jenkins Control Plugin 
+Restart IntellijIDEA
 You got a right-hand side tab named Jenkins   
 Click on the wrench to get the configuration dialog window
 Fill Server Address, username, passwords, crumb data , jenkins version ver 2.x
