@@ -127,10 +127,11 @@ Here is an overview of all tools:
 ### With docker containers
 | *Tool* | *Link* | *Credentials* |
 | ------------- | ------------- | ------------- |
-| Jenkins | http://<docker-machine ip default>:18080/ | to be defined |
-| SonarQube | http://<docker-machine ip default>:19000/ | admin/admin |
-| Nexus | http://<docker-machine ip default>:18081/nexus | admin/xxxx |
-| GitLab | http://<docker-machine ip default>:8080/ | defined using the console |
-| Selenium Grid | http://<docker-machine ip default>:4444/grid/console | no login required |
-| Hello-world Test | http://<docker-machine ip default>:8090/webapp | no login required |
-| Petclinic-Test | http://<docker-machine ip default>:9090/petclinic | no login required |
+| Jenkins | http://<vm_ip default>:18080/ | to be defined |
+| SonarQube | http://<vm_ip default>:19000/ | admin/admin |
+| Nexus | http://<vm_ip default>:18081/nexus | admin/use a token and set your own password |
+| GitLab | http://<vm_ip default>:8080/ | defined using the console |
+| Selenium Grid | http://<vm_ip default>:4444/grid/console | no login required |
+| Hello-world Test | http://<vm_ip default>:8090/webapp | no login required |
+| Petclinic-Test | http://<vm_ip default>:9090/petclinic | no login required |
+| AWX-ansible| http://<vm_ip default> | admin/password |
