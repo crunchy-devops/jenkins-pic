@@ -22,7 +22,7 @@ and git clone your personnal repository of jenkins-pic
 git clone https://github.com/<your-repo>/jenkins-pic.git
 cd jenkins-pic  
 ```
-
+**Attention A NE PAS FAIRE CHOISIR UNE INSTALLATION PAR ANSIBLE**
 ### Installation de la derniere version de Docker sous Centos 
 L'installation de Docker necessite certains packages.
 ```
@@ -30,7 +30,7 @@ sudo yum install -y yum-utils \
   device-mapper-persistent-data \
   lvm2
 ```
-Ensuite on met en place le repository Docker.
+Ensuite nous devons mettre en place le lien vers le repository Docker.
 ```
 sudo yum-config-manager \
     --add-repo \
@@ -47,10 +47,6 @@ sudo systemctl start docker
 Placer un lien symbolique pour que le daemon Docker demarre automatiquement meme si le host est reboote. 
 ```
 sudo systemctl enable docker
-```
-Installation de Docker compose 
-```
-sudo yum install docker-compose
 ```
 
 ## Ou Installation de Docker avec un script Ansible 
@@ -94,8 +90,8 @@ See in the docker-compose file jenkins volume and services
 Tapez la commande suivante pour installer et demarrer l'ensemble   
 des containers de la plateforme de CI/CD
 ```
-docker-compose build
-docker-compose up -d
+docker-compose build  # build les images
+docker-compose up -d  # demarre tous les containers
 docker ps 
 ```
 

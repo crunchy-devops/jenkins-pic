@@ -75,7 +75,7 @@ Start with your mouse over test plan and right click on it.
  menu  Add -> Thread -> Thread Group  
 Righ click on Test plan -> Add -> Non-test-elements -> HTTPS Test Script Recorder
 ![FoxyProxy](screenshots/Test_recorder.png)  
-In taget controller select Test Plan ->Thread Group 
+In target controller select Test Plan ->Thread Group 
 Grouping : Put each group in a new controller
 Click on tab Request Filtering  
 Click Add in URL Patterns to Exclude   
@@ -116,13 +116,13 @@ Move over Thread group -> right click -> Add -> Listener -> View Results Tree
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
 Check and install without restart   
 
-Go New Item, Name hello-world-jmeter  
+Go New Item, Name petclinic-jmeter copy from hello-world-jmeter   
 Source Management   
-Git  https://github.com/<your_repo>/hello-world.git
+Git  https://github.com/<your_repo>/spring-framework-petclinic.git
 Build  
 Execute shell copy /paste  
 ```shell script 
-jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t jmeter_test_plan.jmx  -l testresult.jlt
+jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
 ```
 ### Post-build Actions   
 Select Console ouptut (build log) parsing  
