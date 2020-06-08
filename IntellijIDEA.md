@@ -1,9 +1,10 @@
 # Configure your IDE 
-Set up your workspace environnement using JetBrains    
-You can use IntellijIdea Community Edition     
+Set up your workspace environnement using JetBrains      
+You should use IntellijIdea Professional Edition    
+( or Goland or Pycharm ) 
 Download the package from   
-https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC
- 
+https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows
+
 ## In the IDE 
 Go to File -> Settings  -> Plugins 
 and install Jenkins Control Plugin 
@@ -13,10 +14,8 @@ Click on the wrench to get the configuration dialog window
 Fill Server Address, username, passwords, crumb data , jenkins version ver 2.x
 Tick use green color....
 ![Jenkins_config](screenshots/jenkins_config_plugin.png)
-### How to get the Crumb data  
-Use your browser and hit  
-```http://<your_ip_address>:18080/crumbIssuer/api/json?tree=crumb```  
-Copy and paste the crumb token value.    
+### API token  
+Copy in crumb data the API token previously saved in your notepad. 
 
 ## Remove CSRF failed check 
 Go to Manage Jenkins -> Script console and run the following groovy script.

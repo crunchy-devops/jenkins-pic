@@ -103,22 +103,25 @@ type ``` docker logs jenkins-pic_jenkins_1 ```
 scroll the log file, and get the secret value  
 **DO NOT install any plugins now, we need a fresh install** 
 
-## Change admin password 
+## Change admin password, get an API token, set timezone
 click on admin in a left upper right hand side of a screen  
 Hit configure  
-select API
-and change the password and confirm  
+select API Token , Add new token , give jetbrains name 
+and Hit generate 
+copy this token in your notepad for later use. 
+change the password and confirm  
 go to Defined time zone. Select Europe/Paris
 Press apply and save  
 You may get some errors so you need to login in again using your new password. 
 
 ## Overview
 Here is an overview of all tools:
-- GitLab is used for storing the Source Code
-- Jenkins contains build job and is triggered once projects in GitLab are updated
-- As part of the CI build, Jenkins triggers a static code analysis and the results are stored in SonarQube
-- The Maven build uses Nexus as a Proxy Repository for all 3rd party libs. The build artifacts are deployed to the Nexus Release Repository
-- The Selenium Grid contains Docker containers running Chrome and Firefox and is used for UI tests
+- GitLab (optional) is used for storing the Source Code.
+- Github is the well-known website for archiving all your projects.
+- Jenkins contains build job and is triggered once projects in GitLab are updated.
+- As part of the CI build, Jenkins triggers a static code analysis and the results are stored in SonarQube.
+- The Maven build uses Nexus as a Proxy Repository for all 3rd party libs. The build artifacts are deployed to the Nexus Release Repository.
+- The Selenium Grid contains Docker containers running Chrome and Firefox and is used for UI tests.
 
 ## Access Tools
 ### With docker containers
@@ -129,4 +132,5 @@ Here is an overview of all tools:
 | Nexus | http://<docker-machine ip default>:18081/nexus | admin/xxxx |
 | GitLab | http://<docker-machine ip default>:8080/ | defined using the console |
 | Selenium Grid | http://<docker-machine ip default>:4444/grid/console | no login required |
-| Petclinic | http://<docker-machine ip default>:8090/petclinic | no login required |
+| Hello-world Test | http://<docker-machine ip default>:8090/webapp | no login required |
+| Petclinic-Test | http://<docker-machine ip default>:9090/petclinic | no login required |
