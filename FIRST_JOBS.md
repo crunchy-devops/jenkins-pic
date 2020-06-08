@@ -37,7 +37,7 @@ and press Build now
 manage jenkins -> manage plugins  tab Available     
 filter sonar and select Sonarqube Scanner  
 and install without restart  
-Go to manage Manage jenkins ->Configuration system   
+Go to manage Manage jenkins -> Configuration system
 Sonarqube server   
 Tick enable injection  ....
 Press the button add sonarQube
@@ -63,16 +63,19 @@ Press apply and save
 Hit New Item,  enter a name hello-world-sonar  
 copy from  My_first_maven_build  
 hit ok  
-Tick in build environment 'Prepare SonarQube Scanner ...'    
-Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```    
+Tick in **build environment 'Prepare SonarQube Scanner ...'**      
+Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```      
 Press apply and save
 Hit Build Now  
 
 ### How to check the code quality with Sonar
 Type ```http://<your_ip_address:19000>``` in your browser  
 Login using user: admin  password : admin  
-See the result in the project  
+See the result by selecting Projects
+  
+ ![Sonar_results](screenshots/sonar_results.png)
  
+
 ## Deploy your war file to repository Nexus
 ### Configure Nexus
 Open a browser tab :  
@@ -82,38 +85,48 @@ get nexus token access
 docker exec -i jenkins-pic_nexus_1 cat /nexus-data/admin.password
 ```  
 Set your password for nexus  
-Tick enable anonymous access  
-Go to the wheel , select repositories , go to Hosted 
-Set Allow redeploy
+Tick enable anonymous access    
+Go to the wheel in the menu , select repositories   
+Select maven-releases   
+go to Hosted   
+Set Allow redeploy  # allow the same version to be redeployed 
 Press Save 
 
 ## Create your Job
-Go to your first hello-world maven build select configure   
-and press post build actions  
+Go to your first hello-world-maven   
+select configure     
+and press post build actions    
 select archive the artifacts, in the text-edit files to archive type ```**/*.war```
 Press apply and save      
-Build now this job again    
+Build now this job again  
+![build_artifacts](screenshots/build_artifacts.png)
+ 
 Go to manage jenkins -> Plugin Manager -> Tab available  
-Filter copy artifact, check and 
-Filter Nexus, select Nexus Platform,  check  
+Filter copy artifact, check and  
+Filter Nexus, select Nexus Platform,  tick the checkbox        
 install without restart  
-Go to manage jenkins ->configuration system     
+Go to manage jenkins ->configuration system  
 find Sonatype Nexus  
 Select 3.x Server   
 Display Name :  Nexus  
 Server ID :  Nexus  
 Server URL: http://nexus:8081  
 Create a credentials user/password  admin/xxxxx ID: nexuslogin   
-Check with a Test Connection  
-and then click Apply and save
-Create a job, freestyle as hello_world_nexus    
-Go to Build, select copy artifacts from another project  
-Set artifacts to copy to **/*.war
-add an another build, Nexus Repository Manage Publisher  
+Press Add    
+select the credentials in Sonatype Nexus configuration    
+Check with a Test Connection    
+and then click Apply and Save  
+Create a job, hello_world_nexus freestyle  
+Go to Build, select copy artifacts from another project    
+Set artifacts to copy to ```**/*.war ```  
+add an another build, Nexus Repository Manage Publisher      
 Nexus instances:  Nexus  
 Nexus Repo: Release   
 add Package maven   
 Group and artifact are coming from your project pom.xml  
+Here is :  
+Group: com.example.maven-project
+Artifact: maven-project
 Version: 1.1  
 Packaging: war  
 Add artifact Path:  

@@ -106,7 +106,7 @@ scroll the log file, and get the secret value
 ## Change admin password, get an API token, set timezone
 click on admin in a left upper right hand side of a screen  
 Hit configure  
-select API Token , Add new token , give jetbrains name 
+select API Token , Add new token , give jetbrains name  
 and Hit generate 
 copy this token in your notepad for later use. 
 change the password and confirm  
