@@ -22,7 +22,7 @@ and git clone your personnal repository of jenkins-pic
 git clone https://github.com/<your-repo>/jenkins-pic.git
 cd jenkins-pic  
 ```
-**Attention A NE PAS FAIRE CHOISIR UNE INSTALLATION PAR ANSIBLE**
+**Attention A NE PAS FAIRE, CHOISIR UNE INSTALLATION PAR ANSIBLE**
 ### Installation de la derniere version de Docker sous Centos 
 L'installation de Docker necessite certains packages.
 ```
@@ -90,14 +90,13 @@ See in the docker-compose file jenkins volume and services
 Tapez la commande suivante pour installer et demarrer l'ensemble   
 des containers de la plateforme de CI/CD
 ```
-docker-compose build  # build les images
 docker-compose up -d  # demarre tous les containers
-docker ps 
+docker ps # Check ,seven jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins
 Open your Chrome Browser    
-type the URL  http://<your_ip_address>:18080   
+type the URL  http://<your_vm_ip_address>:18080   
 
 ## Get the secret key 
 type ``` docker logs jenkins-pic_jenkins_1 ```  
@@ -107,14 +106,11 @@ scroll the log file, and get the secret value
 ## Change admin password 
 click on admin in a left upper right hand side of a screen  
 Hit configure  
-and change the password  
+select API
+and change the password and confirm  
 go to Defined time zone. Select Europe/Paris
 Press apply and save  
 You may get some errors so you need to login in again using your new password. 
-
-
-
-
 
 ## Overview
 Here is an overview of all tools:
@@ -128,9 +124,9 @@ Here is an overview of all tools:
 ### With docker containers
 | *Tool* | *Link* | *Credentials* |
 | ------------- | ------------- | ------------- |
-| Jenkins | http://${docker-machine ip default}:18080/ | to be defined |
-| SonarQube | http://${docker-machine ip default}:19000/ | admin/admin |
-| Nexus | http://${docker-machine ip default}:18081/nexus | admin/xxxx |
-| GitLab | http://${docker-machine ip default}:8080/ | defined using the console |
-| Selenium Grid | http://${docker-machine ip default}:4444/grid/console | no login required |
-| Petclinic | http://${docker-machine ip default}:8090/petclinic | no login required |
+| Jenkins | http://<docker-machine ip default>:18080/ | to be defined |
+| SonarQube | http://<docker-machine ip default>:19000/ | admin/admin |
+| Nexus | http://<docker-machine ip default>:18081/nexus | admin/xxxx |
+| GitLab | http://<docker-machine ip default>:8080/ | defined using the console |
+| Selenium Grid | http://<docker-machine ip default>:4444/grid/console | no login required |
+| Petclinic | http://<docker-machine ip default>:8090/petclinic | no login required |
