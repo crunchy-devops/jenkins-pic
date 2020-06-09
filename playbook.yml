@@ -1,6 +1,6 @@
 ---
 - name: Install Jenkins CI/CD
-  hosts: localhost
+  hosts: all
   become: true
   tasks:
     - name: upgrade all packages

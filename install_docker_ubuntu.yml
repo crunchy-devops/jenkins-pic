@@ -1,0 +1,32 @@
+---
+- name: Install Docker on Ubuntu
+  hosts: all
+  become: true
+  tasks:
+    - name: update all packages
+      apt:
+        update_cache: yes
+    - name: Add pre-requisite packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg-agent
+          - software-properties-common
+    - name: Add official GPG key
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    - name: add specificed repository into source list
+      shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    - name: update all packages
+      apt:
+        update_cache: yes
+    - name: install docker packages
+      apt:
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+    - name: Set current user to docker group
+      command: usermod -aG docker {{ ansible_user }}
+
