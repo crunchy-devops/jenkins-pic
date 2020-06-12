@@ -19,7 +19,7 @@ Copy in crumb data the API token previously saved in your notepad.
 
 ## Remove CSRF failed check 
 Go to Manage Jenkins -> Script console and run the following groovy script.
-```gwt javascript
+```groovy
 import jenkins.model.Jenkins
 def instance = Jenkins.instance
 instance.setCrumbIssuer(null)
