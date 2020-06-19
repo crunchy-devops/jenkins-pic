@@ -116,12 +116,12 @@ Press Add
 select the credentials in Sonatype Nexus configuration    
 Check with a Test Connection    
 and then click Apply and Save  
-Create a job, hello_world_nexus freestyle  
+Create a job, hello_world_nexus, and choose freestyle project, click ok  
 Go to Build, select copy artifacts from another project    
 Set artifacts to copy to ```**/*.war ```  
 add an another build, Nexus Repository Manage Publisher      
 Nexus instances:  Nexus  
-Nexus Repo: Release   
+Nexus Repo: maven-release   
 add Package maven   
 Group and artifact are coming from your project pom.xml  
 Here is :  

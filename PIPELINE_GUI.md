@@ -15,7 +15,7 @@ hello_world_jmeter
 Go to  Manage Jenkins ->  Manage Plugin -> Tab available  
 Filter Pipeline  select Build Pipeline   
 Press install without restart   
-Go back to the Dashboard   
+Go back to the Dashboard  , click on the cross  
 View name :  hello-world pipeline  
 Check Build Pipeline view   
 Press ok   
