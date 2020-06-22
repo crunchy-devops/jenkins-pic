@@ -11,7 +11,7 @@ Cette plateforme est disponible seulement sous Linux.
 
 How to proceed ?  
 First use this file and carry on with:     
-if you are on Ubuntu , readme Ubuntu.md first   
+**if you are on Ubuntu 16.04 , read Ubuntu.md file first.**    
  * FIRST_JOBS.md  
  * IntellijIDEA.mnd   
  * DEPLOYMENT.md  

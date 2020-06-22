@@ -13,20 +13,20 @@ and go to console output
 
 ## install github plugin and maven plugin   
 manage jenkins -> plugin manager -> tab available     
-filter github type enter and tick github integration  
+filter github type enter and tick github    
 filter maven type entrer and tick maven integration     
 and hit install without restart  
 
 go to manage jenkins -> global tool configuration 
 Maven -> add maven    
-Name Maven 3.6.3  
+Name: Maven 3.6.3  
 install automatically from Apache select version 3.6.3  
 Hit apply and save
 
 ## Hello world using Maven 
 New Item -> Name Hello-world-maven, select  maven project and ok   
 select git as a source code management   
-in your github tab fork and clone that https://github.com/crunchy-devops/hello-world.git
+in your github tab fork and clone this repo https://github.com/crunchy-devops/hello-world.git
 Copy and paste your own repo hello-world    
 Build uses a: pom.xml file     
 Goals are: clean install package   
