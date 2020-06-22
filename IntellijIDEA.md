@@ -25,4 +25,6 @@ import jenkins.model.Jenkins
 def instance = Jenkins.instance
 instance.setCrumbIssuer(null)
 ```
+Result  
 
+![Jenkins_screen](screenshots/jenkins_intellij_screen.png)
