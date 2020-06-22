@@ -119,7 +119,7 @@ and then click Apply and Save
 Create a job, hello_world_nexus, and choose freestyle project, click ok  
 Go to Build, select copy artifacts from another project    
 Set artifacts to copy to ```**/*.war ```  
-add an another build, Nexus Repository Manage Publisher      
+add an another build step , Nexus Repository Manage Publisher      
 Nexus instances:  Nexus  
 Nexus Repo: maven-release   
 add Package maven   

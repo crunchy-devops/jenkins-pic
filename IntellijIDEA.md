@@ -15,6 +15,7 @@ Fill Server Address, username, passwords, crumb data , jenkins version ver 2.x
 Tick use green color....
 ![Jenkins_config](screenshots/jenkins_config_plugin.png)
 ### API token  
+go to 
 Copy in crumb data the API token previously saved in your notepad. 
 
 ## Remove CSRF failed check 

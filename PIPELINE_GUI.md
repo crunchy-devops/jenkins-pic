@@ -44,7 +44,7 @@ click on add webhook
 Confirm with your password  
 In the page, enter in Payload URL:
 ````shell script
-  htpp://<jenkins_ip_address>:18080/github-webhook/
+  http://<jenkins_ip_address>:18080/github-webhook/
 ````
 Select for content type :  application/json   
 Press the green button Add webhook  
