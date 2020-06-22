@@ -9,8 +9,20 @@ Docker qui simule un systeme de **Continuous** **Integration** et de **Delivery*
 
 Cette plateforme est disponible seulement sous Linux. 
 
-## Pre-requis pour Centos 7
+How to proceed ?  
+First use this file and carry on with:     
+if you are on Ubuntu , readme Ubuntu.md first   
+ * FIRST_JOBS.md  
+ * IntellijIDEA.mnd   
+ * DEPLOYMENT.md  
+ * JMETER.md  
+ * SELENIUM.md  
+ * PIPELINE_GUI.md  
+ * PIPELINE_SCRIPT.md  
+ 
+Optional: DOCKER.md and UBUNTU.md
 
+## Pre-requis pour Centos 7
 ```
 sudo yum -y update   # update all packages 
 sudo yum -y install git wget   # install git and wget 
