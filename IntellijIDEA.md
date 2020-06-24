@@ -1,7 +1,7 @@
 # Configure your IDE 
 Set up your workspace environnement using JetBrains      
-You should use IntellijIdea Professional Edition    
-( or Goland or Pycharm ) 
+You should use Goland Jetbrains   
+
 Download the package from   
 https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows
 

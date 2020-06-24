@@ -15,9 +15,9 @@ In the script, the Nexus war file is injected in a Docker image of Tomcat server
  wget http://nexus:8081/repository/maven-releases/com/example/maven-project/maven-project/1.1/maven-project-1.1.war -O ${WORKSPACE}/webapp.war
  docker build -t hello-world-afip:latest .
 ```
+Build
 And apply and save
-Now we have a complete infrastructure for running our code. 
-
+Now we have a complete infrastructure for running our code.
 ## Run  Docker container as a testing environment 
 Create a job hello_world_docker_test  
 Go to New Item -> Enter a name -> Freestyle -> ok    

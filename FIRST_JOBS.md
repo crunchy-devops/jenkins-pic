@@ -61,7 +61,7 @@ In the server authentication token select SonarToken
 Press apply and save 
 
 Hit New Item,  enter a name hello-world-sonar  
-copy from  My_first_maven_build  
+copy from hello-world-maven  
 hit ok  
 Tick in **build environment 'Prepare SonarQube Scanner ...'**      
 Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```      
@@ -117,7 +117,7 @@ select the credentials in Sonatype Nexus configuration
 Check with a Test Connection    
 and then click Apply and Save  
 Create a job, hello_world_nexus, and choose freestyle project, click ok  
-Go to Build, select copy artifacts from another project    
+Go to Build, select copy artifacts from hello-world-maven   
 Set artifacts to copy to ```**/*.war ```  
 add an another build step , Nexus Repository Manage Publisher      
 Nexus instances:  Nexus  
