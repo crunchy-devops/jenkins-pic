@@ -13,8 +13,8 @@ Go to Pipeline
 Definition  Select  Pipeline script from SCM     
 SCM git  
 Enter the hello-world github repo url    
-copy and paste the source from the file build-hello-world-pipeline to Jenkinsfile 
-Script past Jenkinsfile
+in goland copy and paste the source from the file build-hello-world-pipeline to Jenkinsfile 
+Script path:  Jenkinsfile
 Commit and push  
 Check the job and log file
 ![Jenkins_perf](screenshots/pipeline_first_script.png)  

@@ -1,5 +1,5 @@
 # Set up selenium Tests
-Check the pom.xml definition and the code source of the class day1 
+Check the pom.xml definition and the code source of the class day1.java 
 **Attention** The IP address of the test version of the website is hardcoded that shouldn't 
 be done in the real CI/CD environment.  
   
@@ -8,7 +8,11 @@ be done in the real CI/CD environment.
 if the plugin Log Parser is not present  
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser   
 Check and install without restart   
-  
+
+Change lines 27 of day1.java file , enter your vm api address
+
+
+
 Go New Item, Name hello-world-selenium, select Maven-project  
 Hit Ok  
 Source Management   
