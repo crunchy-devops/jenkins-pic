@@ -5,7 +5,7 @@ Ce repository GitHub contient des fichiers docker-compose YAML
 qui permettent d'executer la mise en place d'une plateforme de containers
 Docker qui simule un systeme de **Continuous** **Integration** et de **Delivery**. 
 
-![Docker CI Tools](screenshots/schema_total.png)
+![Docker CI Tools](screenshots/latest_schema.jpg)
 
 Cette plateforme est disponible seulement sous Linux. 
 
