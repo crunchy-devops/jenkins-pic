@@ -14,7 +14,7 @@ and go to console output
 ## install github plugin and maven plugin   
 manage jenkins -> plugin manager -> tab available     
 filter github type enter and tick github    
-filter maven type entrer and tick maven integration     
+filter maven type enter and tick maven integration     
 and hit install without restart  
 
 go to manage jenkins -> global tool configuration 
@@ -63,7 +63,7 @@ Press apply and save
 Hit New Item,  enter a name hello-world-sonar  
 copy from hello-world-maven  
 hit ok  
-Tick in **build environment 'Prepare SonarQube Scanner ...'**      
+Tick in **build environment 'Prepare SonarQube Scanner environment'**      
 Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```      
 Press apply and save
 Hit Build Now  
@@ -111,7 +111,7 @@ Select 3.x Server
 Display Name :  Nexus  
 Server ID :  Nexus  
 Server URL: http://nexus:8081  
-Create a credentials user/password  admin/xxxxx ID: nexuslogin   
+Create a credentials user/password  admin/xxxxx ID: nexuslogin  Description: nexuslogin   
 Press Add    
 select the credentials in Sonatype Nexus configuration    
 Check with a Test Connection    

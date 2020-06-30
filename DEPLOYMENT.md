@@ -18,6 +18,8 @@ In the script, the Nexus war file is injected in a Docker image of Tomcat server
 Build
 And apply and save
 Now we have a complete infrastructure for running our code.
+
+
 ## Run  Docker container as a testing environment 
 Create a job hello_world_docker_test  
 Go to New Item -> Enter a name -> Freestyle -> ok    
@@ -33,6 +35,8 @@ if [ -n "$OLD" ]; then
 fi
 docker run -d --name hello-world-test -p 8090:8080 hello-world-afip
 ```
+and Build now 
+
 Hit a new tab in your browser and check   
 ```http://<ip_address_your_vm>:8090/webapp/```
 

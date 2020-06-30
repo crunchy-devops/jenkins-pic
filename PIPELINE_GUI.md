@@ -9,7 +9,7 @@ hello_world_sonar
 hello_world_nexus
 hello_world_docker_build
 hello_world_docker_test
-hello_world_jmeter
+
 
 ## Graphic pipeline 
 Go to  Manage Jenkins ->  Manage Plugin -> Tab available  
