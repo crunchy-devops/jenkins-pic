@@ -48,7 +48,7 @@ In the page, enter in Payload URL:
 ````
 Select for content type :  application/json   
 Press the green button Add webhook  
-Refresh the screen so you can check if the url is ticked.  
+Refresh the screen so you can check if the url is ticked in green.  
 
 ## Configure the webhook in Jenkins  
 Go to jenkins and configure hello-world-maven    

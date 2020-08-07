@@ -108,4 +108,5 @@ docker build -t petclinic:latest .
  press apply and save   
  Check the pipeline graph   
  Hit run  
-  
+ Add webhook on spring-framework-petclinic github 
+ and set webhook trigger in petclinic

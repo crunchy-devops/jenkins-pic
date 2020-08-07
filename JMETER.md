@@ -33,8 +33,10 @@ in right part of a line${__P(PORT,8090)}
 
 ![Jmeter_TestPlan_variables](screenshots/test_plan_variables.png)
 
-And Http_request_defaults_values as respectively ${IP} and ${PORT}
+And Http_request_defaults as respectively ${IP} and ${PORT}
 ![Jmeter_http_request_defaults](screenshots/http_request_defaults_values.png)
+ 
+Remove IP and port in HTTP Request  
  
 Save this test plan in your github repo project, it's jmx file 
 
@@ -106,8 +108,6 @@ As we have done for hello-world-jmeter set Test plan variable
 Add HTTP Requests Defaults variables
 Remove all IP and port from other HTTP Request action
 Move over Thread group -> right click -> Add -> Listener -> View Results Tree 
-
-
 
 
 
