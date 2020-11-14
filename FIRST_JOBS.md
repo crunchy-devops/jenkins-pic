@@ -51,7 +51,7 @@ Open an other browser tab, go to
 Type ```http://<your_ip_address:19000>``` in your browser    
 click on login in left-up side of the screen    
 Login using user: admin  password : admin  
-Go to administration, security , user, click on the icon on the right token  
+Go to administration, security , users, click on the icon on the right token  
 Type a name jks and press generate     
 Back to the Jenkins screen, copy the token in the credential as a secret text in jenkins     
 Set an ID text as SonarToken for this credential    

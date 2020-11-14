@@ -15,7 +15,7 @@ hello_world_docker_test
 Go to  Manage Jenkins ->  Manage Plugin -> Tab available  
 Filter Pipeline  select Build Pipeline   
 Press install without restart   
-Go back to the Dashboard  , click on the cross  
+Go back to the Dashboard  , click on the cross in the tab 
 View name :  hello-world pipeline  
 Check Build Pipeline view   
 Press ok   
@@ -60,7 +60,7 @@ Go to the Jenkins pipeline graph, the refresh should be enabled
 On the other screen in Intellij IDEA   
 change the file  
 ```hello-world/webapp/src/main/webapp/index.jsp```  
-Replace AFIP by TEAM or vice-versa  
+Replace the word AFIP by TEAM or vice-versa  
 Commit and Push  
 Check the pipeline graph, the build starts automatically
 

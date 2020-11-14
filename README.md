@@ -14,12 +14,13 @@ First use this file and carry on with:
 **if you are on Ubuntu 16.04 , read Ubuntu.md file first.**    
  * IntellijIDEA.mnd  
  * FIRST_JOBS.md    
- * DEPLOYMENT.md  
+ * DEPLOYMENT.md 
+ * PIPELINE_GUI.md
+ * PIPELINE_SCRIPT.md  
  * JMETER.md  
  * SELENIUM.md  
  * PIPELINE_GUI.md  
- * PIPELINE_SCRIPT.md  
- 
+   
 Optional: DOCKER.md and UBUNTU.md
 
 ## Pre-requis pour Centos 7
@@ -34,7 +35,7 @@ and git clone your personnal repository of jenkins-pic
 git clone https://github.com/<your-repo>/jenkins-pic.git
 cd jenkins-pic  
 ```
-**Attention A NE PAS FAIRE, CHOISIR UNE INSTALLATION PAR ANSIBLE**
+**Attention A NE PAS FAIRE les commandes suivantes, CHOISIR UNE INSTALLATION PAR ANSIBLE**
 ### Installation de la derniere version de Docker sous Centos 
 L'installation de Docker necessite certains packages.
 ```
@@ -74,7 +75,7 @@ sudo yum -y install python3
   source venv/bin/activate # activate the python virtualenv
   pip3 install wheel  # install pip package wheel for permission usage
   pip3 install ansible # install ansible
-  ansible --version  # check
+  ansible --version  # check, should be version 2.10.3
 ```
 
 ### Lancement de la commande ansible-playbook qui va installer Docker
@@ -93,7 +94,7 @@ the changes take effect.
   cd jenkins-pic
   source venv/bin/activate
   pip3 install docker-compose
-  docker-compose --version 
+  docker-compose --version  # check should be version 1.27.4
 ```
 Using the lts jenkins version, the jenkins home is a docker volume   
 See in the docker-compose file jenkins volume and services  
@@ -103,7 +104,7 @@ Tapez la commande suivante pour installer et demarrer l'ensemble
 des containers de la plateforme de CI/CD
 ```
 docker-compose up -d  # demarre tous les containers
-docker ps # Check ,seven jenkins-pic_xxx containers should be up and running
+docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins
