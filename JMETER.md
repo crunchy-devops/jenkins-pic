@@ -12,7 +12,7 @@ Start with your mouse over test plan and right click on it.
 Start with your mouse over Thread group and right click on it.  
 menu Add -> Sampler ->  Http request  
 Start with your mouse over Http request and right click on it.  
-menu Add -> Assertions ->  Reponse assertion  
+menu Add -> Assertions ->  Response assertion  
 Start with your mouse over Thread Group and right click on it.  
 menu Add -> Listener->  View Results Tree  
 
@@ -27,20 +27,29 @@ and press the green triangle in the menu bar
 
 Add the JMeter global variables in the test plan screen    
 Click on Add , click on the left part of the line, type IP  
-in right part of a line ${__P(IP,<our_ip>)}  
+in right part of a line type ${__P(IP,<our_ip>)}  
 Click again on Add, click on the left part of the line, type PORT  
-in right part of a line${__P(PORT,8090)}  
+in right part of a line type ${__P(PORT,8090)}  
 
 ![Jmeter_TestPlan_variables](screenshots/test_plan_variables.png)
 
-And Http_request_defaults as respectively ${IP} and ${PORT}
+And Http_request_defaults enter respectively ${IP} and ${PORT}
 ![Jmeter_http_request_defaults](screenshots/http_request_defaults_values.png)
  
 Remove IP and port in HTTP Request  
- 
+and test again your test plan   
+you must have the same result as before the changes   
+
 Save this test plan in your github repo project, it's jmx file 
 
+
+
+
 ## Create a Jmeter Jenkins Job
+### Add a plugin
+Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
+Check and install without restart 
+
 go to new Item  type hello_world_jmeter 
 copy from  hello_world_docker_build 
 Remove all code in Build  Execute build and copy/paste
@@ -48,19 +57,15 @@ Remove all code in Build  Execute build and copy/paste
 jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t jmeter_test_plan.jmx  -l testresult.jlt
 ```
 
-### Add a Post-build actions 
-### Add a plugin
-Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
-Check and install without restart   
-
-### Parserules   
+### Add a Post-build actions    
+Parserules   
 Select Console ouptut (build log) parsing  
 Tick Mark build Failed on Error  
 Tick Use project rule  
 Path to rule file in workspace :  parserules    
+Apply and save
 
-
-## PART PETCLINIC PROJECT
+## PART OF PETCLINIC PROJECT
 ### Recording a test plan for Petclinic website
 Install Firefox and setup the add-on named FoxyProxy  
 In foxyproxy added a proxy  
