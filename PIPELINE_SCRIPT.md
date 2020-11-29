@@ -1,7 +1,7 @@
 # Pipeline as DSL script Jenkins code
 Go to manage Jenkins -> manage plugins -> tab available ->filter Pipeline  
 Tick pipeline: declarative 
-tick pipeline: stage views
+tick pipeline: stage view
 and press install without restart  
 Go to New Item  
 Type a name hello-world-pipeline   
