@@ -43,7 +43,7 @@
         name: docker
         enabled: yes
     - name: Set current user to docker group
-      command: usermod -aG docker {{ ansible_user }}
+      command: usermod -aG docker centos
 
 
 

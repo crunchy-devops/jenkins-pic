@@ -21,7 +21,7 @@ pip3 install wheel  # set for permissions purpose
 pip3 install ansible # install ansible 
 pip3 install requests # extra packages
 ansible --version # check the version number # should be the latest 2.9.9+ 
-ansible-playbook -i inventory install_docker_ubuntu.yml # run the playbook for installing docker
+ansible-playbook -i inventory_for_ubuntu install_docker_ubuntu.yml # run the playbook for installing docker
 ```
 Log out from your ssh session and log in again so all changes will take effect.  
 Type ``` docker ps``` as ubuntu user for checking if all is fine.   

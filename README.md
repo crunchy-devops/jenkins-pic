@@ -71,11 +71,12 @@ sudo yum -y install python3
 ### Set up a python virtualenv, and install ansible
 ```shell script
   # in the jenkins-pic directory 
+  cd jenkins-pic
   python3 -m venv venv  # install virtualenv module dans la directory venv
   source venv/bin/activate # activate the python virtualenv
   pip3 install wheel  # install pip package wheel for permission usage
   pip3 install ansible # install ansible
-  ansible --version  # check, should be version 2.10.3
+  ansible --version  # check, should be version 2.10.4
 ```
 
 ### Lancement de la commande ansible-playbook qui va installer Docker
