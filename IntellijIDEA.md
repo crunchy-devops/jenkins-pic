@@ -8,7 +8,7 @@ https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows
 ## In the IDE 
 Go to File -> Settings  -> Plugins 
 and install Jenkins Control Plugin 
-Restart IntellijIDEA
+Restart Goland 
 You got a right-hand side tab named Jenkins   
 Click on the wrench to get the configuration dialog window
 Fill Server Address, username, passwords, crumb data , jenkins version ver 2.x
@@ -18,7 +18,7 @@ Tick use green color....
 go to 
 Copy in crumb data the API token previously saved in your notepad. 
 
-## Remove CSRF failed check 
+## Remove CSRF failed check message
 Go to Manage Jenkins -> Script console and run the following groovy script.
 ```groovy
 import jenkins.model.Jenkins

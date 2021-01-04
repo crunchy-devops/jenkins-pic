@@ -62,7 +62,7 @@ Placer un lien symbolique pour que le daemon Docker demarre automatiquement meme
 sudo systemctl enable docker
 ```
 
-## Ou Installation de Docker avec un script Ansible 
+## Ou par une installation de Docker avec un script Ansible 
 ### Packages de pre-requis pour installer Ansible 
 ```
 sudo yum -y install python3 
