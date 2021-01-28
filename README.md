@@ -76,7 +76,7 @@ sudo yum -y install python3
   source venv/bin/activate # activate the python virtualenv
   pip3 install wheel  # install pip package wheel for permission usage
   pip3 install ansible # install ansible
-  ansible --version  # check, should be version 2.10.4
+  ansible --version  # check, should be version 2.10.5
 ```
 
 ### Lancement de la commande ansible-playbook qui va installer Docker
@@ -95,7 +95,7 @@ the changes take effect.
   cd jenkins-pic
   source venv/bin/activate
   pip3 install docker-compose
-  docker-compose --version  # check should be version 1.27.4
+  docker-compose --version  # check should be version 1.28
 ```
 Using the lts jenkins version, the jenkins home is a docker volume   
 See in the docker-compose file jenkins volume and services  
