@@ -75,6 +75,7 @@ sudo yum -y install python3
   python3 -m venv venv  # install virtualenv module dans la directory venv
   source venv/bin/activate # activate the python virtualenv
   pip3 install wheel  # install pip package wheel for permission usage
+  pip3 install --upgrade pip
   pip3 install ansible # install ansible
   ansible --version  # check, should be version 2.10.5
 ```

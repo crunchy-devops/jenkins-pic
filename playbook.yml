@@ -1,5 +1,5 @@
 ---
-- name: Install Jenkins CI/CD
+- name: Install Docker
   hosts: all
   become: true
   tasks:
