@@ -1,0 +1,25 @@
+---
+- hosts: all
+  tasks:
+    - name: install nginx
+      docker_container:
+        name: 'proxy'
+        image: nginx
+        state: 'started'
+        ports:
+          - "28080:80"
+        volumes:
+          - "./nginx.conf:/etc/nginx/nginx.conf"
+    #- name: install certbot
+    #  shell: snap install core && snap refresh core && snap install --classic certbot
+    - name: Create a network
+      docker_network:
+        name: network_one
+        connected:
+          - nginx
+
+
+
+
+
+

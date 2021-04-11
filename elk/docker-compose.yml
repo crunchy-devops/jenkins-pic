@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  elasticsearch:
+    build : ./elasticsearch
+    container_name: elasticsearch
+    environment:
+      - "discovery.type=single-node"
+    networks:
+      - net
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+  kibana:
+    build : ./kibana
+    container_name: kibana
+    environment:
+      SERVER_NAME : kibana
+      ELASTICSEARCH_URL : http://elasticsearch:9200
+    networks:
+      - net
+
+  proxy:
+    build : ./nginx
+    container_name : proxy
+    ports:
+      - "28080:80"
+    networks:
+      - net
+
+volumes:
+  esdata:
+    driver: local
+
+networks:
+  net:
