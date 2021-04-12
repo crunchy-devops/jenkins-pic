@@ -11,7 +11,7 @@ Cette plateforme est disponible seulement sous Linux.
 
 How to proceed ?  
 First use this file and carry on with:     
-**if you are on Ubuntu 16.04 , read Ubuntu.md file first.**    
+**if you are on Ubuntu 20.04 , read Ubuntu.md file first.**    
  * IntellijIDEA.mnd  
  * FIRST_JOBS.md    
  * DEPLOYMENT.md 
@@ -106,7 +106,7 @@ Tapez la commande suivante pour installer et demarrer l'ensemble
 des containers de la plateforme de CI/CD
 ```
 docker-compose up -d  # demarre tous les containers
-docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
+docker ps # Check, 11 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins
