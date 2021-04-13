@@ -2,7 +2,7 @@ FROM openjdk:11-jre-slim-buster
 
 # Install GNUPG for package vefification and WGET for file download
 RUN apt-get update \
-    && apt-get -yqq install krb5-user libpam-krb5 \
+    && apt-get -yqq install krb5-user libpam-krb5 vim \
     && apt-get -y install gnupg wget \
     && rm -rf /var/lib/apt/lists/*
 
@@ -101,9 +101,9 @@ RUN wget --no-verbose -O /liquibase/lib/mysql.jar https://repo1.maven.org/maven2
 
 COPY --chown=liquibase:liquibase docker-entrypoint.sh /liquibase/
 COPY --chown=liquibase:liquibase liquibase.docker.properties /liquibase/
-
+RUN  chmod +x /liquibase/docker-entrypoint.sh
 VOLUME /liquibase/classpath
 VOLUME /liquibase/changelog
 
-ENTRYPOINT ["/liquibase/docker-entrypoint.sh"]
-CMD ["--help"]
+#ENTRYPOINT ["/liquibase/docker-entrypoint.sh"]
+#CMD ["--help"]
