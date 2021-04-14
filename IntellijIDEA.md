@@ -28,3 +28,11 @@ instance.setCrumbIssuer(null)
 Result  
 
 ![Jenkins_screen](screenshots/jenkins_intellij_screen.png)
+
+## Troubleshooting   
+if you have a message URL is mal/formed   
+Go to Jenkins -> manage Jenkins-> Configuration system  
+Go to Jenkins Location   
+and remove the trailing /   
+Press save  
+and test again 
