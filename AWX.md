@@ -1,33 +1,19 @@
-# Minikube and AWX
+# AWX 17.1.0
 ```shell
 cd 
-mkdir awx
-cd awx
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   && chmod +x minikube
-sudo mv minikube /usr/local/bin
-sudo apt-get install -y conntrack
-sudo -s
-cd /usr/bin/
-ln -s /usr/sbin/conntrack conntrack
-exit 
-minikube start --cpus=2 --memory=4g addons=ingress  --driver=none
-## DONT DO IT minikube start --nodes 2 -p multinode-demo
-minikube kubectl get nodes
-minikube kubectl get pods
-minikube status
-minikube kubectl -- apply -f https://raw.githubusercontent.com/ansible/awx-operator/devel/deploy/awx-operator.yaml
-vi myawx.yml
-# add these lines
----
-apiVersion: awx.ansible.com/v1beta1
-kind: AWX
-metadata:
-  name: awx
-spec:
-  tower_ingress_type: Ingress
-  
-minikube kubectl apply -- -f myawx.yml 
-minikube kubectl get pod
-minikube service awx-service --url
-minikube kubectl -- get secret awx-admin-password -o jsonpath='{.data.password}' | base64 --decode
+git clone https://github.com/ansible/awx.git
+cd awx 
+git checkout 17.1.0
+pip3 install wheel
+pip3 install requests
+pip3 install docker
+pip3 install docker-compose
+pip3 install ansible
+cd installer
+# open a file vars.yml
+admin_password: 'adminpass'
+pg_password: 'pgpass'
+secret_key: 'mysupersecret'
+ansible-playbook -i inventory install.yml -e @vars.yml
+
 ```

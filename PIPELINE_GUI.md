@@ -8,7 +8,8 @@ Do the the same action in
 hello_world_sonar
 hello_world_nexus
 hello_world_docker_build
-hello_world_docker_test
+hello_world_docker_run. parallel run hello-world-jmeter, hello-world-selenium
+
 
 
 ## Graphic pipeline 

@@ -11,17 +11,17 @@ Cette plateforme est disponible seulement sous Linux.
 
 How to proceed ?  
 First use this file and carry on with:     
-**if you are on Ubuntu 20.04 , read Ubuntu.md file first.**    
- * IntellijIDEA.mnd  
- * FIRST_JOBS.md    
- * DEPLOYMENT.md 
- * PIPELINE_GUI.md
- * PIPELINE_SCRIPT.md  
+**if you are on Ubuntu 20.04 , read Ubuntu.md file first.**  
+ * FIRST_JOBS.md
+ * IntellijIDEA.mnd
+ * DEPLOYMENT.md
+ * PIPELINE_SCRIPT.md
+ * AWX.md  
  * JMETER.md  
  * SELENIUM.md  
  * PIPELINE_GUI.md  
    
-Optional: DOCKER.md and UBUNTU.md
+Optional: DOCKER.md 
 
 ## Pre-requis pour Centos 7
 ```
@@ -95,8 +95,9 @@ the changes take effect.
 ```shell script
   cd jenkins-pic
   source venv/bin/activate
-  pip3 install docker-compose
-  docker-compose --version  # check should be version 1.28
+  pip3 install docker-compose # pip lib for docker-compose
+  pip3 install docker # pip lib for docker 
+  docker-compose --version  # check should be version 1.29.1+
 ```
 Using the lts jenkins version, the jenkins home is a docker volume   
 See in the docker-compose file jenkins volume and services  
@@ -104,9 +105,10 @@ See in the docker-compose file jenkins volume and services
 ## Launch all containers
 Tapez la commande suivante pour installer et demarrer l'ensemble   
 des containers de la plateforme de CI/CD
-```
+```shell
+docker-compose build # build les containers 
 docker-compose up -d  # demarre tous les containers
-docker ps # Check, 11 jenkins-pic_xxx containers should be up and running
+docker ps # Check, 12 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins
@@ -119,7 +121,7 @@ scroll the log file, and get the secret value
 **DO NOT install any plugins now, we need a fresh install** 
 
 ## Change admin password, get an API token, set timezone
-click on admin in a left upper right hand side of a screen  
+click on admin in right hand side of a screen  
 Hit configure  
 select API Token , Add new token , give jetbrains name  
 and Hit generate 

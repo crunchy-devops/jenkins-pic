@@ -21,19 +21,19 @@ Now we have a complete infrastructure for running our code.
 
 
 ## Run  Docker container as a testing environment 
-Create a job hello_world_docker_test  
+Create a job hello_world_docker_run  
 Go to New Item -> Enter a name -> Freestyle -> ok    
 Source code management  
 You don't need to tick git as the source code is in the docker image  
 Build  
 Select Execute shell and copy/paste the following code  
 ```shell script
-CONTAINER_NAME="hello-world-test"
+CONTAINER_NAME="hello-world-run"
 OLD="$(docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
 if [ -n "$OLD" ]; then
   docker rm -f $OLD
 fi
-docker run -d --name hello-world-test -p 8090:8080 hello-world-afip
+docker run -d --name hello-world-run -p 8090:8080 hello-world-afip
 ```
 and Build now 
 

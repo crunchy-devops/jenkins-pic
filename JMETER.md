@@ -65,7 +65,7 @@ Tick Use project rule
 Path to rule file in workspace :  parserules    
 Apply and save
 
-## PART OF PETCLINIC PROJECT
+## PART FOR THE PETCLINIC PROJECT
 ### Recording a test plan for Petclinic website
 Install Firefox and setup the add-on named FoxyProxy  
 In foxyproxy added a proxy  
