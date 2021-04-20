@@ -91,7 +91,7 @@ Copy and paste these excluded files
    .*\.(txt|bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2|ttf).*
 ```
 switch firefox browser to user jmeter port  
-click on start in Https test scritp recorder   
+click on start in Https test script recorder   
 Open a tab an copy paste your petclinic URL   
 ```shell script
      http://<your ip address>:9090/petclinic  

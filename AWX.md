@@ -4,6 +4,8 @@ cd
 git clone https://github.com/ansible/awx.git
 cd awx 
 git checkout 17.1.0
+python3 -m venv venv
+source venv/bin/activate
 pip3 install wheel
 pip3 install requests
 pip3 install docker

@@ -55,8 +55,8 @@ docker build -t petclinic:latest .
   Hit Build now and check   
   
 ## Step 5 --  docker Test 
- Click on new item enter a name petclinic-docker-test      
- Go down and copy from :  hello_world_docker_test
+ Click on new item enter a name petclinic-docker-run      
+ Go down and copy from :  hello_world_docker_run
  click ok   
  In Execute shell replace
  ```shell script

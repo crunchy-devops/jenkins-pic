@@ -22,8 +22,10 @@ pip3 install ansible # install ansible
 pip3 install requests # extra packages
 ansible --version # check the version number # should be the latest 2.10.8+ 
 ansible-playbook -i inventory_for_ubuntu install_docker_ubuntu.yml # run the playbook for installing docker
+su - $USER
+cd jenkins-pic
+source venv/bin/activate
 ```
-Log out from your ssh session, close Jetbrains and log in again so all changes will take effect.  
-Type ``` docker ps``` as ubuntu user for checking if all is fine.   
+   
  
  
