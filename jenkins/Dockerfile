@@ -2,7 +2,7 @@ FROM jenkins/jenkins:lts
 
 USER root
 RUN apt-get update && \
-    apt-get upgrade && \
+    #apt-get upgrade && \
     apt-get -y install libmariadb-dev && \
     apt-get install -y python3 python3-pip && \
     ln -s /jmeter/bin/jmeter /usr/bin/jmeter
