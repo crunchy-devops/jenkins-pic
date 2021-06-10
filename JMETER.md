@@ -16,7 +16,7 @@ menu Add -> Assertions ->  Response assertion
 Start with your mouse over Thread Group and right click on it.  
 menu Add -> Listener->  View Results Tree  
 
-Click on Response action  
+Click on Response Assertion  
 In Pattern to Test  click Add and enter AFIP   
 Click on HTTP Request  
 In Server Name or IP: < vm_ip_address>   
