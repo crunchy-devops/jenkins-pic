@@ -3,7 +3,7 @@ version: '3.3'
 volumes:
   jmeter_dir:
   jenkins-home:
-  elasticsearch:
+  #elasticsearch:
   liquibase_dir:
 
 networks:
@@ -138,77 +138,77 @@ services:
     - HUB_PORT_4444_TCP_PORT=4444
   networks:
     - prodnetwork
- elasticsearch:
-   build:
-     context: ./elasticsearch/
-     args:
-       ELK_VERSION: $ELK_VERSION
-   volumes:
-     - type: bind
-       source: ./elasticsearch/config/elasticsearch.yml
-       target: /usr/share/elasticsearch/config/elasticsearch.yml
-       read_only: true
-     - type: volume
-       source: elasticsearch
-       target: /usr/share/elasticsearch/data
-   ports:
-     - "9200:9200"
-     - "9300:9300"
-   environment:
-     ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-     ELASTIC_PASSWORD: changeme
-   networks:
-     - prodnetwork
+ #elasticsearch:
+ #  build:
+ #    context: ./elasticsearch/
+ #    args:
+ #      ELK_VERSION: $ELK_VERSION
+ #  volumes:
+ #    - type: bind
+ #      source: ./elasticsearch/config/elasticsearch.yml
+ #      target: /usr/share/elasticsearch/config/elasticsearch.yml
+ #      read_only: true
+ #    - type: volume
+ #      source: elasticsearch
+ #      target: /usr/share/elasticsearch/data
+ #  ports:
+ #    - "9200:9200"
+ #    - "9300:9300"
+ #  environment:
+ #    ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+ #    ELASTIC_PASSWORD: changeme
+ #  networks:
+ #    - prodnetwork
 
- logstash:
-   build:
-     context: ./logstash/
-     args:
-       ELK_VERSION: $ELK_VERSION
-   volumes:
-     - type: bind
-       source: ./logstash/config/logstash.yml
-       target: /usr/share/logstash/config/logstash.yml
-       read_only: true
-     - type: bind
-       source: ./logstash/pipeline
-       target: /usr/share/logstash/pipeline
-       read_only: true
-   ports:
-     - "5000:5000"
-     - "9600:9600"
-   environment:
-     LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-   networks:
-     - prodnetwork
-   depends_on:
-     - elasticsearch
+ #logstash:
+ #  build:
+ #    context: ./logstash/
+ #    args:
+ #      ELK_VERSION: $ELK_VERSION
+ #  volumes:
+ #    - type: bind
+ #      source: ./logstash/config/logstash.yml
+ #      target: /usr/share/logstash/config/logstash.yml
+ #      read_only: true
+ #    - type: bind
+ #      source: ./logstash/pipeline
+ #      target: /usr/share/logstash/pipeline
+ #      read_only: true
+ #  ports:
+ #    - "5000:5000"
+ #    - "9600:9600"
+ #  environment:
+ #    LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+ #  networks:
+ #    - prodnetwork
+ #  depends_on:
+ #    - elasticsearch
 
- kibana:
-   build:
-     context: ./kibana/
-     args:
-       ELK_VERSION: $ELK_VERSION
-   volumes:
-     - type: bind
-       source: ./kibana/config/kibana.yml
-       target: /usr/share/kibana/config/kibana.yml
-       read_only: true
-   ports:
-     - "5601:5601"
-   networks:
-     - prodnetwork
-   depends_on:
-     - elasticsearch
+ #kibana:
+ #  build:
+ #    context: ./kibana/
+ #    args:
+ #      ELK_VERSION: $ELK_VERSION
+ #  volumes:
+ #    - type: bind
+ #      source: ./kibana/config/kibana.yml
+ #      target: /usr/share/kibana/config/kibana.yml
+ #      read_only: true
+ #  ports:
+ #    - "5601:5601"
+ #  networks:
+ #    - prodnetwork
+ #  depends_on:
+ #    - elasticsearch
 
- db:
-   hostname: postgres
-   image: systemdevformations/docker-postgres12
-   volumes:
-     - /opt/jenkins/postgres:/var/lib/postgresql/data
-   environment:
-     POSTGRES_PASSWORD: password
-   ports:
-     - 5432:5432
-   networks:
-     - prodnetwork
+ #db:
+ #  hostname: postgres
+ #  image: systemdevformations/docker-postgres12
+ #  volumes:
+ #    - /opt/jenkins/postgres:/var/lib/postgresql/data
+ #  environment:
+ #    POSTGRES_PASSWORD: password
+ #  ports:
+ #    - 5432:5432
+ #  networks:
+ #    - prodnetwork
