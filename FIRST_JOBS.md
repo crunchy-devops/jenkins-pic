@@ -2,7 +2,7 @@
 We are going to set up our first jobs    
 
 ## echo "Test" 
-Go to jenkins, select New Item 
+Go to jenkins dashboard, select New Item 
 Type a name my_first_job, hit freestyle and OK      
 select build Execute a shell   
 type ```echo "test"```  

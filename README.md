@@ -91,13 +91,19 @@ the changes take effect.
    docker ps    # check if docker is up and running 
 ```
 
+### Run portainer 
+```shell
+docker run -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer -H unix:///var/run/docker.sock 
+```
+
+
 ### Installer docker-compose 
 ```shell script
   cd jenkins-pic
   source venv/bin/activate
   pip3 install docker-compose # pip lib for docker-compose
   pip3 install docker # pip lib for docker 
-  docker-compose --version  # check should be version 1.29.1+
+  docker-compose --version  # check should be version 1.29.+
 ```
 Using the lts jenkins version, the jenkins home is a docker volume   
 See in the docker-compose file jenkins volume and services  
@@ -108,7 +114,7 @@ des containers de la plateforme de CI/CD
 ```shell
 docker-compose build # build les containers 
 docker-compose up -d  # demarre tous les containers
-docker ps # Check, 12 jenkins-pic_xxx containers should be up and running
+docker ps # Check, 8 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins

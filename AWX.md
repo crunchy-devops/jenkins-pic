@@ -12,10 +12,11 @@ pip3 install docker
 pip3 install docker-compose
 pip3 install ansible
 cd installer
-# open a file vars.yml
+# open a file vars.yml and copy and paste these 3 following lines
 admin_password: 'adminpass'
 pg_password: 'pgpass'
 secret_key: 'mysupersecret'
+# hit the command
 ansible-playbook -i inventory install.yml -e @vars.yml
 
 ```
