@@ -4,7 +4,7 @@ volumes:
   jmeter_dir:
   jenkins-home:
   #elasticsearch:
-  liquibase_dir:
+  #liquibase_dir:
 
 networks:
   prodnetwork:
@@ -39,7 +39,7 @@ services:
     - nexus
     - sonar
     - jmeter
-    - liquibase
+    #- liquibase
     #- gitlab-ce
   environment:
     - NEXUS_PORT=8081
@@ -84,14 +84,14 @@ services:
      - /opt/jmeter/results:/results
      - /opt/jmeter/scripts:/scripts
 
- liquibase:
-   hostname: liquibase
-   build: ./liquibase
-   command: tail -f /dev/null
-   networks:
-     - prodnetwork
-   volumes:
-     - liquibase_dir:/liquibase
+ #liquibase:
+ #  hostname: liquibase
+ #  build: ./liquibase
+ #  command: tail -f /dev/null
+ #  networks:
+ #    - prodnetwork
+ #  volumes:
+ #    - liquibase_dir:/liquibase
 
  #gitlab-ce:
  # hostname: gitlab-ce
