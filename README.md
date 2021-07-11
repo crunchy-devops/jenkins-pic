@@ -114,7 +114,7 @@ des containers de la plateforme de CI/CD
 ```shell
 docker-compose build # build les containers 
 docker-compose up -d  # demarre tous les containers
-docker ps # Check, 8 jenkins-pic_xxx containers should be up and running
+docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins

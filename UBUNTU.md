@@ -2,7 +2,7 @@
 
 ## Eviction of Kinsing Malware
 ```shell
-sudo apt update
+sudo apt update   # update packages
 sudo apt install -y firewalld
 git clone   https://github.com/<votre repo>/jenkins-pic.git
 cd jenkins-pic

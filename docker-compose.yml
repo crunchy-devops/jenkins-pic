@@ -34,7 +34,7 @@ services:
     - /usr/bin/docker:/usr/bin/docker
     - jenkins-home:/var/jenkins_home
     - jmeter_dir:/jmeter
-    - liquibase_dir:/liquibase
+    #- liquibase_dir:/liquibase
   depends_on:
     - nexus
     - sonar
