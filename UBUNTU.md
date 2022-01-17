@@ -3,11 +3,11 @@
 ## Eviction of Kinsing Malware
 ```shell
 sudo apt update   # update packages
-sudo apt install -y firewalld
+#sudo apt install -y firewalld
 git clone   https://github.com/<votre repo>/jenkins-pic.git
 cd jenkins-pic
 chmod +x evict_malware.sh
-./evict_malware.sh
+nohup ./evict_malware.sh &
 ```
 
 ## Pre-requisites on your VM

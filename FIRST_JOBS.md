@@ -28,7 +28,7 @@ New Item -> Name Hello-world-maven, select  maven project and ok
 select git as a source code management   
 in your github tab fork and clone this repo https://github.com/crunchy-devops/hello-world.git
 Copy and paste your own repo hello-world    
-Build uses a: pom.xml file     
+Build Root POM: pom.xml file     
 Goals are: clean install package   
 Hit apply and save   
 and press Build now 

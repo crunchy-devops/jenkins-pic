@@ -97,7 +97,7 @@ docker run -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/doc
 ```
 
 
-### Installer docker-compose 
+### Install docker-compose 
 ```shell script
   cd jenkins-pic
   source venv/bin/activate
@@ -109,11 +109,10 @@ Using the lts jenkins version, the jenkins home is a docker volume
 See in the docker-compose file jenkins volume and services  
 
 ## Launch all containers
-Tapez la commande suivante pour installer et demarrer l'ensemble   
-des containers de la plateforme de CI/CD
+Hit the command for starting up all containers
 ```shell
-docker-compose build # build les containers 
-docker-compose up -d  # demarre tous les containers
+docker-compose build # build all containers 
+docker-compose up -d  # launch all containers
 docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
 ```
 
