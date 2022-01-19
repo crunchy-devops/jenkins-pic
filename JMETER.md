@@ -42,9 +42,6 @@ you must have the same result as before the changes
 
 Save this test plan in your github repo project, it's jmx file 
 
-
-
-
 ## Create a Jmeter Jenkins Job
 ### Add a plugin
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
