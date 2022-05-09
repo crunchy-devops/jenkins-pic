@@ -37,7 +37,7 @@ and press Build now
 manage jenkins -> manage plugins  tab Available     
 filter sonar and select Sonarqube Scanner  
 and install without restart  
-Go to manage Manage jenkins -> Configuration system
+Go to manage Manage jenkins -> Configure system
 Sonarqube server   
 Tick enable injection  ....
 Press the button add sonarQube
@@ -105,7 +105,7 @@ Go to manage jenkins -> Plugin Manager -> Tab available
 Filter copy artifact, check and  
 Filter Nexus, select Nexus Platform,  tick the checkbox        
 install without restart  
-Go to manage jenkins ->configuration system  
+Go to manage jenkins ->configure system  
 find Sonatype Nexus  
 Select 3.x Server   
 Display Name :  Nexus  
