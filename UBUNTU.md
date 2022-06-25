@@ -23,6 +23,7 @@ nohup ./evict_malware.sh &
 ``` 
 ### install this repo and docker    
 ```shell script
+git clone  https://github.com/crunchy-devops/jenkins-pic.git 
 cd 
 cd jenkins-pic 
 python3 -m venv venv  # set up the module venv in the directory venv
