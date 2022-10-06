@@ -2,7 +2,7 @@
 
 ## Connect to your remove VM 
 In Jetbrains, select tools -> deployment -> Configuration  
-Hit the + in the top of this dialog box 
+Hit the + and SFTP in the top of this dialog box 
 enter the server name  
 Press the button with three dots
 Select SFTP and hit +   

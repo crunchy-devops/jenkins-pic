@@ -84,131 +84,41 @@ services:
      - /opt/jmeter/results:/results
      - /opt/jmeter/scripts:/scripts
 
- #liquibase:
- #  hostname: liquibase
- #  build: ./liquibase
- #  command: tail -f /dev/null
- #  networks:
- #    - prodnetwork
- #  volumes:
- #    - liquibase_dir:/liquibase
-
- #gitlab-ce:
- # hostname: gitlab-ce
- # networks:
- #   - prodnetwork
- # image: gitlab/gitlab-ce:latest
- # environment:
- #   GITLAB_OMNIBUS_CONFIG: |
- #     gitlab_rails['gitlab_shell_ssh_port'] = 2222
- # ports:
- #   - "443:443"
- #   - "8080:80"
- #   - "2222:22"
- # volumes:
- #   - /opt/gitlab/config:/etc/gitlab
- #   - /opt/gitlab/logs:/var/log/gitlab
- #   - /opt/gitlab/data:/var/opt/gitlab
-
- seleniumhub:
-  image: selenium/hub
-  ports:
-    - "4444:4444"
-  volumes:
-    - /opt/selenium:/tmp
-  networks:
-    - prodnetwork
-  #environment:
-  #  - JAVA_OPTS="-Dwebdriver.chrome.whitelistedIps="
- firefox:
-  image: selenium/node-firefox
-  depends_on:
-    - seleniumhub
-  environment:
-    - HUB_PORT_4444_TCP_ADDR=seleniumhub
-    - HUB_PORT_4444_TCP_PORT=4444
-  networks:
-    - prodnetwork
+# To execute this docker-compose yml file use `docker-compose -f docker-compose-v3.yml up`
+# Add the `-d` flag at the end for detached execution
+# To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
  chrome:
-  image: selenium/node-chrome
-  depends_on:
-    - seleniumhub
-  environment:
-    - HUB_PORT_4444_TCP_ADDR=seleniumhub
-    - HUB_PORT_4444_TCP_PORT=4444
-  networks:
-    - prodnetwork
- #elasticsearch:
- #  build:
- #    context: ./elasticsearch/
- #    args:
- #      ELK_VERSION: $ELK_VERSION
- #  volumes:
- #    - type: bind
- #      source: ./elasticsearch/config/elasticsearch.yml
- #      target: /usr/share/elasticsearch/config/elasticsearch.yml
- #      read_only: true
- #    - type: volume
- #      source: elasticsearch
- #      target: /usr/share/elasticsearch/data
- #  ports:
- #    - "9200:9200"
- #    - "9300:9300"
- #  environment:
- #    ES_JAVA_OPTS: "-Xmx256m -Xms256m"
- #    ELASTIC_PASSWORD: changeme
- #  networks:
- #    - prodnetwork
+   image: selenium/node-chrome:4.5.0-20221004
+   shm_size: 2gb
+   depends_on:
+     - selenium-hub
+   environment:
+     - SE_EVENT_BUS_HOST=selenium-hub
+     - SE_EVENT_BUS_PUBLISH_PORT=4442
+     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+   networks:
+     - prodnetwork
 
- #logstash:
- #  build:
- #    context: ./logstash/
- #    args:
- #      ELK_VERSION: $ELK_VERSION
- #  volumes:
- #    - type: bind
- #      source: ./logstash/config/logstash.yml
- #      target: /usr/share/logstash/config/logstash.yml
- #      read_only: true
- #    - type: bind
- #      source: ./logstash/pipeline
- #      target: /usr/share/logstash/pipeline
- #      read_only: true
- #  ports:
- #    - "5000:5000"
- #    - "9600:9600"
- #  environment:
- #    LS_JAVA_OPTS: "-Xmx256m -Xms256m"
- #  networks:
- #    - prodnetwork
- #  depends_on:
- #    - elasticsearch
+ firefox:
+   image: selenium/node-firefox:4.5.0-20221004
+   shm_size: 2gb
+   depends_on:
+     - selenium-hub
+   environment:
+     - SE_EVENT_BUS_HOST=selenium-hub
+     - SE_EVENT_BUS_PUBLISH_PORT=4442
+     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+   networks:
+     - prodnetwork
 
- #kibana:
- #  build:
- #    context: ./kibana/
- #    args:
- #      ELK_VERSION: $ELK_VERSION
- #  volumes:
- #    - type: bind
- #      source: ./kibana/config/kibana.yml
- #      target: /usr/share/kibana/config/kibana.yml
- #      read_only: true
- #  ports:
- #    - "5601:5601"
- #  networks:
- #    - prodnetwork
- #  depends_on:
- #    - elasticsearch
+       
+ selenium-hub:
+   image: selenium/hub:4.5.0-20221004
+   container_name: selenium-hub
+   ports:
+     - "4442:4442"
+     - "4443:4443"
+     - "4444:4444"
+   networks:
+     - prodnetwork
 
- #db:
- #  hostname: postgres
- #  image: systemdevformations/docker-postgres12
- #  volumes:
- #    - /opt/jenkins/postgres:/var/lib/postgresql/data
- #  environment:
- #    POSTGRES_PASSWORD: password
- #  ports:
- #    - 5432:5432
- #  networks:
- #    - prodnetwork

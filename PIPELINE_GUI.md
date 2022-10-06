@@ -4,7 +4,7 @@
  Add Post-Build Action   
 select Build other projects and type hello_world_sonar
 Press Apply and save
-Do the the same action in 
+Do the same action in 
 hello_world_sonar
 hello_world_nexus
 hello_world_docker_build
