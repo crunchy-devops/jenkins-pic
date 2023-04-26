@@ -1,0 +1,21 @@
+- name: Create IP address
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    service_account_file: ../my_account.json
+    project: platinum-219712
+    auth_kind: serviceaccount
+    scopes:
+      - https://www.googleapis.com/auth/compute
+
+  tasks:
+    - name: Allocate an IP Address
+      gcp_compute_address:
+        state: present
+        name: 'test-address1'
+        region: 'us-west1'
+        project: "{{ project }}"
+        auth_kind: "{{ auth_kind }}"
+        service_account_file: "{{ service_account_file }}"
+        scopes: "{{ scopes }}"
