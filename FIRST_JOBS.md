@@ -48,7 +48,7 @@ click on  add , select jenkins
 you are going to create a new credential for sonar     
 in the credential screen select kind as a secret text   
 Open an other browser tab, go to  
-Type ```http://<your_ip_address:19000>``` in your browser    
+Type ```http://<your_ip_address:32520>``` in your browser    
 click on login in left-up side of the screen    
 Login using user: admin  password : admin  
 Go to administration, security , users, click on the icon on the right token  

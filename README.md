@@ -5,7 +5,7 @@ Ce repository GitHub contient des fichiers docker-compose YAML
 qui permettent d'executer la mise en place d'une plateforme de containers
 Docker qui simule un systeme de **Continuous** **Integration** et de **Delivery**. 
 
-![Docker CI Tools](screenshots/latest_schema.jpg)
+![Docker CI Tools](screenshots/new_pic.png)
 
 Cette plateforme est disponible seulement sous Linux. 
 
@@ -118,7 +118,7 @@ docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
 
 ## Go to jenkins
 Open your Chrome Browser    
-type the URL  http://<your_vm_ip_address>:18080   
+type the URL  http://<your_vm_ip_address>:32500   
 
 ## Get the secret key 
 type ``` docker logs jenkins-pic_jenkins_1 ```  
@@ -147,13 +147,12 @@ Here is an overview of all tools:
 
 ## Access Tools
 ### With docker containers
-| *Tool* | *Link* | *Credentials* |
-| ------------- | ------------- | ------------- |
-| Jenkins | http://<vm_ip default>:18080/ | to be defined |
-| SonarQube | http://<vm_ip default>:19000/ | admin/admin |
-| Nexus | http://<vm_ip default>:18081/nexus | admin/use a token and set your own password |
-| GitLab | http://<vm_ip default>:8080/ | defined using the console |
-| Selenium Grid | http://<vm_ip default>:4444/grid/console | no login required |
-| Hello-world Test | http://<vm_ip default>:8090/webapp | no login required |
-| Petclinic-Test | http://<vm_ip default>:9090/petclinic | no login required |
-| AWX-ansible| http://<vm_ip default> | admin/password |
+| *Tool* | *Link*                                    | *Credentials* |
+| ------------- |-------------------------------------------| ------------- |
+| Jenkins | http://<vm_ip default>:32500/             | to be defined |
+| SonarQube | http://<vm_ip default>:32520/             | admin/admin |
+| Nexus | http://<vm_ip default>:32510/nexus        | admin/use a token and set your own password |
+| Selenium Grid | http://<vm_ip default>:30044/grid/console | no login required |
+| Hello-world Test | http://<vm_ip default>:30090/webapp       | no login required |
+| Petclinic-Test | http://<vm_ip default>:30190/petclinic    | no login required |
+| AWX-ansible| http://<vm_ip default>                    | admin/password |
