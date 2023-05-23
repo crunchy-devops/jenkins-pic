@@ -31,13 +31,13 @@ source venv/bin/activate
 docker ps 
 ```
 
-Eviction of Kinsing Malware
-##```shell
-##sudo apt update   # update packages
-##sudo apt install -y firewalld
-##git clone   https://github.com/<votre repo>/jenkins-pic.git
-#cd jenkins-pic
-##chmod +x evict_malware.sh
-#nohup ./evict_malware.sh &
-##```
+## If you are infected so eviction of Kinsing Malware
+```shell
+sudo apt update   # update packages
+sudo apt install -y firewalld
+git clone   https://github.com/<votre repo>/jenkins-pic.git
+cd jenkins-pic
+chmod +x evict_malware.sh
+nohup ./evict_malware.sh &
+```
  

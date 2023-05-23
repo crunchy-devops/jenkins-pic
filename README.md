@@ -15,90 +15,9 @@ How to proceed ?
 ## First install Docker 
 Go to the file UBUNTU.md 
 
-
- 
- * FIRST_JOBS.md
- * IntellijIDEA.mnd
- * DEPLOYMENT.md
- * PIPELINE_SCRIPT.md
- * AWX.md  
- * JMETER.md  
- * SELENIUM.md  
- * PIPELINE_GUI.md  
-   
-Optional: DOCKER.md 
-
-## Pre-requis pour Centos 7
-```
-sudo yum -y update   # update all packages 
-sudo yum -y install git wget   # install git and wget 
-sudo yum -y install epel-release  # added extra packages
-sudo yum -y install htop iotop iftop  # added monitoring tools
-//Fork  
-//     https://github.com/crunchy-devops/jenkins-pic.git
-and git clone your personnal repository of jenkins-pic
-git clone https://github.com/<your-repo>/jenkins-pic.git
-cd jenkins-pic  
-```
-**Attention A NE PAS FAIRE les commandes suivantes, CHOISIR UNE INSTALLATION PAR ANSIBLE**
-### Installation de la derniere version de Docker sous Centos 
-L'installation de Docker necessite certains packages.
-```
-sudo yum install -y yum-utils \
-  device-mapper-persistent-data \
-  lvm2
-```
-Ensuite nous devons mettre en place le lien vers le repository Docker.
-```
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-```
-Installer la derniere version de Docker et de ses packages client et containerd.io
-```
- sudo yum install docker-ce docker-ce-cli containerd.io
-```
-Lancer le daemon Docker 
-```
-sudo systemctl start docker
-```
-Placer un lien symbolique pour que le daemon Docker demarre automatiquement meme si le host est reboote. 
-```
-sudo systemctl enable docker
-```
-
-## Ou par une installation de Docker avec un script Ansible 
-### Packages de pre-requis pour installer Ansible 
-```
-sudo yum -y install python3 
-```
-
-### Set up a python virtualenv, and install ansible
-```shell script
-  # in the jenkins-pic directory 
-  cd jenkins-pic
-  python3 -m venv venv  # install virtualenv module dans la directory venv
-  source venv/bin/activate # activate the python virtualenv
-  pip3 install wheel  # install pip package wheel for permission usage
-  pip3 install --upgrade pip
-  pip3 install ansible # install ansible
-  ansible --version  # check, should be version 2.10.5
-```
-
-### Lancement de la commande ansible-playbook qui va installer Docker
-```
-  ansible-playbook -i inventory  playbook.yml
-```
-
-Please log out and log in again of your shell screen for 
-the changes take effect. 
-```shell script
-   docker ps    # check if docker is up and running 
-```
-
-### Run portainer 
+### Install portainer 
 ```shell
-docker run -d -p 9000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer -H unix:///var/run/docker.sock 
+
 ```
 
 
@@ -161,3 +80,15 @@ Here is an overview of all tools:
 | Hello-world Test | http://<vm_ip default>:30090/webapp       | no login required |
 | Petclinic-Test | http://<vm_ip default>:30190/petclinic    | no login required |
 | AWX-ansible| http://<vm_ip default>                    | admin/password |
+
+
+* FIRST_JOBS.md
+* IntellijIDEA.mnd
+* DEPLOYMENT.md
+* PIPELINE_SCRIPT.md
+* AWX.md
+* JMETER.md
+* SELENIUM.md
+* PIPELINE_GUI.md
+
+Optional: DOCKER.md 
