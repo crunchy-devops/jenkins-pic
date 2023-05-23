@@ -45,12 +45,12 @@ docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins
-Open your Chrome Browser    
-type the URL  http://<your_vm_ip_address>:32500  
-user name is : user 
-password is : password
+Open your Chrome Browser      
+type the URL  http://<your_vm_ip_address>:32500    
+user name is : user   
+password is : password  
 
-## Change admin password, get an API token, set timezone
+## Get an API token and set timezone
 click on user in right hand side on a top of a screen  
 Hit configure  
 select API Token , Add new token , give jetbrains name  
@@ -63,9 +63,10 @@ Press apply and save
 Here is an overview of all tools:
 - GitLab (optional) is used for storing the Source Code.
 - Github is the well-known website for archiving all your projects.
-- Jenkins contains build job and is triggered once projects in GitLab are updated.
+- Jenkins contains build job and is triggered once projects in GitHub are updated.
 - As part of the CI build, Jenkins triggers a static code analysis and the results are stored in SonarQube.
 - The Maven build uses Nexus as a Proxy Repository for all 3rd party libs. The build artifacts are deployed to the Nexus Release Repository.
+- Jmeter contains all requirements for running load testing and check performance regression.
 - The Selenium Grid contains Docker containers running Chrome and Firefox and is used for UI tests.
 
 ## Access Tools
@@ -76,6 +77,7 @@ Here is an overview of all tools:
 | SonarQube | http://<vm_ip default>:32520/             | admin/admin |
 | Nexus | http://<vm_ip default>:32510/nexus        | admin/use a token and set your own password |
 | Selenium Grid | http://<vm_ip default>:30044/grid/console | no login required |
+ | Jmeter | no required | no login required |
 | Hello-world Test | http://<vm_ip default>:30090/webapp       | no login required |
 | Petclinic-Test | http://<vm_ip default>:30190/petclinic    | no login required |
 
