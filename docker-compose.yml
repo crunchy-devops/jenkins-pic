@@ -22,9 +22,9 @@ services:
 
  jenkins:
   hostname: jenkins
-  image: bitnami/jenkins
+  ##image: bitnami/jenkins
   #image: systemdevformations/jenkins-sonar:v3
-  #build: ./jenkins
+  build: ./jenkins
   ports:
     - "32500:8080"
     - "32501:50000"
@@ -33,7 +33,7 @@ services:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /usr/bin/docker:/usr/bin/docker
-    - jenkins-home:/var/jenkins_home
+    - jenkins-home:/bitnami/jenkins
     - jmeter_dir:/jmeter
     #- liquibase_dir:/liquibase
   depends_on:
@@ -43,6 +43,7 @@ services:
     #- liquibase
     #- gitlab-ce
   environment:
+    - JENKINS_PASSWORD=password
     - NEXUS_PORT=8081
     - SONAR_PORT=9000
     - SONAR_DB_PORT=5432

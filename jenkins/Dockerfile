@@ -1,4 +1,5 @@
-FROM jenkins/jenkins:lts-jdk11
+#FROM jenkins/jenkins:lts-jdk11
+FROM bitnami/jenkins
 
 USER root
 RUN apt-get update && \

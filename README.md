@@ -17,7 +17,11 @@ Go to the file UBUNTU.md
 
 ### Install portainer 
 ```shell
-
+docker volume create portainer_data
+docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock \
+ -v portainer_data:/data portainer/portainer-ce:latest
+# log on https://<ip>:32126
+#set a password and activate portainer , ypu should see one container
 ```
 
 
@@ -29,11 +33,11 @@ Go to the file UBUNTU.md
   pip3 install docker # pip lib for docker 
   docker-compose --version  # check should be version 1.29.+
 ```
-Using the lts jenkins version, the jenkins home is a docker volume   
-See in the docker-compose file jenkins volume and services  
+I am using lts jenkins version, for persistence the jenkins home is mapped to a docker volume   
+Edit and analyse the docker-compose file and see the usage of volumes, services and network  
 
 ## Launch all containers
-Hit the command for starting up all containers
+Hit the following commands for starting up all containers
 ```shell
 docker-compose build # build all containers 
 docker-compose up -d  # launch all containers
@@ -42,23 +46,18 @@ docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
 
 ## Go to jenkins
 Open your Chrome Browser    
-type the URL  http://<your_vm_ip_address>:32500   
-
-## Get the secret key 
-type ``` docker logs jenkins-pic_jenkins_1 ```  
-scroll the log file, and get the secret value  
-**DO NOT install any plugins now, we need a fresh install** 
+type the URL  http://<your_vm_ip_address>:32500  
+user name is : user 
+password is : password
 
 ## Change admin password, get an API token, set timezone
-click on admin in right hand side of a screen  
+click on user in right hand side on a top of a screen  
 Hit configure  
 select API Token , Add new token , give jetbrains name  
 and Hit generate 
-copy this token in your notepad for later use. 
-change the password and confirm  
+copy this token in your notepad for later use.  
 go to Defined time zone. Select Europe/Paris
-Press apply and save  
-You may get some errors so you need to login in again using your new password. 
+Press apply and save   
 
 ## Overview
 Here is an overview of all tools:
@@ -79,7 +78,7 @@ Here is an overview of all tools:
 | Selenium Grid | http://<vm_ip default>:30044/grid/console | no login required |
 | Hello-world Test | http://<vm_ip default>:30090/webapp       | no login required |
 | Petclinic-Test | http://<vm_ip default>:30190/petclinic    | no login required |
-| AWX-ansible| http://<vm_ip default>                    | admin/password |
+
 
 
 * FIRST_JOBS.md

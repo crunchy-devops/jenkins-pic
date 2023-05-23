@@ -66,10 +66,10 @@
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
-          <y:Geometry height="30.0" width="67.49800109863281" x="443.4980010986328" y="76.0"/>
+          <y:Geometry height="30.0" width="76.49800109863281" x="434.4980010986328" y="76.0"/>
           <y:Fill color="#FF9900" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.37890625" x="-3.9404525756835938" xml:space="preserve" y="5.6494140625">selenium hub<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.37890625" x="0.5595474243164062" xml:space="preserve" y="5.6494140625">selenium hub<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -99,10 +99,10 @@
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
-          <y:Geometry height="30.0" width="67.49800109863281" x="540.9960021972656" y="117.0"/>
+          <y:Geometry height="30.0" width="67.49800109863281" x="347.75" y="122.0"/>
           <y:Fill color="#FF9900" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="33.34375" x="17.077125549316406" xml:space="preserve" y="4.0">safari<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="-0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="37.33984375" x="15.079078674316406" xml:space="preserve" y="5.6494140625">jmeter<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -110,25 +110,14 @@
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
-          <y:Geometry height="30.0" width="67.49800109863281" x="303.0019989013672" y="122.0"/>
-          <y:Fill color="#FF9900" transparent="false"/>
-          <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="37.33984375" x="15.079078674316406" xml:space="preserve" y="5.6494140625">jmeter<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
-        </y:GenericNode>
-      </data>
-    </node>
-    <node id="n9">
-      <data key="d5"/>
-      <data key="d6">
-        <y:GenericNode configuration="BevelNode2">
-          <y:Geometry height="30.0" width="67.49800109863281" x="288.0" y="197.0"/>
+          <y:Geometry height="30.0" width="67.49800109863281" x="295.0" y="189.5"/>
           <y:Fill color="#99CC00" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="38.6875" x="14.405250549316406" xml:space="preserve" y="5.6494140625">zabbix<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n10">
+    <node id="n9">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -139,7 +128,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n11">
+    <node id="n10">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -150,7 +139,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n12">
+    <node id="n11">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode3">
@@ -161,7 +150,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n13">
+    <node id="n12">
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
@@ -180,7 +169,7 @@
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n14">
+    <node id="n13">
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
@@ -199,7 +188,7 @@
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n15">
+    <node id="n14">
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
@@ -212,7 +201,7 @@
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n16">
+    <node id="n15">
       <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
@@ -224,7 +213,7 @@
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n17">
+    <node id="n16">
       <data key="d5"/>
       <data key="d6">
         <y:SVGNode>
@@ -239,7 +228,7 @@
         </y:SVGNode>
       </data>
     </node>
-    <node id="n18">
+    <node id="n17">
       <data key="d5"/>
       <data key="d6">
         <y:SVGNode>
@@ -254,7 +243,7 @@
         </y:SVGNode>
       </data>
     </node>
-    <node id="n19">
+    <node id="n18">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -265,18 +254,18 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n20">
+    <node id="n19">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.sbgn.Phenotype">
-          <y:Geometry height="40.0" width="129.0" x="548.1050987243652" y="177.0"/>
-          <y:Fill color="#FFFFFF" transparent="false"/>
+          <y:Geometry height="40.0" width="129.0" x="554.1050987243652" y="143.0"/>
+          <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="center" visible="true" width="36.666015625" x="46.1669921875" xml:space="preserve" y="10.6494140625">CI/CD<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n21">
+    <node id="n20">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -287,7 +276,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n22">
+    <node id="n21">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -298,7 +287,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n23">
+    <node id="n22">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -309,7 +298,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n24">
+    <node id="n23">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -320,7 +309,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n25">
+    <node id="n24">
       <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="BevelNode2">
@@ -331,7 +320,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <edge id="e0" source="n1" target="n10">
+    <edge id="e0" source="n1" target="n9">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -342,7 +331,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n1" target="n11">
+    <edge id="e1" source="n1" target="n10">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -353,7 +342,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n1" target="n9">
+    <edge id="e2" source="n1" target="n8">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -364,7 +353,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n1" target="n8">
+    <edge id="e3" source="n1" target="n7">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -432,7 +421,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e9" source="n4" target="n7">
+    <edge id="e9" source="n1" target="n11">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -443,18 +432,7 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e10" source="n1" target="n12">
-      <data key="d9"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e11" source="n13" target="n14">
+    <edge id="e10" source="n12" target="n13">
       <data key="d9"/>
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
@@ -464,7 +442,7 @@
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e12" source="n17" target="n18">
+    <edge id="e11" source="n16" target="n17">
       <data key="d9"/>
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
@@ -474,7 +452,7 @@
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e13" source="n0" target="n19">
+    <edge id="e12" source="n0" target="n18">
       <data key="d9"/>
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
@@ -484,7 +462,7 @@
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e14" source="n19" target="n1">
+    <edge id="e13" source="n18" target="n1">
       <data key="d9"/>
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
