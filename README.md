@@ -1,17 +1,22 @@
-# Plateforme CI/CD de type "bac a sable".
-(**Note:** Pour un environnement de production un systeme de PaaS comme Openshift ou Kubernetes est fortement conseille). 
+# Jenkins CI-CD SandBox
 
-Ce repository GitHub contient des fichiers docker-compose YAML 
-qui permettent d'executer la mise en place d'une plateforme de containers
-Docker qui simule un systeme de **Continuous** **Integration** et de **Delivery**. 
+(**Beware:** for a production usage you must set up this project on a Paas such as kubernetes or Openshift). 
 
-![Docker CI Tools](screenshots/new_pic.png)
+This Github Repo contains all relevant files for setting up an entirely CI/CD sandbox.
 
-Cette plateforme est disponible seulement sous Linux. 
+![Docker CI Tools](screenshots/pic.png)
+
+This sandbox is only available on Linux.
+
+## Pre-requisite
+You need a VM  ubuntu 20.04, 16GB of RAM, 6 cores, and 60 GB of SSD.
 
 How to proceed ?  
-First use this file and carry on with:     
-**if you are on Ubuntu 20.04 , read Ubuntu.md file first.**  
+## First install Docker 
+Go to the file UBUNTU.md 
+
+
+ 
  * FIRST_JOBS.md
  * IntellijIDEA.mnd
  * DEPLOYMENT.md
