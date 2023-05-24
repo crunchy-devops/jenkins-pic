@@ -1,5 +1,5 @@
 # First Jobs
-We are going to set up our first jobs    
+We are going to set up our first Jenkins jobs    
 
 ## echo "Test" 
 Go to jenkins dashboard, select New Item 
@@ -23,17 +23,20 @@ Name: Maven 3.6.3
 install automatically from Apache select version 3.6.3  
 Hit apply and save
 
-## Hello world using Maven 
-New Item -> Name Hello-world-maven, select  maven project and ok   
-select git as a source code management   
-in your github tab fork and clone this repo https://github.com/crunchy-devops/hello-world.git
-Copy and paste your own repo hello-world    
+## Petclinic using Maven 
+New Item -> Name petclinic-maven, select  maven project and ok   
+select git as a source code management  
+Replace the git repo with your repo spring-framework-petclinic
+```
+  https://github.com/crunchy-devops/spring-framework-petclinic.git 
+```
+Copy and paste your own repo    
 Build Root POM: pom.xml file     
 Goals are: clean install package   
 Hit apply and save   
 and press Build now 
 
-## Hello world Q/A with Sonar 
+## Petclinic Q/A with Sonar 
 manage jenkins -> manage plugins  tab Available     
 filter sonar and select Sonarqube Scanner  
 and install without restart  
@@ -61,7 +64,7 @@ In the server authentication token select SonarToken
 Press apply and save 
 
 Hit New Item,  enter a name hello-world-sonar  
-copy from hello-world-maven  
+copy from petclinic-maven  
 hit ok  
 Tick in **build environment 'Prepare SonarQube Scanner environment'**      
 Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```      
@@ -69,7 +72,7 @@ Press apply and save
 Hit Build Now  
 
 ### How to check the code quality with Sonar
-Type ```http://<your_ip_address:19000>``` in your browser  
+Type ```http://<your_ip_address:32520>``` in your browser  
 Login using user: admin  password : admin  
 See the result by selecting Projects
   
@@ -79,7 +82,7 @@ See the result by selecting Projects
 ## Deploy your war file to repository Nexus
 ### Configure Nexus
 Open a browser tab :  
-http://<your-ip_address:18081/  
+http://<your-ip_address:32510/  
 get nexus token access     
 ```shell script
 docker exec -i jenkins-pic_nexus_1 cat /nexus-data/admin.password
@@ -89,16 +92,17 @@ Tick enable anonymous access
 Go to the wheel in the menu , select repositories   
 Select maven-releases   
 go to Hosted   
-Set Allow redeploy  # allow the same version to be redeployed 
+Set Allow redeploy  # allow the same version to be redeployed , not set on production environment !!!
 Press Save 
 
 ## Create your Job
-Go to your first hello-world-maven   
+Go to your first petclinic-maven   
 select configure     
 and press post build actions    
 select archive the artifacts, in the text-edit files to archive type ```**/*.war```
 Press apply and save      
-Build now this job again  
+Build this job again
+
 ![build_artifacts](screenshots/build_artifacts.png)
  
 Go to manage jenkins -> Plugin Manager -> Tab available  
@@ -116,31 +120,33 @@ Press Add
 select the credentials in Sonatype Nexus configuration    
 Check with a Test Connection    
 and then click Apply and Save  
-Create a job, hello_world_nexus, and choose freestyle project, click ok  
-Go to Build, select copy artifacts from hello-world-maven   
+
+Create a job, petclinic_nexus, and choose freestyle project, click ok  
+Go to Build, select copy artifacts from petclinic-maven   
 Set artifacts to copy to ```**/*.war ```  
-add an another build step , Nexus Repository Manage Publisher      
+add another build step , Nexus Repository Manage Publisher      
 Nexus instances:  Nexus  
 Nexus Repo: maven-release   
 add Package maven   
 Group and artifact are coming from your project pom.xml  
 Here is :  
-Group: com.example.maven-project
-Artifact: maven-project
-Version: 1.1  
+Group: org.springframework.samples  
+artifact: spring-framework-petclinic  
+Version: 1.0
 Packaging: war  
 Add artifact Path:  
-File Path:  webapp/target/webapp.war  
+File Path: target/petclinic.war 
 Apply and Save  
 Build Now  
 
 ### Find the saved artifact
-And check in Nexus http://<your_ip>:18081/  
-Login admin and xxxxx 
+And check in Nexus http://<your_ip>:32510/  
+Login admin and password xxxxx 
 Select in the left  Repositories, click on release and browser down to find your war file
 
+![nexus](screenshots/nexus_repository.png)
 
-
+## Go to the file DEPLOYMENT.md
 
 
 

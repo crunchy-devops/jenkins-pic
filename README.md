@@ -9,7 +9,7 @@ This Github Repo contains all relevant files for setting up an entirely CI/CD sa
 This sandbox is only available on Linux.
 
 ## Pre-requisite
-You need a VM  ubuntu 20.04, 16GB of RAM, 6 cores, and 60 GB of SSD.
+You need a VM  ubuntu 20.04, 16GB of RAM, 4/6 cores, and 60 GB of SSD.
 
 How to proceed ?  
 ## First install Docker 
@@ -77,13 +77,14 @@ Here is an overview of all tools:
 | SonarQube | http://<vm_ip default>:32520/             | admin/admin |
 | Nexus | http://<vm_ip default>:32510/nexus        | admin/use a token and set your own password |
 | Selenium Grid | http://<vm_ip default>:30044/grid/console | no login required |
- | Jmeter | no required | no login required |
+ | Jmeter | no required                               | no login required |
+ | Portainer | **https**://<vm_ip default>:32126         | enter a password at first log in |
 | Hello-world Test | http://<vm_ip default>:30090/webapp       | no login required |
 | Petclinic-Test | http://<vm_ip default>:30190/petclinic    | no login required |
 
+## Go to FIRST_JOB.md file 
 
 
-* FIRST_JOBS.md
 * IntellijIDEA.mnd
 * DEPLOYMENT.md
 * PIPELINE_SCRIPT.md
