@@ -4,7 +4,7 @@ services:
   grafana:
     image: bitnami/grafana
     ports:
-      - '3000:3000'
+      - '31500:3000'
     environment:
       GF_SECURITY_ADMIN_PASSWORD: "bitnami"
       GF_RENDERING_SERVER_URL: "http://grafana-image-renderer:8080/render"
@@ -12,7 +12,7 @@ services:
   grafana-image-renderer:
     image: bitnami/grafana-image-renderer
     ports:
-      - '8080:8080'
+      - '30080:8080'
     environment:
       HTTP_HOST: "0.0.0.0"
       HTTP_PORT: "8080"
