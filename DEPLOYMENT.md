@@ -3,17 +3,17 @@ Using Docker , the deployment stage is done by a Dockerfile inside the
 git repo itself. This is the part of Devops where the infrastructure is in a code.(IaC)  
 
 ## Create a Docker build job
-Create a job hello_world_docker_build  
+Create a job petclinic_docker_build  
 Go to New Item -> Enter a name -> Freestyle -> ok      
 Source code management  
-Check git, provides the git repo of hello-world  
+Check git, provides the git repo of petclinic  
 Build  
 Select Execute shell and copy/paste the following script   
 In the script, the Nexus war file is injected in a Docker image of Tomcat server  
 ```shell script
-rm -Rf webapp.war
-wget http://nexus:8081/repository/maven-releases/com/example/maven-project/maven-project/1.1/maven-project-1.1.war -O ${WORKSPACE}/webapp.war
-docker build -t hello-world-afip:latest .
+rm -Rf spring-framework-petclinic-1.0.war
+wget http://nexus:8081/repository/maven-releases/org/springframework/samples/spring-framework-petclinic/1.0/spring-framework-petclinic-1.0.war -O ${WORKSPACE}/petclinic.war
+docker build -t petclinic:latest .
 ```
 Build
 And apply and save
@@ -21,23 +21,24 @@ Now we have a complete infrastructure for running our code.
 
 
 ## Run  Docker container as a testing environment 
-Create a job hello_world_docker_run  
+Create a job petclinic_docker_run  
 Go to New Item -> Enter a name -> Freestyle -> ok    
 Source code management  
-You don't need to tick git as the source code is in the docker image  
+You don't need to tick git as the source code is inside the docker image  
 Build  
 Select Execute shell and copy/paste the following code  
 ```shell script
-CONTAINER_NAME="hello-world-run"
+CONTAINER_NAME="web"
 OLD="$(docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
 if [ -n "$OLD" ]; then
   docker rm -f $OLD
 fi
-docker run -d --name hello-world-run -p 18090:8080 hello-world-afip
+docker run -d --name web  -p 30190:8080 petclinic
 ```
 and Build now 
 
 Hit a new tab in your browser and check   
-```http://<ip_address_your_vm>:18090/webapp/```
+```http://<ip_address_your_vm>:30190/petclinic```
 
 
+## Got to file PIPELINE_GUI.md

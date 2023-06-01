@@ -146,7 +146,7 @@ Select in the left  Repositories, click on release and browser down to find your
 
 ![nexus](screenshots/nexus_repository.png)
 
-## Go to the file DEPLOYMENT.md
+## Go to the file JETBRAINS.md
 
 
 

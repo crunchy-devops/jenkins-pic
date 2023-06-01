@@ -13,7 +13,7 @@ You need a VM  ubuntu 20.04, 16GB of RAM, 4/6 cores, and 60 GB of SSD.
 
 How to proceed ?  
 ## First install Docker 
-Go to the file UBUNTU.md 
+**Go to UBUNTU.md file and follows the instructions** 
 
 ### Install portainer 
 ```shell
@@ -23,7 +23,6 @@ docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /
 # log on https://<ip>:32126
 #set a password and activate portainer , ypu should see one container
 ```
-
 
 ### Install docker-compose 
 ```shell script
@@ -41,13 +40,14 @@ Hit the following commands for starting up all containers
 ```shell
 docker-compose build # build all containers 
 docker-compose up -d  # launch all containers
-docker ps # Check, 7 jenkins-pic_xxx containers should be up and running
+docker ps 
+# Check, 7 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Go to jenkins
 Open your Chrome Browser      
 type the URL  http://<your_vm_ip_address>:32500    
-user name is : user   
+username is : user   
 password is : password  
 
 ## Get an API token and set timezone
@@ -72,18 +72,16 @@ Here is an overview of all tools:
 ## Access Tools
 ### With docker containers
 | *Tool* | *Link*                                    | *Credentials* |
-| ------------- |-------------------------------------------| ------------- |
+| --------- |-------------------------------------------| ------------- |
 | Jenkins | http://<vm_ip default>:32500/             | to be defined |
 | SonarQube | http://<vm_ip default>:32520/             | admin/admin |
 | Nexus | http://<vm_ip default>:32510/nexus        | admin/use a token and set your own password |
 | Selenium Grid | http://<vm_ip default>:30044/grid/console | no login required |
  | Jmeter | no required                               | no login required |
  | Portainer | **https**://<vm_ip default>:32126         | enter a password at first log in |
-| Hello-world Test | http://<vm_ip default>:30090/webapp       | no login required |
-| Petclinic-Test | http://<vm_ip default>:30190/petclinic    | no login required |
+| Petclinic | http://<vm_ip default>:30190/petclinic    | no login required |
 
-## Go to FIRST_JOB.md file 
-
+## Go to FIRST_JOB.md file and follow the instructions
 
 * IntellijIDEA.mnd
 * DEPLOYMENT.md

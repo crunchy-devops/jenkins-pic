@@ -1,15 +1,14 @@
-# Set up Jenkins Pipeline by using the graphic interface
- Go to hello_world_maven   
- Go to Post-Build Action   
- Add Post-Build Action   
-select Build other projects and type hello_world_sonar
-Press Apply and save
-Do the same action in 
-hello_world_sonar
-hello_world_nexus
-hello_world_docker_build
-hello_world_docker_run. parallel run hello-world-jmeter, hello-world-selenium
-
+# Set up Jenkins pipeline by using the graphic interface
+ Go to petclinic_maven     
+ Go to Post-Build Action     
+ Add Post-Build Action     
+select Build other projects and type hello_world_sonar  
+Press Apply and save  
+Do the same action in   
+petclinic_sonar  
+prtclinic_nexus  
+petclinic_docker_build
+petclinic_docker_run, eventually for parallel run petclinic-jmeter, petclinic-selenium
 
 
 ## Graphic pipeline 
@@ -17,10 +16,10 @@ Go to  Manage Jenkins ->  Manage Plugin -> Tab available
 Filter Pipeline  select Build Pipeline   
 Press install without restart   
 Go back to the Dashboard  , click on the cross in the tab 
-View name :  hello-world pipeline  
+View name :  petclinic pipeline  
 Check Build Pipeline view   
 Press ok   
-Verify if select initial job is set to  hello-world-maven  
+Verify if select initial job is set to  petclinic-maven  
 See the graph   
 ![jenkins_pipeline](screenshots/pipeline_view.png)
 
@@ -38,21 +37,21 @@ click save
 
 ## Set a github webhook 
 Hit a tab in your browser and go to your personnal github account.   
-Select the hello-world repo   
+Select the petclinic repo   
 Type on settings, it's located on the middle menu on the right side    
 On the left menu select Webhooks   
 click on add webhook  
 Confirm with your password  
 In the page, enter in Payload URL:
 ````shell script
-  http://<jenkins_ip_address>:18080/github-webhook/
+  http://<jenkins_ip_address>:32500/github-webhook/
 ````
 Select for content type :  application/json   
 Press the green button Add webhook  
 Refresh the screen so you can check if the url is ticked in green.  
 
 ## Configure the webhook in Jenkins  
-Go to jenkins and configure hello-world-maven    
+Go to jenkins and configure petclinic-maven    
 in Build Triggers , Check Github hook trigger for GITScm polling 
 Press apply and save  
 
