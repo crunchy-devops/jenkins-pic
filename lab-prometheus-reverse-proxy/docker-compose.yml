@@ -31,7 +31,7 @@ services:
     hostname: node-exporter
     image: bitnami/node-exporter
     ports:
-      - "9100:9100"
+      - "30100:9100"
     networks:
       - webnetwork
 
