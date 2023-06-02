@@ -1,0 +1,13 @@
+upstream prometheus {
+   server host.docker.internal:9090;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name prometheus.crunchydevops.com;
+
+    location / {
+         proxy_pass      http://prometheus;
+    }
+}

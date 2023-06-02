@@ -1,0 +1,70 @@
+version: '3.3'
+
+networks:
+  webnetwork:
+    driver: bridge
+
+volumes:
+  prometheus_data:
+
+
+services:
+  prometheus:
+    hostname: prometheus
+    image: prom/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--web.enable-admin-api"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=1y"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_rules.yml:/etc/prometheus/prometheus_rules.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    links:
+      - node-exporter
+    depends_on:
+      - cadvisor
+    networks:
+      - webnetwork
+  node-exporter:
+    hostname: node-exporter
+    image: bitnami/node-exporter
+    ports:
+      - "9100:9100"
+    networks:
+      - webnetwork
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    depends_on:
+      - redis
+    networks:
+      - webnetwork
+  redis:
+    image: library/redis:latest
+    container_name: redis
+    ports:
+    - 6379:6379
+    networks:
+      - webnetwork
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+    - 3000:3000
+    environment:
+      - "GF_SECURITY_ADMIN_PASSWORD=admin123"
+    networks:
+      - webnetwork
+
