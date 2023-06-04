@@ -28,13 +28,22 @@ scrape_configs:
 
   - job_name: 'data1'
     static_configs:
-      - targets: ['34.163.203.84:30100']
+      - targets: ['34.163.235.17:30100']
   - job_name: "db1"
     static_configs:
-      - targets: [34.163.203.84:30460]
-
-
-
+      - targets: ['34.163.235.17:30460']
+  - job_name: 'data2'
+    static_configs:
+      - targets: ['34.155.122.5:30100']
+  - job_name: "db2"
+    static_configs:
+      - targets: ['34.155.122.5:30460']
+  - job_name: 'data3'
+    static_configs:
+      - targets: [ '34.163.203.84:30100' ]
+  - job_name: "db3"
+    static_configs:
+      - targets: [ '34.163.203.84:30460' ]
 
 
 
