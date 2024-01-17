@@ -31,4 +31,4 @@ quay.io/prometheuscommunity/postgres-exporter
 ## Load values
 docker exec -it --user postgres db1 /bin/bash
 drop table t_random;
-create table t_random as select s, md5(random()::text) from generate_Series(1,500000000) s;
+create table t_random as select s, md5(random()::text) from generate_Series(1,10000000) s;
