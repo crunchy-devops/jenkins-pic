@@ -3,6 +3,8 @@ version: '3.3'
 volumes:
   jmeter_dir:
   jenkins-home:
+  postgresql_data:
+  sonarqube_data:
   #elasticsearch:
   #liquibase_dir:
 
@@ -48,6 +50,21 @@ services:
     - SONAR_PORT=9000
     - SONAR_DB_PORT=5432
 
+ postgresql:
+   hostname: postgresql
+   image: bitnami/postgresql
+   ports:
+     - "32431:5432"
+   environment:
+     - ALLOW_EMPTY_PASSWORD=yes
+     - POSTGRESQL_USERNAME=bn_sonarqube
+     - POSTGRESQL_PASSWORD=bitnami
+     - POSTGRESQL_DATABASE=bitnami_sonarqube
+   volumes:
+     - postgresql_data:/bitnami/postgresql
+   networks:
+     - prodnetwork
+
  sonar:
   hostname: sonar
   #image: systemdevformations/sonar-cicd:v1
@@ -56,26 +73,19 @@ services:
   #image: sonarqube:8.9.7-community
   ports:
    - "32520:9000"
+   - "32521:8443"
    #- "5432:5432"
   networks:
     - prodnetwork
-  #depends_on:
-  #  - sonardb
-  #environment:
-  # - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
-  # - SONARQUBE_JDBC_USERNAME=sonar
-  # - SONARQUBE_JDBC_PASSWORD=sonar
-
- #sonardb:
-  #hostname: sonardb
-  #networks:
-  #  - prodnetwork
-  #image: postgres
-  #environment:
-  # - POSTGRES_USER=sonar
-  # - POSTGRES_PASSWORD=sonar
-  #volumes:
-  #  - /opt/postgres/data:/var/lib/postgresql/data
+  volumes:
+    - sonarqube_data:/bitnami/sonarqube
+  depends_on:
+    - postgresql
+  environment:
+    - ALLOW_EMPTY_PASSWORD=yes
+    - SONARQUBE_DATABASE_USER=bn_sonarqube
+    - SONARQUBE_DATABASE_PASSWORD=bitnami
+    - SONARQUBE_DATABASE_NAME=bitnami_sonarqube
 
  jmeter:
    hostname: jmeter

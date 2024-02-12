@@ -43,6 +43,12 @@ docker-compose up -d  # launch all containers
 docker ps 
 # Check, 7 jenkins-pic_xxx containers should be up and running
 ```
+## Check logs
+for sonarqube  
+Add ```sysctl -w vm.max_map_count=262144 in /etc/sysctl.conf```
+
+
+
 
 ## Go to jenkins
 Open your Chrome Browser      
