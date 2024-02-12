@@ -52,7 +52,8 @@ services:
   hostname: sonar
   #image: systemdevformations/sonar-cicd:v1
   #image: sonarqube
-  image: sonarqube:8.9.7-community
+  image: bitnami/sonarqube
+  #image: sonarqube:8.9.7-community
   ports:
    - "32520:9000"
    #- "5432:5432"
