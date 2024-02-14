@@ -5,6 +5,7 @@ volumes:
   jenkins-home:
   postgresql_data:
   sonarqube_data:
+  nexus_data:
   #elasticsearch:
   #liquibase_dir:
 
@@ -19,8 +20,12 @@ services:
   #build: ./nexus
   ports:
     - "32510:8081"
+    - "20000:20000"
+  volumes:
+    - nexus_data:/nexus-data
   networks:
     - prodnetwork
+
 
  jenkins:
   hostname: jenkins

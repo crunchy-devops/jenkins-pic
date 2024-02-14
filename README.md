@@ -48,8 +48,6 @@ for sonarqube
 Add ```sysctl -w vm.max_map_count=262144 in /etc/sysctl.conf```
 
 
-
-
 ## Go to jenkins
 Open your Chrome Browser      
 type the URL  http://<your_vm_ip_address>:32500    
