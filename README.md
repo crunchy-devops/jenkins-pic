@@ -9,7 +9,7 @@ This Github Repo contains all relevant files for setting up an entirely CI/CD sa
 This sandbox is only available on Linux.
 
 ## Pre-requisite
-You need a VM  ubuntu 20.04, 16GB of RAM, 4/6 cores, and 60 GB of SSD.
+You need a VM  ubuntu 20.04, 16GB of RAM, 4/6 cores, and 70 GB of SSD.
 
 How to proceed ?  
 ## First install Docker 
@@ -49,10 +49,18 @@ Add ```sysctl -w vm.max_map_count=262144 in /etc/sysctl.conf```
 
 
 ## Go to jenkins
+Got to portainer and select jenkins-pic_jenkins_1
+edit /bitnami/jenkins/home/config.xml 
+change the ```<useSecurity>true</useSecurity>```
+to
+```<useSecurity>false</useSecurity>```
+
 Open your Chrome Browser      
 type the URL  http://<your_vm_ip_address>:32500    
-username is : user   
-password is : password  
+Go to people, and delete the current people named user 
+Go to security et select
+![Security](screenshots/security.png)
+Hit save and you got right away the user screen to fill in.
 
 ## Get an API token and set timezone
 click on user in right hand side on a top of a screen  
@@ -65,7 +73,6 @@ Press apply and save
 
 ## Overview
 Here is an overview of all tools:
-- GitLab (optional) is used for storing the Source Code.
 - Github is the well-known website for archiving all your projects.
 - Jenkins contains build job and is triggered once projects in GitHub are updated.
 - As part of the CI build, Jenkins triggers a static code analysis and the results are stored in SonarQube.
