@@ -1,6 +1,6 @@
 ---
 - name: Install Docker on Ubuntu
-  hosts: all
+  hosts: local
   become: true
   tasks:
     - name: update all packages

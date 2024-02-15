@@ -21,15 +21,15 @@ docker volume create portainer_data
 docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock \
  -v portainer_data:/data portainer/portainer-ce:latest
 # log on https://<ip>:32126
-#set a password and activate portainer , ypu should see one container
+#set a password and activate portainer , you should see one container
 ```
 
 ### Install docker-compose 
 ```shell script
   cd jenkins-pic
   source venv/bin/activate
-  pip3 install docker-compose # pip lib for docker-compose
-  pip3 install docker # pip lib for docker 
+  pip3 install docker==6.1.3
+  pip3 install docker-compose # pip lib for docker-compose 
   docker-compose --version  # check should be version 1.29.+
 ```
 I am using lts jenkins version, for persistence the jenkins home is mapped to a docker volume   
