@@ -110,12 +110,16 @@ Build this job again
 
 ![build_artifacts](screenshots/build_artifacts.png)
  
-Go to manage jenkins -> Plugin Manager -> Tab available  
-Filter copy artifact, check and  
-Filter Nexus, select Nexus Platform,  tick the checkbox        
-install without restart  
+Go to manage jenkins -> Plugin Manager   
+Filter copy artifact, check and    
+go to https://help.sonatype.com/en/download-and-compatibility.html
+download
+https://download.sonatype.com/integrations/jenkins/nexus-jenkins-plugin-3.19.2-01.hpi
+Go to manage jenkins -> Plugin Manager   
+select Advanced Setting and go deploy plugin and choose file
+hit deploy
 Go to manage jenkins ->configure system  
-find Sonatype Nexus  
+find Sonatype Nexus  add nexus repo ... 
 Select 3.x Server   
 Display Name :  Nexus  
 Server ID :  Nexus  
