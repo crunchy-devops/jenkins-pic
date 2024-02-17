@@ -17,19 +17,20 @@ Start with your mouse over Thread Group and right click on it.
 menu Add -> Listener->  View Results Tree  
 
 Click on Response Assertion  
-In Pattern to Test  click Add and enter AFIP   
+In Pattern to Test  click Add and enter bonjour  
 Click on HTTP Request  
 In Server Name or IP: < vm_ip_address>   
-Port Number : 8090  
-Path: /webapp  
+Port Number : 30190 
+Path: /petclinic
 Click on View Results Tree   
+Save this file to your project directory
 and press the green triangle in the menu bar   
 
 Add the JMeter global variables in the test plan screen    
 Click on Add , click on the left part of the line, type IP  
 in right part of a line type ${__P(IP,<our_ip>)}  
 Click again on Add, click on the left part of the line, type PORT  
-in right part of a line type ${__P(PORT,8090)}  
+in right part of a line type ${__P(PORT,30190)}  
 
 ![Jmeter_TestPlan_variables](screenshots/test_plan_variables.png)
 
@@ -47,11 +48,11 @@ Save this test plan in your github repo project, it's jmx file
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
 Check and install without restart 
 
-go to new Item  type hello_world_jmeter 
-copy from  hello_world_docker_build 
+go to new Item  type petclinic_jmeter 
+copy from  petclinic_docker_build 
 Remove all code in Build  Execute build and copy/paste
 ```shell script 
-jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t jmeter_test_plan.jmx  -l testresult.jlt
+jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
 ```
 
 ### Add a Post-build actions    
@@ -62,7 +63,6 @@ Tick Use project rule
 Path to rule file in workspace :  parserules    
 Apply and save
 
-## PART FOR THE PETCLINIC PROJECT
 ### Recording a test plan for Petclinic website
 Install Firefox and setup the add-on named FoxyProxy  
 In foxyproxy added a proxy  

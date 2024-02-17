@@ -30,7 +30,7 @@ docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /
   source venv/bin/activate
   pip3 install docker==6.1.3
   pip3 install docker-compose # pip lib for docker-compose 
-  docker-compose --version  # check should be version 1.29.+
+  docker-compose --version  # check should be version 1.29.2
 ```
 I am using lts jenkins version, for persistence the jenkins home is mapped to a docker volume   
 Edit and analyse the docker-compose file and see the usage of volumes, services and network  
@@ -41,11 +41,11 @@ Hit the following commands for starting up all containers
 docker-compose build # build all containers 
 docker-compose up -d  # launch all containers
 docker ps 
-# Check, 7 jenkins-pic_xxx containers should be up and running
+# Check, 8 jenkins-pic_xxx containers should be up and running
 ```
-## Check logs
+## Troubleshooting Sonarqube container
 for sonarqube  
-Add ```sysctl -w vm.max_map_count=262144 in /etc/sysctl.conf```
+Add ```sudo sysctl -w vm.max_map_count=262144``` in /etc/sysctl.conf
 
 
 ## Go to jenkins
@@ -54,7 +54,7 @@ edit /bitnami/jenkins/home/config.xml
 change the ```<useSecurity>true</useSecurity>```
 to
 ```<useSecurity>false</useSecurity>```
-
+restart the container
 Open your Chrome Browser      
 type the URL  http://<your_vm_ip_address>:32500    
 Go to people, and delete the current people named user 

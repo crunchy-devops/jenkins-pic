@@ -17,6 +17,11 @@ docker build -t petclinic:latest .
 ```
 Build
 And apply and save
+
+### Toubleshooting 
+Add sudo package 
+Add jenkins user in visudo 
+
 Now we have a complete infrastructure for running our code.
 
 
@@ -29,16 +34,19 @@ Build
 Select Execute shell and copy/paste the following code  
 ```shell script
 CONTAINER_NAME="web"
-OLD="$(docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
+OLD="$(sudo docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
 if [ -n "$OLD" ]; then
-  docker rm -f $OLD
+  sudo docker rm -f $OLD
 fi
-docker run -d --name web  -p 30190:8080 petclinic
+sudo docker run -d --name web -p 30190:8080 petclinic
 ```
 and Build now 
 
 Hit a new tab in your browser and check   
 ```http://<ip_address_your_vm>:30190/petclinic```
+
+### Troubelshooting 
+Add environment variable for tomcat-9 bitnami container , see docker logs file
 
 
 ## Got to file PIPELINE_GUI.md
