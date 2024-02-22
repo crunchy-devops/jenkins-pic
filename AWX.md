@@ -9,11 +9,11 @@ python3 -m venv venv   # python virtualenv
 source venv/bin/activate  # set the new environment 
 pip3 install wheel   # permission
 pip3 install requests  # internal 
-pip3 install docker   # docker python lib
+pip3 install docker==6.1.3   # docker python lib
 pip3 install docker-compose # docker script
 pip3 install ansible  # provisioning tool
 cd installer #  
-# open a file vars.yml and copy and paste these 3 following lines
+# create a file vars.yml and copy and paste these 3 following lines
 admin_password: 'adminpass'
 pg_password: 'pgpass'
 secret_key: 'mysupersecret'

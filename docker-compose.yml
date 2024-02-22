@@ -107,7 +107,8 @@ services:
 # Add the `-d` flag at the end for detached execution
 # To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
  chrome:
-   image: selenium/node-chrome:4.5.0-20221004
+   #image: selenium/node-chrome:4.5.0-20221004
+   image: selenium/node-chrome:120.0-20240123
    shm_size: 2gb
    depends_on:
      - selenium-hub
@@ -119,7 +120,8 @@ services:
      - prodnetwork
 
  firefox:
-   image: selenium/node-firefox:4.5.0-20221004
+   #image: selenium/node-firefox:4.5.0-20221004
+   image: selenium/node-firefox:122.0
    shm_size: 2gb
    depends_on:
      - selenium-hub
