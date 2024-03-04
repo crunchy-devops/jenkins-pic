@@ -43,24 +43,33 @@ docker-compose up -d  # launch all containers
 docker ps 
 # Check, 8 jenkins-pic_xxx containers should be up and running
 ```
+
 ## Troubleshooting Sonarqube container
 for sonarqube  
-Add ```sudo sysctl -w vm.max_map_count=262144``` in /etc/sysctl.conf
+Add ```sudo sysctl -w vm.max_map_count=262144```   
+or  
+add this line   
+```vm.max_map_count=262144```  
+in /etc/sysctl.conf  
+and run   
+```sudo sysctl -p ```  
+to reload configuration with new value
 
 
-## Go to jenkins
-Got to portainer and select jenkins-pic_jenkins_1
-edit /bitnami/jenkins/home/config.xml 
-change the ```<useSecurity>true</useSecurity>```
-to
-```<useSecurity>false</useSecurity>```
-restart the container
-Open your Chrome Browser      
-type the URL  http://<your_vm_ip_address>:32500    
-Go to people, and delete the current people named user 
-Go to security et select
-![Security](screenshots/security.png)
-Hit save and you got right away the user screen to fill in.
+## Recreate the main user 
+Go to jenkins  
+Got to portainer and select jenkins-pic_jenkins_1  
+edit /bitnami/jenkins/home/config.xml   
+change the ```<useSecurity>true</useSecurity>```  
+to  
+```<useSecurity>false</useSecurity>```  
+restart the container  
+Open your Chrome Browser        
+type the URL  http://<your_vm_ip_address>:32500      
+Go to people, and delete the current people named user   
+Go to security et select  
+![Security](screenshots/security.png)  
+Hit save and you got right away the user screen to fill in.  
 
 ## Get an API token and set timezone
 click on user in right hand side on a top of a screen  
