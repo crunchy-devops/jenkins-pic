@@ -42,7 +42,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-      - jenkins-home:/bitnami/jenkins
+      - jenkins-home:/var/jenkins_home
       - jmeter_dir:/jmeter
       #- liquibase_dir:/liquibase
     depends_on:

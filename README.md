@@ -114,3 +114,18 @@ Here is an overview of all tools:
 * PIPELINE_GUI.md
 
 Optional: DOCKER.md 
+
+==== clean up ====
+docker system prune --all --volumes
+docker rm -f $(docker ps -aq)
+docker rmi -f $(docker images -aq)
+docker volume rm $(docker volume ls -q)
+
+=== remove docker =======
+sudo systemctl stop docker
+sudo apt-get purge docker-ce -y
+sudo apt-get autoremove --purge docker-ce -y
+sudo groupdel docker
+sudo rm -rf /var/lib/docker
+sudo rm -rf /etc/docker
+
