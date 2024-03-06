@@ -13,7 +13,9 @@ You need a VM  ubuntu 20.04, 16GB of RAM, 4/6 cores, and 70 GB of SSD.
 
 How to proceed ?  
 ## First install Docker 
-**Go to UBUNTU.md file and follows the instructions** 
+sudo apt-get update  # update repo ref
+sudo apt install -y python3.8-venv docker.io python3-pip  # install docker ce package
+sudo usermod -aG docker $USER
 
 ### Install portainer 
 ```shell

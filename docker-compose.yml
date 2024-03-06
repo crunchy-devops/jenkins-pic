@@ -3,8 +3,10 @@ version: '3.3'
 volumes:
   jmeter_dir:
   jenkins-home:
-  postgresql_data:
+  postgresql_data1:
   sonarqube_data:
+  sonarqube_logs:
+  sonarqube_ext:
   nexus_data:
   #elasticsearch:
   #liquibase_dir:
@@ -14,132 +16,112 @@ networks:
     driver: bridge
 
 services:
- nexus:
-  hostname: nexus
-  image: sonatype/nexus3
-  #build: ./nexus
-  ports:
-    - "32510:8081"
-    - "20000:20000"
-  volumes:
-    - nexus_data:/nexus-data
-  networks:
-    - prodnetwork
+  nexus:
+    hostname: nexus
+    image: sonatype/nexus3
+    #build: ./nexus
+    ports:
+      - "32510:8081"
+      - "20000:20000"
+    volumes:
+      - nexus_data:/nexus-data
+    networks:
+      - prodnetwork
 
 
- jenkins:
-  hostname: jenkins
-  ##image: bitnami/jenkins
-  #image: systemdevformations/jenkins-sonar:v3
-  build: ./jenkins
-  ports:
-    - "32500:8080"
-    - "32501:50000"
-  networks:
-    - prodnetwork
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - /usr/bin/docker:/usr/bin/docker
-    - jenkins-home:/bitnami/jenkins
-    - jmeter_dir:/jmeter
-    #- liquibase_dir:/liquibase
-  depends_on:
-    - nexus
-    - sonar
-    - jmeter
-    #- liquibase
-    #- gitlab-ce
-  environment:
-    - JENKINS_PASSWORD=password
-    - NEXUS_PORT=8081
-    - SONAR_PORT=9000
-    - SONAR_DB_PORT=5432
+  jenkins:
+    hostname: jenkins
+    ##image: bitnami/jenkins
+    #image: systemdevformations/jenkins-sonar:v3
+    build: ./jenkins
+    ports:
+      - "32500:8080"
+      - "32501:50000"
+    networks:
+      - prodnetwork
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+      - jenkins-home:/bitnami/jenkins
+      - jmeter_dir:/jmeter
+      #- liquibase_dir:/liquibase
+    depends_on:
+      - nexus
+      - sonar
+      - jmeter
+      #- liquibase
+      #- gitlab-ce
+    environment:
+      - JENKINS_PASSWORD=password
+      - NEXUS_PORT=8081
+      - SONAR_PORT=9000
+      - SONAR_DB_PORT=5432
 
- postgresql:
-   hostname: postgresql
-   image: bitnami/postgresql
-   ports:
-     - "32431:5432"
-   environment:
-     - ALLOW_EMPTY_PASSWORD=yes
-     - POSTGRESQL_USERNAME=bn_sonarqube
-     - POSTGRESQL_PASSWORD=bitnami
-     - POSTGRESQL_DATABASE=bitnami_sonarqube
-   volumes:
-     - postgresql_data:/bitnami/postgresql
-   networks:
-     - prodnetwork
+  sonar:
+    hostname: sonar
+    #image: systemdevformations/sonar-cicd:v1
+    #image: sonarqube
+    #image: bitnami/sonarqube
+    image: sonarqube:community
+    #image:  sonarqubecommunitybranch/sonarqube-with-community-branch-plugin:9.9-community
+    ports:
+      - "32520:9000"
+      - "32521:8443"
+      #- "5432:5432"
+    networks:
+      - prodnetwork
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_ext:/opt/sonarqube/extensions
 
- sonar:
-  hostname: sonar
-  #image: systemdevformations/sonar-cicd:v1
-  #image: sonarqube
-  image: bitnami/sonarqube
-  #image: sonarqube:8.9.7-community
-  ports:
-   - "32520:9000"
-   - "32521:8443"
-   #- "5432:5432"
-  networks:
-    - prodnetwork
-  volumes:
-    - sonarqube_data:/bitnami/sonarqube
-  depends_on:
-    - postgresql
-  environment:
-    - ALLOW_EMPTY_PASSWORD=yes
-    - SONARQUBE_DATABASE_USER=bn_sonarqube
-    - SONARQUBE_DATABASE_PASSWORD=bitnami
-    - SONARQUBE_DATABASE_NAME=bitnami_sonarqube
+  jmeter:
+    hostname: jmeter
+    build: ./jmeter
+    command: tail -f /dev/null
+    networks:
+      - prodnetwork
+    volumes:
+      - jmeter_dir:/jmeter
+      - /opt/jmeter/results:/results
+      - /opt/jmeter/scripts:/scripts
 
- jmeter:
-   hostname: jmeter
-   build: ./jmeter
-   command: tail -f /dev/null
-   networks:
-     - prodnetwork
-   volumes:
-     - jmeter_dir:/jmeter
-     - /opt/jmeter/results:/results
-     - /opt/jmeter/scripts:/scripts
+  # To execute this docker-compose yml file use `docker-compose -f docker-compose-v3.yml up`
+  # Add the `-d` flag at the end for detached execution
+  # To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
+  chrome:
+    #image: selenium/node-chrome:4.5.0-20221004
+    image: selenium/node-chrome:120.0-20240123
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - prodnetwork
 
-# To execute this docker-compose yml file use `docker-compose -f docker-compose-v3.yml up`
-# Add the `-d` flag at the end for detached execution
-# To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
- chrome:
-   #image: selenium/node-chrome:4.5.0-20221004
-   image: selenium/node-chrome:120.0-20240123
-   shm_size: 2gb
-   depends_on:
-     - selenium-hub
-   environment:
-     - SE_EVENT_BUS_HOST=selenium-hub
-     - SE_EVENT_BUS_PUBLISH_PORT=4442
-     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-   networks:
-     - prodnetwork
+  firefox:
+    #image: selenium/node-firefox:4.5.0-20221004
+    image: selenium/node-firefox:122.0
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - prodnetwork
 
- firefox:
-   #image: selenium/node-firefox:4.5.0-20221004
-   image: selenium/node-firefox:122.0
-   shm_size: 2gb
-   depends_on:
-     - selenium-hub
-   environment:
-     - SE_EVENT_BUS_HOST=selenium-hub
-     - SE_EVENT_BUS_PUBLISH_PORT=4442
-     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-   networks:
-     - prodnetwork
 
-       
- selenium-hub:
-   image: selenium/hub:4.5.0-20221004
-   container_name: selenium-hub
-   ports:
-     - "30042:4442"
-     - "30043:4443"
-     - "30044:4444"
-   networks:
-     - prodnetwork
-
+  selenium-hub:
+    image: selenium/hub:4.5.0-20221004
+    container_name: selenium-hub
+    ports:
+      - "30042:4442"
+      - "30043:4443"
+      - "30044:4444"
+    networks:
+      - prodnetwork
