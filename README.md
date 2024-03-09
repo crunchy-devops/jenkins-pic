@@ -13,7 +13,7 @@ You need a VM  ubuntu 22.04, 16GB of RAM, 2/4 cores, and 40 GB of SSD.
 
 How to proceed ?  
 ## First install Docker 
-Go to ubuntu.md markdown file and follow the instructions
+Go to **UBUNTU.md** markdown file and follow the instructions.
 
 ### Install portainer for managing containers
 ```shell
@@ -33,7 +33,7 @@ Set a password and activate portainer , you should see one container
   docker-compose --version  # check should be version 1.29.2
 ```
 I am using bitnami/version, for persistence the jenkins home is mapped to a docker volume  
-Edit and analyse the docker-compose file and see the usage of volumes, services and network  
+Edit and analyse the docker-compose file and see the usage of volumes, services and network. 
 
 ## Launch all containers
 Hit the following commands for starting up all containers
@@ -48,12 +48,11 @@ docker ps
 Go to portainer  
 Select the container jenkins-pic_jenkins_1  
 Open a console on it   
-type ```docker ps``` , you should see all running containers on your vm 
+type ```docker ps``` , you should see all running containers on your vm   
 type ```jmeter --version``` , you should see jmeter prompt
 
-
 ## Troubleshooting Sonarqube container
-for sonarqube  
+On the vm for fixing the sonarqube container  
 Add ```sudo sysctl -w vm.max_map_count=262144```   
 or  
 add this line   
@@ -61,23 +60,26 @@ add this line
 in /etc/sysctl.conf  
 and run   
 ```sudo sysctl -p ```  
-to reload configuration with new value
+to reload configuration with this new value
+go to portainer and restart the container jenkins-pic_sonar_1
 
 
-## Recreate the main user 
+## As bitnami jenkins is secure you must recreate the admin user 
 Go to jenkins  
 Got to portainer and select jenkins-pic_jenkins_1  
 edit /bitnami/jenkins/home/config.xml   
 change the ```<useSecurity>true</useSecurity>```  
 to  
 ```<useSecurity>false</useSecurity>```  
-restart the container  
+restart the container jenkins-pic_jenkins_1
 Open your Chrome Browser        
 type the URL  http://<your_vm_ip_address>:32500      
 Go to people, and delete the current people named user   
-Go to security et select  
+Go to Manage Jenkins, choose Security , see the image below  
+
 ![Security](screenshots/security.png)  
-Hit save and you got right away the user screen to fill in.  
+
+Hit save and you go right away the user screen to fill in.  
 
 ## Get an API token and set timezone
 click on user in right hand side on a top of a screen  
@@ -113,13 +115,14 @@ Here is an overview of all tools:
 
 * FIRST_JOB.md 
 * DEPLOYMENT.md
-* 
-* PIPELINE_SCRIPT.md
+* JETBRAINS.md
 * AWX.md
 * JMETER.md
 * SELENIUM.md
+* AWX.md
+* NEXUS_DOCKER_REGISTRY.md
 * PIPELINE_GUI.md
-
+* PIPELINE_SCRIPT.md
 
 ## Caveats ( some maintenance commands)
 ==== clean up all ====  
