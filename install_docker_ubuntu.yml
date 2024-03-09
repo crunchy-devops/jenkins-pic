@@ -12,21 +12,20 @@
           - apt-transport-https
           - ca-certificates
           - curl
-          - gnupg-agent
           - software-properties-common
     - name: Add official GPG key
-      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    - name: add specified repository into source list
-      shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    - name: add specified repo
+      shell: echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     - name: update all packages
       apt:
         update_cache: yes
+    - name: use docker repo
+      shell: apt-cache policy docker-ce
     - name: install docker packages
       apt:
         pkg:
           - docker-ce
-          - docker-ce-cli
-          - containerd.io
     - name: Set current user to docker group
       command: usermod -aG docker {{ ansible_user }}
 

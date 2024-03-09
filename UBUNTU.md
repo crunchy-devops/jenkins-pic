@@ -22,23 +22,15 @@ pip3 install wheel  # set for permissions purpose
 pip3 install --upgrade pip # update pip3
 pip3 install ansible # install ansible 
 pip3 install requests # extra packages
-ansible --version # check the version number # should be the latest 2.13.13
+ansible --version # check the version number # should be the latest 2.16.4
 ansible-playbook -i inventory_for_ubuntu install_docker_ubuntu.yml 
-# run the playbook for installing docker
-# close all windows of your IDE and start again 
+```
+
+### Close all windows of your IDE and start again
+```
 cd
 cd jenkins-pic
 source venv/bin/activate
-docker ps 
+docker --version  # should be version 25.0.x
+docker ps
 ```
-
-## If you are infected so eviction of Kinsing Malware
-```shell
-sudo apt update   # update packages
-sudo apt install -y firewalld
-git clone   https://github.com/<votre repo>/jenkins-pic.git
-cd jenkins-pic
-chmod +x evict_malware.sh
-nohup ./evict_malware.sh &
-```
- 
