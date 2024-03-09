@@ -9,34 +9,31 @@ This Github Repo contains all relevant files for setting up an entirely CI/CD sa
 This sandbox is only available on Linux.
 
 ## Pre-requisite
-You need a VM  ubuntu 20.04, 16GB of RAM, 4/6 cores, and 70 GB of SSD.
+You need a VM  ubuntu 22.04, 16GB of RAM, 2/4 cores, and 40 GB of SSD.
 
 How to proceed ?  
 ## First install Docker 
-sudo apt-get update  # update repo ref
-sudo apt install -y python3.8-venv docker.io python3-pip  # install docker ce package
-sudo usermod -aG docker $USER
+Go to ubuntu.md markdown file and follow the instructions
 
-### Install portainer 
+### Install portainer for managing containers
 ```shell
 docker volume create portainer_data
 docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock \
  -v portainer_data:/data portainer/portainer-ce:latest
-# log on https://<ip>:32126
-#set a password and activate portainer , you should see one container
-```
+``` 
+Rapidly (there is a timeout), log on **https://<ip_address>:32126**    
+Set a password and activate portainer , you should see one container
 
 ### Install docker-compose 
 ```shell script
   cd jenkins-pic
-  python3 -m venv venv
-  source venv/bin/activate
+  pip install pyyaml==5.3.1
   pip3 install docker==6.1.3
   pip3 install docker-compose # pip lib for docker-compose 
   docker-compose --version  # check should be version 1.29.2
 ```
-I am using lts jenkins version, for persistence the jenkins home is mapped to a docker volume   
-Edit and analyslle the docker-compose file and see the usage of volumes, services and network  
+I am using bitnami/version, for persistence the jenkins home is mapped to a docker volume  
+Edit and analyse the docker-compose file and see the usage of volumes, services and network  
 
 ## Launch all containers
 Hit the following commands for starting up all containers
@@ -46,6 +43,14 @@ docker-compose up -d  # launch all containers
 docker ps 
 # Check, 8 jenkins-pic_xxx containers should be up and running
 ```
+
+## Sanity Test of Jenkins container 
+Go to portainer  
+Select the container jenkins-pic_jenkins_1  
+Open a console on it   
+type ```docker ps``` , you should see all running containers on your vm 
+type ```jmeter --version``` , you should see jmeter prompt
+
 
 ## Troubleshooting Sonarqube container
 for sonarqube  
@@ -104,25 +109,27 @@ Here is an overview of all tools:
  | Portainer | **https**://<vm_ip default>:32126         | enter a password at first log in |
 | Petclinic | http://<vm_ip default>:30190/petclinic    | no login required |
 
-## Go to FIRST_JOB.md file and follow the instructions
+## See more MarkDown files with instructions
 
-* IntellijIDEA.mnd
+* FIRST_JOB.md 
 * DEPLOYMENT.md
+* 
 * PIPELINE_SCRIPT.md
 * AWX.md
 * JMETER.md
 * SELENIUM.md
 * PIPELINE_GUI.md
 
-Optional: DOCKER.md 
 
-==== clean up ====
+## Caveats ( some maintenance commands)
+==== clean up all ====  
+```
 docker system prune --all --volumes
 docker rm -f $(docker ps -aq)
 docker rmi -f $(docker images -aq)
 docker volume rm $(docker volume ls -q)
 
-=== remove docker =======
+=== remove docker daemon =======
 sudo systemctl stop docker
 sudo apt-get purge docker-ce -y
 sudo apt-get autoremove --purge docker-ce -y
@@ -130,5 +137,6 @@ sudo groupdel docker
 sudo rm -rf /var/lib/docker
 sudo rm -rf /etc/docker
 
-=== dind === 
+===  example of Docker dind === 
 docker run -d --name test-dind --privileged -p 31999:2376 docker:dind
+```

@@ -14,7 +14,7 @@
 ### install this repo and docker    
 ```shell script
 cd   # go back the home directory
-git clone  https://github.com/crunchy-devops/jenkins-pic.git  # copy the project 
+git clone   https://github.com/<your_github_account>/jenkins-pic.git  # copy the project 
 cd jenkins-pic   # change directory to hte project jenkins-pic
 python3 -m venv venv  # set up the module venv in the directory venv
 source venv/bin/activate  # activate the virtualenv python

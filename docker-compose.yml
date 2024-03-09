@@ -3,10 +3,8 @@ version: '3.3'
 volumes:
   jmeter_dir:
   jenkins-home:
-  postgresql_data1:
+  postgresql_data:
   sonarqube_data:
-  sonarqube_logs:
-  sonarqube_ext:
   nexus_data:
   #elasticsearch:
   #liquibase_dir:
@@ -42,7 +40,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-      - jenkins-home:/var/jenkins_home
+      - jenkins-home:/bitnami/jenkins
       - jmeter_dir:/jmeter
       #- liquibase_dir:/liquibase
     depends_on:
@@ -57,13 +55,27 @@ services:
       - SONAR_PORT=9000
       - SONAR_DB_PORT=5432
 
+  postgresql:
+    hostname: postgresql
+    image: bitnami/postgresql
+    ports:
+      - "32431:5432"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRESQL_USERNAME=bn_sonarqube
+      - POSTGRESQL_PASSWORD=bitnami
+      - POSTGRESQL_DATABASE=bitnami_sonarqube
+    volumes:
+      - postgresql_data:/bitnami/postgresql
+    networks:
+      - prodnetwork
+
   sonar:
     hostname: sonar
     #image: systemdevformations/sonar-cicd:v1
     #image: sonarqube
-    #image: bitnami/sonarqube
-    image: sonarqube:community
-    #image:  sonarqubecommunitybranch/sonarqube-with-community-branch-plugin:9.9-community
+    image: bitnami/sonarqube
+    #image: sonarqube:8.9.7-community
     ports:
       - "32520:9000"
       - "32521:8443"
@@ -71,9 +83,14 @@ services:
     networks:
       - prodnetwork
     volumes:
-      - sonarqube_data:/opt/sonarqube/data
-      - sonarqube_logs:/opt/sonarqube/logs
-      - sonarqube_ext:/opt/sonarqube/extensions
+      - sonarqube_data:/bitnami/sonarqube
+    depends_on:
+      - postgresql
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - SONARQUBE_DATABASE_USER=bn_sonarqube
+      - SONARQUBE_DATABASE_PASSWORD=bitnami
+      - SONARQUBE_DATABASE_NAME=bitnami_sonarqube
 
   jmeter:
     hostname: jmeter
@@ -126,11 +143,3 @@ services:
     networks:
       - prodnetwork
 
-  docker-test:
-    image: docker-alpine
-    container_name: dind
-    networks:
-      - prodnetwork
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: tail -f /dev/null
