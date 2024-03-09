@@ -34,11 +34,11 @@ Build
 Select Execute shell and copy/paste the following code  
 ```shell script
 CONTAINER_NAME="web"
-OLD="$(sudo docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
+OLD="$(docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
 if [ -n "$OLD" ]; then
-  sudo docker rm -f $OLD
+  docker rm -f $OLD
 fi
-sudo docker run -d --name web  -p 30190:8080 petclinic
+docker run -d --name web -e  ALLOW_EMPTY_PASSWORD=yes -p 30190:8080 petclinic
 ```
 and Build now 
 
