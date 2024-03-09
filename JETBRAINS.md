@@ -3,31 +3,25 @@ Set up your workspace environnement using JetBrains
 You should use Goland Jetbrains   
 
 Download the package from   
-https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows
+https://www.jetbrains.com/go/download/download-thanks.html
 
 ## In the IDE 
 Go to File -> Settings  -> Plugins 
 and install Jenkins Control Plugin 
 Restart Goland 
-You got a right-hand side tab named Jenkins   
-Click on the wrench to get the configuration dialog window
-Fill Server Address, username, passwords, crumb data , jenkins version ver 2.x
-Tick use green color....
-![Jenkins_config](screenshots/jenkins_config_plugin.png)
-### API token  
-go to 
-Copy in crumb data the API token previously saved in your notepad. 
+You got a right-hand side vertical bar tab named Jenkins   
+Select the flat key of 15 in the menu bar 
+Select Jenkins Server Settings... 
+Fill Server Address, username, passwords, crumb server adress url http://170.75.167.89:32500/
+Enter the token previously saved in your notepad
 
-## Remove CSRF failed check message
+## Eventually troubleshooting
 Go to Manage Jenkins -> Script console and run the following groovy script.
 ```groovy
 import jenkins.model.Jenkins
 def instance = Jenkins.instance
 instance.setCrumbIssuer(null)
 ```
-Result  
-
-![Jenkins_screen](screenshots/jenkins_intellij_screen.png)
 
 ## Troubleshooting   
 if you have a message URL is mal/formed   
