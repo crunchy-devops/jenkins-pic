@@ -12,8 +12,9 @@ Restart Goland
 You got a right-hand side vertical bar tab named Jenkins   
 Select the flat key of 15 in the menu bar 
 Select Jenkins Server Settings... 
-Fill Server Address, username, passwords, crumb server adress url http://170.75.167.89:32500/
+Fill Server Address, username, Token, http://<ip>:32500/
 Enter the token previously saved in your notepad
+Test connection 
 
 ## Eventually troubleshooting
 Go to Manage Jenkins -> Script console and run the following groovy script.
@@ -23,7 +24,7 @@ def instance = Jenkins.instance
 instance.setCrumbIssuer(null)
 ```
 
-## Troubleshooting   
+## Eventually troubleshootingTroubleshooting   
 if you have a message URL is mal/formed   
 Go to Jenkins -> manage Jenkins-> Configuration system  
 Go to Jenkins Location   
