@@ -29,13 +29,14 @@ docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /
 ### Install docker-compose 
 ```shell script
   cd jenkins-pic
+  python3 -m venv venv
   source venv/bin/activate
   pip3 install docker==6.1.3
   pip3 install docker-compose # pip lib for docker-compose 
   docker-compose --version  # check should be version 1.29.2
 ```
 I am using lts jenkins version, for persistence the jenkins home is mapped to a docker volume   
-Edit and analyse the docker-compose file and see the usage of volumes, services and network  
+Edit and analyslle the docker-compose file and see the usage of volumes, services and network  
 
 ## Launch all containers
 Hit the following commands for starting up all containers
@@ -129,3 +130,5 @@ sudo groupdel docker
 sudo rm -rf /var/lib/docker
 sudo rm -rf /etc/docker
 
+=== dind === 
+docker run -d --name test-dind --privileged -p 31999:2376 docker:dind

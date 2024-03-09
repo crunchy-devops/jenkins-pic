@@ -125,3 +125,12 @@ services:
       - "30044:4444"
     networks:
       - prodnetwork
+
+  docker-test:
+    image: docker-alpine
+    container_name: dind
+    networks:
+      - prodnetwork
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: tail -f /dev/null

@@ -38,7 +38,7 @@ OLD="$(sudo docker ps --all --quiet --filter=name="$CONTAINER_NAME")"
 if [ -n "$OLD" ]; then
   sudo docker rm -f $OLD
 fi
-sudo docker run -d --name web -p 30190:8080 petclinic
+sudo docker run -d --name web  -p 30190:8080 petclinic
 ```
 and Build now 
 

@@ -145,4 +145,7 @@ Press apply and save
 
 ![Jenkins_perf](screenshots/performance_trend.png)  
 
-
+## Enter a value
+```asciidoc
+jmeter -JPORT=30191 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
+```
