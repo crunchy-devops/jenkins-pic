@@ -9,9 +9,9 @@ This Github Repo contains all relevant files for setting up an entirely CI/CD sa
 This sandbox is only available on Linux.
 
 ## Pre-requisite
-You need a VM  ubuntu 22.04, 16GB of RAM, 2/4 cores, and 40 GB of SSD.
+You need a server/VM  **Ubuntu 22.04, 16GB of RAM, 2/4 cores, and 40 GB of SSD.**
 
-How to proceed ?  
+# How to proceed ?  
 ## First install Docker 
 Go to **UBUNTU.md** markdown file and follow the instructions.
 
@@ -44,12 +44,12 @@ docker ps
 # Check, 8 jenkins-pic_xxx containers should be up and running
 ```
 
-## Sanity Test of Jenkins container 
+## Sanity Tests of Jenkins container 
 Go to portainer  
 Select the container jenkins-pic_jenkins_1  
 Open a console on it   
-type ```docker ps``` , you should see all running containers on your vm   
-type ```jmeter --version``` , you should see jmeter prompt
+type ```docker ps``` , you should see all containers running on your vm   
+type ```jmeter --version``` , you should see jmeter prompt characters
 
 ## Troubleshooting Sonarqube container
 On the vm for fixing the sonarqube container  
@@ -61,10 +61,10 @@ in /etc/sysctl.conf
 and run   
 ```sudo sysctl -p ```  
 to reload configuration with this new value
-go to portainer and restart the container jenkins-pic_sonar_1
+go to portainer web site and restart the container jenkins-pic_sonar_1
 
 
-## As bitnami jenkins is secure you must recreate the admin user 
+## As bitnami jenkins is secure so you must recreate the admin user 
 Go to jenkins  
 Got to portainer and select jenkins-pic_jenkins_1  
 edit /bitnami/jenkins/home/config.xml   
@@ -125,7 +125,7 @@ Here is an overview of all tools:
 * PIPELINE_SCRIPT.md
 
 ## Caveats ( some maintenance commands)
-==== clean up all ====  
+### clean up all   
 ```
 docker system prune --all --volumes
 docker rm -f $(docker ps -aq)
