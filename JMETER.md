@@ -94,22 +94,19 @@ Replace the line in the job petclinic-jmeter
 jmeter -JUSERS=20 -JRAMP-UP=60 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
 ```
 
-
-
-
-
-
-
 ### Recording a test plan for Petclinic website
-Install Firefox and setup the add-on named FoxyProxy  
-In foxyproxy added a proxy  
+Install Firefox and Setup the add-on named FoxyProxy
+
+![FoxyProxy](screenshots/foxyproxy_addon.png)
+
+In foxyproxy added a jmeter proxy    
 Enter a title Jmeter    
 Proxy Type is HTTP  
 Proxy IP is localhost    
 Port is 8888  
 no username or password    
 
-![FoxyProxy](screenshots/foxyproxy.png)
+![FoxyProxy](screenshots/foxyproxy_add.png)
 
 ### Create Test plan
 Start with your mouse over test plan and right click on it.    
