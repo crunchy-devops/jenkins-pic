@@ -84,31 +84,30 @@ Select Publish Performance test result report
 Source data files :  testresult.jlt
 Save    
 
-### Commit and push the spring-framework-petclinic
+### Commit and push the spring-framework-petclinic project
 Go to build now 
 
-### Load Test
+### Load Test with 20 users 
 We will simulate the use of the Pectclinic web application with 20 users, using a ramp-up delay of 60 seconds. 
 Replace the line in the job petclinic-jmeter
 ```shell
 jmeter -JUSERS=20 -JRAMP-UP=60 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
 ```
 
-### Recording a test plan for Petclinic website
+## Recording a test plan for Petclinic website
 
 ![FoxyProxy](screenshots/foxyproxy_addon.png)
 
-Install Firefox and Setup the add-on named FoxyProxy
+Install in Firefox an add-on extension named FoxyProxy Standard
 
 ![FoxyProxy](screenshots/foxyproxy_add.png)
 
-Select add in foxyproxy extension      
-Enter a title Jmeter      
+Select add in the foxyproxy extension      
+Enter a title:  Jmeter      
 Proxy Type is HTTP    
 Proxy IP is localhost      
 Port is 8888    
-no username or password      
-
+no username and no password      
 
 ### Create a New Test plan
 Start with your mouse over test plan and right click on it.     
@@ -138,16 +137,18 @@ a Recorder Transaction Control dialog box is opened
 
 ![Transaction](screenshots/transactions_control.png)
 
-Open Firefox in a tab an copy paste your petclinic URL   
+
+Accept the **temporary certificates** created by JMeter  
+
+Open in Firefox a tab and copy/paste your petclinic URL
 ```shell script
      http://<your ip address>:30190/petclinic  
 ```
-Accept the **temporary certificates** created by JMeter 
-
-
-Check if jmeter is recording all your actions **by selecting the Thread Group item in Test Plan**   
+Hit Enter  
+Immediately verify if JMeter is recording your actions, **by selecting the Thread Group item in Test Plan**   
+Carry on recording your action   
 Click on find owners, click add owner    
-fill in all details     
+Fill in all details     
 and click add owner 
 click add a pet
 select veterinarians      
@@ -156,16 +157,25 @@ Rename all Thread Group Item
 Click file, select Save Test Plan As    
 Save your test plan to your git repo  as **petclinic_load_owner_and_pet.jmx**
 
+
+
+
+
+
+
 ### Set JMeter variables
-As we have done for hello-world-jmeter set Test plan variable   
+As we have done previously set Test plan variable   
 Add HTTP Requests Defaults variables
 Remove all IP and port from other HTTP Request action
 Move over Thread group -> right click -> Add -> Listener -> View Results Tree 
 
 
 
-## Create a Jenkins Job
-### Define 
+
+
+
+### Create a Jenkins Job
+#### Define 
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
 Check and install without restart   
 
@@ -194,9 +204,14 @@ Select Publish Performance test result report
 Source data files :  testresult.jlt   
 Press apply and save
 
+
+
+
+
+
+
+
+
+
 ![Jenkins_perf](screenshots/performance_trend.png)  
 
-## Enter a value
-```asciidoc
-jmeter -JPORT=30191 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
-```
