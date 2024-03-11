@@ -95,24 +95,28 @@ jmeter -JUSERS=20 -JRAMP-UP=60 -Jjmeter.save.saveservice.output_format=xml -Jjme
 ```
 
 ### Recording a test plan for Petclinic website
-Install Firefox and Setup the add-on named FoxyProxy
 
 ![FoxyProxy](screenshots/foxyproxy_addon.png)
 
-In foxyproxy added a jmeter proxy    
-Enter a title Jmeter    
-Proxy Type is HTTP  
-Proxy IP is localhost    
-Port is 8888  
-no username or password    
+Install Firefox and Setup the add-on named FoxyProxy
 
 ![FoxyProxy](screenshots/foxyproxy_add.png)
 
-### Create Test plan
-Start with your mouse over test plan and right click on it.    
+Select add in foxyproxy extension      
+Enter a title Jmeter      
+Proxy Type is HTTP    
+Proxy IP is localhost      
+Port is 8888    
+no username or password      
+
+
+### Create a New Test plan
+Start with your mouse over test plan and right click on it.     
  menu  Add -> Thread -> Thread Group  
 Righ click on Test plan -> Add -> Non-test-elements -> HTTPS Test Script Recorder
-![FoxyProxy](screenshots/Test_recorder.png)  
+
+![FoxyProxy](screenshots/Test_recorder.png)
+
 In target controller select Test Plan ->Thread Group 
 Grouping : Put each group in a new controller
 Click on tab Request Filtering  
@@ -121,14 +125,22 @@ Copy and paste these excluded files
 ```shell script
    .*\.(txt|bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2|ttf).*
 ```
+
+![Filtering](screenshots/Test_recorder_requests_filtering.png)
+
+
 switch firefox browser to user jmeter port  
-click on start in Https test script recorder   
-Open a tab an copy paste your petclinic URL   
+![On](screenshots/foxyproxy_on.png)
+
+in jmeter click on the green triangle **start** in Https test script recorder   
+
+Open Firefox in a tab an copy paste your petclinic URL   
 ```shell script
-     http://<your ip address>:9090/petclinic  
+     http://<your ip address>:30190/petclinic  
 ```
-Accept the temporary certificates created by JMeter   
-Check if jmeter is recording all your actions by clicking on Thread Group   
+Accept the **temporary certificates** created by JMeter 
+
+Check if jmeter is recording all your actions **by selecting Thread Group**   
 Click on find owners, click add owner  
 fill in all details   
 and click add owner   
@@ -137,7 +149,7 @@ go back to find owners
 enter your name in last name and hit find owner   
 Stop recording in the small jmeter windows  
 Click file, select Save Test Plan As    
-Save your test plan to your git repo  as petclinic_test_plan.jmx
+Save your test plan to your git repo  as **petclinic_test_plan_records.jmx**
 
 ### Set JMeter variables
 As we have done for hello-world-jmeter set Test plan variable   
