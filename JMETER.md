@@ -123,7 +123,7 @@ Click on tab Request Filtering
 Click Add in URL Patterns to Exclude   
 Copy and paste these excluded files    
 ```shell script
-   .*\.(txt|bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2|ttf).*
+   .*\.(firefox.com|txt|bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2|ttf).*
 ```
 
 ![Filtering](screenshots/Test_recorder_requests_filtering.png)
@@ -132,7 +132,11 @@ Copy and paste these excluded files
 switch firefox browser to user jmeter port  
 ![On](screenshots/foxyproxy_on.png)
 
-in jmeter click on the green triangle **start** in Https test script recorder   
+in jmeter click on the green triangle **start** in Https test script recorder     
+
+a Recorder Transaction Control dialog box is opened   
+
+![Transaction](screenshots/transactions_control.png)
 
 Open Firefox in a tab an copy paste your petclinic URL   
 ```shell script
@@ -140,16 +144,17 @@ Open Firefox in a tab an copy paste your petclinic URL
 ```
 Accept the **temporary certificates** created by JMeter 
 
-Check if jmeter is recording all your actions **by selecting Thread Group**   
-Click on find owners, click add owner  
-fill in all details   
-and click add owner   
-select veterinarians  
-go back to find owners  
-enter your name in last name and hit find owner   
-Stop recording in the small jmeter windows  
+
+Check if jmeter is recording all your actions **by selecting the Thread Group item in Test Plan**   
+Click on find owners, click add owner    
+fill in all details     
+and click add owner 
+click add a pet
+select veterinarians      
+Hit Stop recording in Recorder Transaction Control dialog box    
+Rename all Thread Group Item  
 Click file, select Save Test Plan As    
-Save your test plan to your git repo  as **petclinic_test_plan_records.jmx**
+Save your test plan to your git repo  as **petclinic_load_owner_and_pet.jmx**
 
 ### Set JMeter variables
 As we have done for hello-world-jmeter set Test plan variable   
