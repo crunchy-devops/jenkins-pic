@@ -1,67 +1,104 @@
 # JMeter tests
-Install JMeter on your localhost  
+Install JMeter on your localhost , for example in Document directory in C: drive  
 
-## Create a test plan for Hello-world website
-Install Jmeter on your localhost, start JMeter and create the following test plan.  
+![Jmeter_bat_file](screenshots/jmeter_bat_file.png)
+
+## Create a test plan for Hello-world website  
+Install Jmeter on your localhost, start JMeter and create the following test plan.    
 
 ![Jmeter TestPlan](screenshots/test_plan.png)  
 Start with your mouse over test plan and right click on it.  
- menu  Add -> Config Element -> HTTP Request Defaults  
+ menu  Add -> Config Element -> **HTTP Request Defaults**  
 Start with your mouse over test plan and right click on it.    
- menu  Add -> Thread -> Thread Group  
+ menu  Add -> Thread -> **Thread Group**  
 Start with your mouse over Thread group and right click on it.  
-menu Add -> Sampler ->  Http request  
+menu Add -> Sampler ->  **Http request**  
 Start with your mouse over Http request and right click on it.  
-menu Add -> Assertions ->  Response assertion  
+menu Add -> Assertions ->  **Response assertion**  
 Start with your mouse over Thread Group and right click on it.  
-menu Add -> Listener->  View Results Tree  
+menu Add -> Listener->  **View Results Tree**  
 
-Click on Response Assertion  
+Click on **Response Assertion**  
 In Pattern to Test  click Add and enter bonjour  
-Click on HTTP Request  
-In Server Name or IP: < vm_ip_address>   
-Port Number : 30190 
-Path: /petclinic
-Click on View Results Tree   
+Click on **HTTP Request**  
+In Server Name or **IP: < vm_ip_address>**   
+Port Number : **30190** 
+Path: **/petclinic**
+Click on **View Results Tree**   
 Save this file to your project directory
 and press the green triangle in the menu bar   
 
 Add the JMeter global variables in the test plan screen    
 Click on Add , click on the left part of the line, type IP  
-in right part of a line type ${__P(IP,<our_ip>)}  
+in right part of a line type **${__P(IP,<our_ip>)}**  
 Click again on Add, click on the left part of the line, type PORT  
-in right part of a line type ${__P(PORT,30190)}  
+in right part of a line type **${__P(PORT,30190)}**
+
+Click on Add , click on the left part of the line, type USERS
+in right part of a line type **${__P(USERS,1)}**  
+Click again on Add, click on the left part of the line, type RAMP_UP  
+in right part of a line type **${__P(RAMP_UP,1)}**
+
 
 ![Jmeter_TestPlan_variables](screenshots/test_plan_variables.png)
 
-And Http_request_defaults enter respectively ${IP} and ${PORT}
-![Jmeter_http_request_defaults](screenshots/http_request_defaults_values.png)
- 
-Remove IP and port in HTTP Request  
-and test again your test plan   
-you must have the same result as before the changes   
 
-Save this test plan in your github repo project, it's jmx file 
+IN **Http_Request_Defaults** enter respectively **${IP}** and **${PORT}**
+
+![Jmeter_http_request_defaults](screenshots/http_request_defaults_values.png)
+
+In Thread Group  enter **$USER** in **Number of Theads**
+enter **$RAMP-UP** in **Ramp-up period**
+
+![Jmeter_http_request_defaults](screenshots/number_of_threads.png)
+
+Remove IP and port in **HTTP Request**    
+Clean up your view Results tree screen with the broom in the main menu   
+and test again your test plan       
+you should see the same result as before.       
+
+Save this test plan in your github repo project, a jmx file is generated    
 
 ## Create a Jmeter Jenkins Job
-### Add a plugin
-Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Log Parser 
-Check and install without restart 
-
-go to new Item  type petclinic_jmeter 
-copy from  petclinic_docker_build 
-Remove all code in Build  Execute build and copy/paste
+### Add  2 Jenkins plugins
+Go to manage-Jenkins -> Manage plugins -> Available Plugins  
+Search **Log Parser** and **Performance**   
+Tick both of them  
+Go to New Item  type petclinic_jmeter   
+copy from  petclinic_docker_build  
+Remove all code in Build Execute Shell build copy/paste the following script  
 ```shell script 
 jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
 ```
+All jmeter default variables are used in this test  
 
-### Add a Post-build actions    
-Parserules   
-Select Console ouptut (build log) parsing  
-Tick Mark build Failed on Error  
-Tick Use project rule  
-Path to rule file in workspace :  parserules    
-Apply and save
+
+### Add a Post-build actions 
+Remove Build another project
+Select Console ouptut (build log) parsing    
+Tick Mark build Failed on Error    
+Tick Use project rule    
+Path to rule file in workspace :  parserules       
+In post-build Action add another step    
+Select Publish Performance test result report      
+Source data files :  testresult.jlt
+Save    
+
+### Commit and push the spring-framework-petclinic
+Go to build now 
+
+### Load Test
+We will simulate the use of the Pectclinic web application with 20 users, using a ramp-up delay of 60 seconds. 
+Replace the line in the job petclinic-jmeter
+```shell
+jmeter -JUSERS=20 -JRAMP-UP=60 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t petclinic_test_plan.jmx  -l testresult.jlt
+```
+
+
+
+
+
+
 
 ### Recording a test plan for Petclinic website
 Install Firefox and setup the add-on named FoxyProxy  

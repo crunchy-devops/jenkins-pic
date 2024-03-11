@@ -1,0 +1,82 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw-jetbrains-plugin",
+  "elements": [
+    {
+      "id": "LDyQ24e9mJTj0oAV6FIIl",
+      "type": "rectangle",
+      "x": 306,
+      "y": 152,
+      "width": 156,
+      "height": 93,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "seed": 2066801664,
+      "version": 23,
+      "versionNonce": 683992064,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "No49B7VVXPVbSdApQAQec"
+        }
+      ],
+      "updated": 1710076305830,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "No49B7VVXPVbSdApQAQec",
+      "type": "text",
+      "x": 364.00000762939453,
+      "y": 186,
+      "width": 39.99998474121094,
+      "height": 25,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 514251776,
+      "version": 4,
+      "versionNonce": 2100487168,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1710076308551,
+      "link": null,
+      "locked": false,
+      "text": "AWX",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "baseline": 18,
+      "containerId": "LDyQ24e9mJTj0oAV6FIIl",
+      "originalText": "AWX",
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
