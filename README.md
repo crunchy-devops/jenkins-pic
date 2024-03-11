@@ -27,13 +27,14 @@ Set a password and activate portainer , you should see one container
 ### Install docker-compose 
 ```shell script
   cd jenkins-pic
-  pip install pyyaml==5.3.1
+  source venv/bin/activate
+  pip3 install pyyaml==5.3.1
   pip3 install docker==6.1.3
   pip3 install docker-compose # pip lib for docker-compose 
   docker-compose --version  # check should be version 1.29.2
 ```
 I am using bitnami/version, for persistence the jenkins home is mapped to a docker volume  
-Edit and analyse the docker-compose file and see the usage of volumes, services and network. 
+Edit and analyse the **docker-compose.yml file** and see the usage of volumes, services and network. 
 
 ## Launch all containers
 Hit the following commands for starting up all containers
@@ -41,15 +42,15 @@ Hit the following commands for starting up all containers
 docker-compose build # build all containers 
 docker-compose up -d  # launch all containers
 docker ps 
-# Check, 8 jenkins-pic_xxx containers should be up and running
+# Verify 8 jenkins-pic_xxx containers should be up and running
 ```
 
-## Sanity Tests of Jenkins container 
-Go to portainer  
-Select the container jenkins-pic_jenkins_1  
-Open a console on it   
-type ```docker ps``` , you should see all containers running on your vm   
-type ```jmeter --version``` , you should see jmeter prompt characters
+## Jenkins container sanity tests
+Go to portainer    
+Select the container jenkins-pic_jenkins_1    
+Open a console on it     
+type ```docker ps``` , you should see all containers running on your vm     
+type ```jmeter --version``` , you should see jmeter prompt characters  
 
 ## Troubleshooting Sonarqube container
 On the vm for fixing the sonarqube container  
@@ -71,15 +72,19 @@ edit /bitnami/jenkins/home/config.xml
 change the ```<useSecurity>true</useSecurity>```  
 to  
 ```<useSecurity>false</useSecurity>```  
-restart the container jenkins-pic_jenkins_1
+In portainer **Restart** the container jenkins-pic_jenkins_1
 Open your Chrome Browser        
 type the URL  http://<your_vm_ip_address>:32500      
-Go to people, and delete the current people named user   
-Go to Manage Jenkins, choose Security , see the image below  
+Go to People on the left menu , and delete the current people named **user**   
+Go to Dashboard->Manage Jenkins, choose Security , see the image below  
 
 ![Security](screenshots/security.png)  
 
 Hit save and you go right away the user screen to fill in.  
+Enter **admin** as user name 
+password : 12345678
+confirm: 12345678
+name : herve
 
 ## Get an API token and set timezone
 click on user in right hand side on a top of a screen  
@@ -88,7 +93,7 @@ select API Token , Add new token , give jetbrains name
 and Hit generate 
 copy this token in your notepad for later use.  
 go to Defined time zone. Select Europe/Paris
-Press apply and save   
+Press  save   
 
 ## Overview
 Here is an overview of all tools:
@@ -114,17 +119,16 @@ Here is an overview of all tools:
 ## See more MarkDown files with instructions
 
 * FIRST_JOB.md 
-* DEPLOYMENT.md
 * JETBRAINS.md
-* AWX.md
-* JMETER.md
-* SELENIUM.md
-* AWX.md
+* DEPLOYMENT.md
 * NEXUS_DOCKER_REGISTRY.md
+* JMETER.MD
+* SELENIUM.md
 * PIPELINE_GUI.md
+* AWX.md
 * PIPELINE_SCRIPT.md
 
-## Caveats ( some maintenance commands)
+## Tips - some maintenance commands 
 ### clean up all   
 ```
 docker system prune --all --volumes

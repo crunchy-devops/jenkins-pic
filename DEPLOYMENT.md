@@ -2,14 +2,17 @@
 Using Docker , the deployment stage is done by a Dockerfile inside the  
 git repo itself. This is the part of Devops where the infrastructure is in a code.(IaC)  
 
-## Create a Docker build job
+## Create a Docker build job and upload image to docker hub
 Create a job petclinic_docker_build  
 Go to New Item -> Enter a name -> Freestyle -> ok      
 Source code management  
 Check git, provides the git repo of petclinic  
-Build  
+
+
+
+Build paragraph 
 Select Execute shell and copy/paste the following script   
-In the script, the Nexus war file is injected in a Docker image of Tomcat server  
+In this script, the Nexus war file is injected in a Docker image of Tomcat server  
 ```shell script
 rm -Rf spring-framework-petclinic-1.0.war
 wget http://nexus:8081/repository/maven-releases/org/springframework/samples/spring-framework-petclinic/1.0/spring-framework-petclinic-1.0.war -O ${WORKSPACE}/petclinic.war
@@ -49,4 +52,4 @@ Hit a new tab in your browser and check
 Add environment variable for tomcat-9 bitnami container , see docker logs file
 
 
-## Got to file PIPELINE_GUI.md
+## Got to file NEXUS_DOCKER_REGISTRY.md

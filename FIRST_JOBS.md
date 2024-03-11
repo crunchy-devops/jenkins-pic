@@ -19,12 +19,12 @@ filter maven type enter and tick **Maven Integration**
 and hit install, don't select restart Jenkins  
 hit Dashboard  
 
-go to Manage Jenkins -> global tool configuration 
+go to Manage Jenkins -> tools  
 Scroll down to **Maven installations**
 Hit Add Maven    
 Name: Maven 3.6.3  
 install automatically from Apache select version 3.6.3  
-Hit apply and save
+Hit  save
 
 ## Petclinic using Maven 
 New Item -> Name petclinic-maven, select  maven project and ok   
@@ -44,17 +44,25 @@ Check Jenkins workspace, in target directory this is petclinic.war file
 ## Petclinic CheckStyle 
 manage jenkins -> plugin manager   
 select available plugins  
-search for **Violations**, tick it 
-Hit install, don't select restart Jenkins  
+search for **Violations**, tick it   
+Hit install, don't select restart Jenkins    
 New Item -> Name petclinic-checkstyle, copy from petclinic-maven  
+In Build  
 change Goals are: clean checkstyle:checkstyle install package  
-hit the graph for displaying all issues found by CheckStyles
+In Build Settings  
+Tick violations  
+Hit the graph for displaying all issues found by CheckStyles    
+
+**Summary**
+![Checkstyle1](screenshots/checkstyle_summary.png)
+**Details**
+![Checkstyle2](screenshots/checkstyle_details.png)
 
 ## Petclinic Q/A with Sonar 
 manage jenkins -> manage plugins  tab Available     
 Search in available plugins  the **Sonarqube Scanner** plugin  
 and hit install
-Go to manage Manage jenkins -> Configure system
+Go to manage Manage jenkins -> System
 Sonarqube server   
 Tick enable Environnment variables  ....
 Press the button add sonarQube
@@ -93,17 +101,17 @@ See the result by selecting Projects
   
  ![Sonar_results](screenshots/sonar_results.png)
 
-## Deploy your war file to repository Nexus
+## Deploy your war file to Nexus repository
 ### Configuring Nexus
 Open a browser tab :  
 http://<your-ip_address:32510/  
 get nexus token access  
 Go to portainer, open a console on the container jenkins-pic_nexus_1  
-type ``` echo " " | cat /nexus-data/admin.password  - ```
-Copy and the password/token in nexus
-Set a news password for the user admin
-Tick enable anonymous access    
-Go to the wheel icon in the top menu , select repositories   
+type ``` echo " " | cat /nexus-data/admin.password  - ```  
+Copy and the password/token in nexus  
+Set a news password for the user admin  
+Tick enable anonymous access      
+Go to the wheel icon in the top menu , select repositories     
 Select maven-releases   
 go to Hosted paragraph   
 Set Allow redeploy  # allow the same version to be redeployed , should not being set on production environment !!!
@@ -121,15 +129,22 @@ Build this job again
  
 Go to manage jenkins -> Plugin Manager  
 Search in available plugins the **Copy artifact** and   
- and **Workspace Cleanup Plugin** plugins  
+ and **Workspace Cleanup** plugins  
 Tick both them  and install it, without restarting Jenkins  
-Go to https://help.sonatype.com/en/download-and-compatibility.html  
+Go to https://help.sonatype.com/en/download-and-compatibility.html
+
+![Nexus_Plugins](screenshots/nexus_plugin.png)
+
 download
 https://download.sonatype.com/integrations/jenkins/nexus-jenkins-plugin-3.19.2-01.hpi  
 Go to manage jenkins -> Plugin Manager     
-Select Advanced Setting, select the downloaded hpi file  
+Select Advanced Setting, select browse... select the downloaded hpi file  
+
+![Nexus_Load_Plugins](screenshots/nexus_load_plugin.png)
+
 Hit deploy  
-Go to manage jenkins ->configure system    
+
+Go to manage jenkins -> System    
 find Sonatype Nexus paragraph , hit add nexus repo ...   
 Select 3.x Server     
 Display Name :  Nexus    

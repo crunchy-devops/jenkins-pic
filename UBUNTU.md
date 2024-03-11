@@ -25,12 +25,15 @@ pip3 install requests # extra packages
 ansible --version # check the version number # should be the latest 2.16.4
 ansible-playbook -i inventory_for_ubuntu install_docker_ubuntu.yml 
 ```
+Type exit
 
 ### Close all windows of your IDE and start again
-```
+```shell
 cd
 cd jenkins-pic
 source venv/bin/activate
+docker ps 
+# see   CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 docker --version  # should be version 25.0.x
 docker ps
 ```
