@@ -3,20 +3,26 @@ Using Docker , the deployment stage is done by a Dockerfile inside the
 git repo itself. This is the part of Devops where the infrastructure is in a code.(IaC)  
 
 ## Create a Docker build job and upload image to docker hub
-Create a job petclinic_docker_build  
-Go to New Item -> Enter a name -> Freestyle -> ok      
-Source code management  
-Check git, provides the git repo of petclinic  
+Create a job petclinic_docker_build    
+Go to New Item -> Enter a name -> Freestyle -> ok        
+Source code management    
+Check git, provides the git repo of petclinic 
+Go to build environment
+Tick delete workspace before build starts
+Select user password separated 
+As follow 
 
+![Bindings](screenshots/bindings_dockerhub.png)
 
-
-Build paragraph 
-Select Execute shell and copy/paste the following script   
-In this script, the Nexus war file is injected in a Docker image of Tomcat server  
+Go to Build paragraph   
+Select Execute shell and copy/paste the following script     
+In this script, the Nexus war file is injected in a Docker image of Tomcat   server    
 ```shell script
-rm -Rf spring-framework-petclinic-1.0.war
 wget http://nexus:8081/repository/maven-releases/org/springframework/samples/spring-framework-petclinic/1.0/spring-framework-petclinic-1.0.war -O ${WORKSPACE}/petclinic.war
 docker build -t petclinic:latest .
+docker login -u $USERNAME -p $PASSWORD
+docker image tag petclinic $USERNAME/petclinic
+docker push $USERNAME/petclinic
 ```
 Build
 And apply and save
