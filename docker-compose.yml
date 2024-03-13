@@ -20,7 +20,7 @@ services:
     #build: ./nexus
     ports:
       - "32510:8081"
-      - "20000:20000"
+      - "30999:30999"
     volumes:
       - nexus_data:/nexus-data
     networks:

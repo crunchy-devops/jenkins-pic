@@ -1,12 +1,23 @@
 # How to use Nexus docker registry
 
 ## Configure Nexus Docker registry
-Create a docker registry hosted   
-Set HTTP port to 20000  
-Check Allow anomymous docker pull   
-Deployment policy  to Allow redeploy
-Go to Security -> Realms
+Open your Nexus tab in your browser
+log in in Nexus 
+Go to the toothed wheel, and select **Create repository**
+![nexus_repo](screenshots/nexus_create_repo.png)
+Choose docker registry hosted
+
+![docker_hosted](screenshots/docker_hosted.png)
+Enter name **myregistry**
+Set **HTTP port to 20000**  
+Tick **Allow anomymous** docker pull   
+Hit save 
+Deployment policy  to Allow redeploy  
+Go to Security -> Realms  
 Set active  Docker Bearer Token Realm
+
+![bearer_token](screenshots/nexus_bearer_token.png)
+Hit Save 
 
 ## Change docker daemon config
 
@@ -17,27 +28,42 @@ Add the following lines in /etc/docker/daemon.json
   
         "insecure-registries":["nexus:20000"]
 }
-{
-        "dns": ["8.8.8.8", "8.8.4.4"]
-}
 ```
 
-Add nexus entry in /etc/hosts as the example below
-
+Add nexus entry in /etc/hosts as the example below  
+Add the nexus container private address ip   
+Check portainer   
 ```shell
 127.0.0.1 localhost
 51.68.28.209 jenkins jenkins external.local
 172.16.0.11 internal.local
-172.18.0.2 nexus
+172.18.0.3 nexus
+## Beware: after each docker-compose Nexus IP address might change
+
+```
+## Sanity Tests
+```shell
+nc -vz nexus 30999 # should be succeeded
 ```
 
-## In jenkins 
-how to registry an image   
-Create Credentials and Bindings
-And create a job with a build task    
 
 ```shell
-docker login -u $USER -p $PASSWORD http://nexus:20000
-docker tag systemdevformations/alpine-ssh:v2 nexus:20000/alpine-ssh:v2
-docker push nexus:20000/alpine-ssh:v2
+sudo systemctl restart docker 
+cd 
+cd jenkins-pic 
+source venv/bin/activate
+docker-compose start 
+# wait a while
+docker -u admin -p 12345678 nexus:30999
+```
+
+## Manage Nexus docker registry in Jenkins
+Create a job **petclinic-image-in-nexus**  
+Copy from **petclinic-docker-run**  
+In bindings, change credentials to nexuslogin  
+
+```shell
+docker login -u $USERNAME -p $PASSWORD nexus:30999
+docker tag <your_dockerhub_account>/petclinic nexus:30999/petclinic
+docker push nexus:30999/petclinic
 ```
