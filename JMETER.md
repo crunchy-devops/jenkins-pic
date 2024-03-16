@@ -157,21 +157,11 @@ Rename all Thread Group Item
 Click file, select Save Test Plan As    
 Save your test plan to your git repo  as **petclinic_load_owner_and_pet.jmx**
 
-
-
-
-
-
-
 ### Set JMeter variables
 As we have done previously set Test plan variable   
 Add HTTP Requests Defaults variables
 Remove all IP and port from other HTTP Request action
 Move over Thread group -> right click -> Add -> Listener -> View Results Tree 
-
-
-
-
 
 
 ### Create a Jenkins Job
@@ -195,7 +185,7 @@ Path to rule file in workspace :  parserules
 parserules file contains a regex for checking if there is an error 
 
 
-### Performance Plugin 
+**### Performance Plugin** 
 Go to manage-Jenkins -> Manage plugins -> Tab available -> Filter Performance  
 Check and install without restart   
 Go to configure petclinic-jmeter  

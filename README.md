@@ -122,7 +122,8 @@ Here is an overview of all tools:
 * JETBRAINS.md
 * DEPLOYMENT.md
 * NEXUS_DOCKER_REGISTRY.md
-* JMETER.MD
+* JMETER.md
+* GITLAB.md
 * SELENIUM.md
 * PIPELINE_GUI.md
 * AWX.md
