@@ -58,13 +58,16 @@ services:
       - jenkins-home:/bitnami/jenkins
       - jmeter_dir:/jmeter
       #- liquibase_dir:/liquibase
+    links:
+      - nexus
+      - sonar
+      - gitlab
+      - jmeter
     depends_on:
       - nexus
       - sonar
       - jmeter
       - gitlab
-      #- liquibase
-      #- gitlab-ce
     environment:
       - JENKINS_PASSWORD=password
       - NEXUS_PORT=8081

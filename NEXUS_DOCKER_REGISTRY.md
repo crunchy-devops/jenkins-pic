@@ -26,7 +26,7 @@ Add the following lines in /etc/docker/daemon.json
 ```json
 {
   
-        "insecure-registries":["nexus:20000"]
+        "insecure-registries":["nexus:30999"]
 }
 ```
 
@@ -54,7 +54,7 @@ cd jenkins-pic
 source venv/bin/activate
 docker-compose start 
 # wait a while
-docker -u admin -p 12345678 nexus:30999
+docker login -u admin -p 12345678 nexus:30999
 ```
 
 ## Manage Nexus docker registry in Jenkins

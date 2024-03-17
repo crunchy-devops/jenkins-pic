@@ -51,14 +51,22 @@ User root user and copy/paste the password
 if you have some trouble reset password ```sudo gitlab-rake "gitlab:password:reset"```          
 Log in as root using this password   
 
-## Add Github project import ub GitLab   
+## Add Github project in GitLab   
 Do as define below   
 Go to admin area -> General
 In **Import and export settings**, tick github  
 
 ![Import_github](screenshots/gitlab_import_github.png) 
 
+Go to Your Work -> Projects -> New project    
+Select **Import Project**  Hit Github     
+Enter your Personal Access Token   
+Hit Authenticate  
+Select spring-framework-petclinic  
+Now your project is located in your jenkins-pic platform with no access from the outside
+world  
 
+## 
 
 
 
