@@ -52,6 +52,10 @@ Open a console on it
 type ```docker ps``` , you should see all containers running on your vm     
 type ```jmeter --version``` , you should see jmeter prompt characters  
 
+
+![check_docker_jmeter](screenshots/check_docker_jmeter.png)
+
+
 ## Troubleshooting Sonarqube container
 On the vm for fixing the sonarqube container  
 Add ```sudo sysctl -w vm.max_map_count=262144```   
@@ -65,7 +69,10 @@ to reload configuration with this new value
 go to portainer web site and restart the container jenkins-pic_sonar_1
 
 
-## As bitnami jenkins is secure so you must recreate the admin user 
+## Log in in Jenkins
+Log in  as user and password is password 
+
+## If you lost your password,  jenkins is secure so you must recreate the default user  
 Go to jenkins  
 Got to portainer and select jenkins-pic_jenkins_1  
 edit /bitnami/jenkins/home/config.xml   

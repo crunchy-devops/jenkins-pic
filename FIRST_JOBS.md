@@ -11,6 +11,9 @@ Press Build Now
 See the result by pressing the build #1  
 and go to console output  
 
+![first_job](screenshots/first_job.png)
+
+
 ## Install github plugin and maven plugin   
 manage jenkins -> plugin manager   
 select available plugins  
@@ -48,10 +51,13 @@ search for **Violations**, tick it
 Hit install, don't select restart Jenkins    
 New Item -> Name petclinic-checkstyle, copy from petclinic-maven  
 In Build  
-change Goals are: clean checkstyle:checkstyle install package  
+change Goals to: **clean checkstyle:checkstyle install package**  
 In Build Settings  
-Tick violations  
-Hit the graph for displaying all issues found by CheckStyles    
+**Tick violations**    
+Hit Build now  
+On a left menu select **Violations**   
+Select the link **Spring Framework Petclinic**   
+Hit the graph for displaying all issues found by CheckStyles      
 
 **Summary**
 ![Checkstyle1](screenshots/checkstyle_summary.png)

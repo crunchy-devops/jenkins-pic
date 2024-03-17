@@ -27,13 +27,12 @@ ansible-playbook -i inventory_for_ubuntu install_docker_ubuntu.yml
 ```
 Type exit
 
-### Close all windows of your IDE and start again
+### Close all IDE windows  in your IDE and start again
 ```shell
 cd
 cd jenkins-pic
 source venv/bin/activate
-docker ps 
-# see   CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 docker --version  # should be version 25.0.x
 docker ps
+# see   CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
