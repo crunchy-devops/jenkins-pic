@@ -8,7 +8,7 @@ services:
     image: gitlab/gitlab-ce:latest
     ports:
       - "443:443"
-      - "32701:80"
+      - "31801:80"
       - "32222:22"
     networks:
       - prodnetwork
@@ -66,8 +66,10 @@ Select spring-framework-petclinic
 Now your project is located in your jenkins-pic platform with no access from the outside
 world  
 
-## 
+## Set Jenkins Integrations
 
+
+![Import_github](screenshots/gitlab_jenkins_integration.png) 
 
 
 

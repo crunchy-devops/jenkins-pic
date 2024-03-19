@@ -13,11 +13,11 @@ Change lines 27 of day1.java file , enter your vm api address
 
 
 
-Go New Item, Name hello-world-selenium, select Maven-project  
+Go New Item, Name petclinic-selenium, copy from petclinic-maven 
 Hit Ok  
 Source Management  
-Fork and clone  https://github.com/crunchy-devops/hello-world-selenium.git
-Git enter https://github.com/<your_repo>/hello-world-selenium.git
+Fork and clone  https://github.com/crunchy-devops/petclinic-selenium.git
+Git enter https://github.com/<your_repo>/petclinic-selenium.git
 Build 
 Root POM: pom.xml
 Goals and options: test 

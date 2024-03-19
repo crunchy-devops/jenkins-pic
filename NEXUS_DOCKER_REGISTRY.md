@@ -9,12 +9,14 @@ Choose docker registry hosted
 
 ![docker_hosted](screenshots/docker_hosted.png)
 Enter name **myregistry**
-Set **HTTP port to 20000**  
-Tick **Allow anomymous** docker pull   
-Hit save 
-Deployment policy  to Allow redeploy  
-Go to Security -> Realms  
-Set active  Docker Bearer Token Realm
+Set **HTTP port to 30999**  
+allow anonymous docker pull    
+Enable Docker v1 API  
+Tick **Allow anomymous** docker pull     
+Hit save  
+Deployment policy  to Allow redeploy    
+Go to Security -> Realms    
+Set active  Docker Bearer Token Realm  
 
 ![bearer_token](screenshots/nexus_bearer_token.png)
 Hit Save 
@@ -30,7 +32,8 @@ Add the following lines in /etc/docker/daemon.json
 }
 ```
 
-Add nexus entry in /etc/hosts as the example below  
+Add nexus entry in /etc/hosts as the example below 
+On your local host 
 Add the nexus container private address ip   
 Check portainer   
 ```shell
@@ -48,11 +51,12 @@ nc -vz nexus 30999 # should be succeeded
 
 
 ```shell
-sudo systemctl restart docker 
 cd 
 cd jenkins-pic 
 source venv/bin/activate
-docker-compose start 
+docker-compose down 
+sudo systemctl restart docker
+docker-compose up -d 
 # wait a while
 docker login -u admin -p 12345678 nexus:30999
 ```

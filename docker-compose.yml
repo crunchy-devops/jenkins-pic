@@ -127,7 +127,7 @@ services:
   # To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
   chrome:
     #image: selenium/node-chrome:4.5.0-20221004
-    image: selenium/node-chrome:120.0-20240123
+    image: selenium/node-chrome
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -140,7 +140,7 @@ services:
 
   firefox:
     #image: selenium/node-firefox:4.5.0-20221004
-    image: selenium/node-firefox:122.0
+    image: selenium/node-firefox
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -153,7 +153,7 @@ services:
 
 
   selenium-hub:
-    image: selenium/hub:4.5.0-20221004
+    image: selenium/hub
     container_name: selenium-hub
     ports:
       - "30042:4442"
