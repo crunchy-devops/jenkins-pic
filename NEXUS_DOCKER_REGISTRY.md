@@ -37,18 +37,15 @@ On your local host
 Add the nexus container private address ip   
 Check portainer   
 ```shell
-127.0.0.1 localhost
+127.0.0.1 localhost nexus  # add nexus after localhost
 51.68.28.209 jenkins jenkins external.local
 172.16.0.11 internal.local
-172.18.0.3 nexus
-## Beware: after each docker-compose Nexus IP address might change
-
 ```
+
 ## Sanity Tests
 ```shell
 nc -vz nexus 30999 # should be succeeded
 ```
-
 
 ```shell
 cd 

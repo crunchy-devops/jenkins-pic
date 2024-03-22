@@ -1,4 +1,49 @@
-# AWX 17.1.0
+# Install AWX 
+
+
+## Latest version of AWX
+```shell    
+cd 
+git clone -b 24.0.0 https://github.com/ansible/awx.git # check awx tag stable version
+source jenkins-pic/venv/bin/activate
+cd awx
+make docker-compose-build
+make docker-compose COMPOSE_UP_OPTS=-d
+# use shell or portainer
+docker exec -ti tools_awx_1 awx-manage createsuperuser
+docker exec tools_awx_1 make clean-ui ui-devel
+```
+
+
+## Create a Team
+![awx_team](screenshots/awx_team.png)
+
+## Create a user 
+![awx_user](screenshots/awx_user.png)
+
+## Create a Credential for ssh 
+![awx_ssh](screenshots/awx_credentials_machine.png)
+
+## Create a Credential for gitlab
+![awx_ssh](screenshots/awx_credentials_gitlab.png)
+
+## Create a inventory source 
+![awx_inventory](screenshots/awx_inventory_source.png)
+
+## Create a projet
+![awx_projet](screenshots/awx_projet.png)
+
+## Create a template
+![awx_template](screenshots/awx_template.png)
+
+## Results
+
+
+
+
+
+------------------------------------------------------------------
+## Old install of AWX 17.1.0
 ```shell
 cd    # set to your home directory 
 git clone https://github.com/ansible/awx.git   # get the awx github repo 
