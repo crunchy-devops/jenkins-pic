@@ -37,6 +37,7 @@ docker exec tools_awx_1 make clean-ui ui-devel
 ![awx_template](screenshots/awx_template.png)
 
 ## Results
+Go AWX in spring-framework-petclinic 
 
 
 

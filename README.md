@@ -79,19 +79,19 @@ edit /bitnami/jenkins/home/config.xml
 change the ```<useSecurity>true</useSecurity>```  
 to  
 ```<useSecurity>false</useSecurity>```  
-In portainer **Restart** the container jenkins-pic_jenkins_1
-Open your Chrome Browser        
-type the URL  http://<your_vm_ip_address>:32500      
-Go to People on the left menu , and delete the current people named **user**   
+In portainer **Restart** the container jenkins-pic_jenkins_1  
+Open your Chrome Browser          
+type the URL  http://<your_vm_ip_address>:32500        
+Go to People on the left menu , and delete the current people named **user**     
 Go to Dashboard->Manage Jenkins, choose Security , see the image below  
 
 ![Security](screenshots/security.png)  
 
-Hit save and you go right away the user screen to fill in.  
-Enter **admin** as user name 
-password : 12345678
-confirm: 12345678
-name : herve
+Hit save and you go right away the user screen to fill in.    
+Enter **admin** as user name   
+password : 12345678  
+confirm: 12345678  
+name : herve  
 
 ## Get an API token and set timezone
 click on user in right hand side on a top of a screen  
@@ -99,8 +99,8 @@ Hit configure
 select API Token , Add new token , give jetbrains name  
 and Hit generate 
 copy this token in your notepad for later use.  
-go to Defined time zone. Select Europe/Paris
-Press  save   
+go to Defined time zone. Select Europe/Paris  
+Press  save     
 
 ## Overview
 Here is an overview of all tools:
