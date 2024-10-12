@@ -12,11 +12,11 @@ Enter name **myregistry**
 Set **HTTP port to 30999**  
 allow anonymous docker pull    
 Enable Docker v1 API  
-Tick **Allow anomymous** docker pull     
-Hit save  
-Deployment policy  to Allow redeploy    
+Tick **Allow anomymous** docker pull
+Deployment policy  to Allow redeploy
+Hit Create repository
 Go to Security -> Realms    
-Set active  Docker Bearer Token Realm  
+Set active  Docker Bearer Token Realm
 
 ![bearer_token](screenshots/nexus_bearer_token.png)
 Hit Save 
@@ -52,7 +52,7 @@ cd
 cd jenkins-pic 
 source venv/bin/activate
 docker-compose down 
-sudo systemctl restart docker
+ 
 docker-compose up -d 
 # wait a while
 docker login -u admin -p 12345678 nexus:30999
@@ -65,6 +65,7 @@ In bindings, change credentials to nexuslogin
 
 ```shell
 docker login -u $USERNAME -p $PASSWORD nexus:30999
+RS=`docker images --all   --filter=reference='robotshop/*:ccbb706a189c'  --format "{{.Repository}}"`
 docker tag <your_dockerhub_account>/petclinic nexus:30999/petclinic
 docker push nexus:30999/petclinic
 ```

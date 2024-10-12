@@ -115,7 +115,7 @@ get nexus token access
 Go to portainer, open a console on the container jenkins-pic_nexus_1  
 type ``` echo " " | cat /nexus-data/admin.password  - ```  
 Copy and the password/token in nexus  
-Set a news password for the user admin  
+Set a new password for the user admin  
 Tick enable anonymous access      
 Go to the wheel icon in the top menu , select repositories     
 Select maven-releases   
@@ -142,17 +142,18 @@ Go to https://help.sonatype.com/en/download-and-compatibility.html
 ![Nexus_Plugins](screenshots/nexus_plugin.png)
 
 download
-https://download.sonatype.com/integrations/jenkins/nexus-jenkins-plugin-3.19.2-01.hpi  
-Go to manage jenkins -> Plugin Manager     
-Select Advanced Setting, select browse... select the downloaded hpi file  
+https://download.sonatype.com/integrations/jenkins/nexus-jenkins-plugin-3.20.5-01.hpi 
+Go to Dashboard  Manage Jenkins -> Plugins     
+Select Advanced Setting, select choose file... select the downloaded hpi file 
+ 
 
-![Nexus_Load_Plugins](screenshots/nexus_load_plugin.png)
+**![Nexus_Load_Plugins](screenshots/nexus_load_plugin.png)
 
 Hit deploy  
 
 Go to manage jenkins -> System    
 find Sonatype Nexus paragraph , hit add nexus repo ...   
-Select 3.x Server     
+Select 3.x Server**     
 Display Name :  Nexus    
 Server ID :  Nexus    
 Server URL: http://nexus:8081    
