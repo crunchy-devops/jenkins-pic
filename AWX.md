@@ -7,12 +7,15 @@ cd
 git clone -b 24.0.0 https://github.com/ansible/awx.git # check awx tag stable version
 source jenkins-pic/venv/bin/activate
 cd awx
+sudo apt install make ansible
 make docker-compose-build
 make docker-compose COMPOSE_UP_OPTS=-d
 # use shell or portainer
-docker exec -ti tools_awx_1 awx-manage createsuperuser
+docker exec -it tools_awx_1 awx-manage createsuperuser
 docker exec tools_awx_1 make clean-ui ui-devel
 ```
+
+Go to https://<vm_ip_address>:8043
 
 
 ## Create a Team

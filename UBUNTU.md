@@ -1,38 +1,25 @@
 # Install on Ubuntu
 
-## Pre-requisites on your VM
-### Useful packages  
+## install Docker on ubuntu 24.04
 ```shell
-   sudo apt-get update  # update links to repos
-   sudo apt-get -y install git wget htop iotop iftop # install git and monitoring tools
-   sudo apt-get -y install python3 python3-venv # install python3 and virtualenv
-   sudo apt-get -y install build-essential   # need for installing docker-compose
-   sudo apt-get -y install python3-dev libxml2-dev libxslt-dev libffi-dev # need for installing docker-compose
-   htop  # check your vm config
-   Crtl-c  # exit 
-``` 
-### install this repo and docker    
-```shell script
-cd   # go back the home directory
-git clone   https://github.com/<your_github_account>/jenkins-pic.git  # copy the project 
-cd jenkins-pic   # change directory to hte project jenkins-pic
-python3 -m venv venv  # set up the module venv in the directory venv
-source venv/bin/activate  # activate the virtualenv python
-pip3 install wheel  # set for permissions purpose
-pip3 install --upgrade pip # update pip3
-pip3 install ansible # install ansible 
-pip3 install requests # extra packages
-ansible --version # check the version number # should be the latest 2.16.4
-ansible-playbook -i inventory_for_ubuntu install_docker_ubuntu.yml 
+sudo apt update
+sudo apt install -y curl apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/nullsudo apt update
+sudo apt update
+sudo apt install docker-ce -y
+sudo systemctl status docker
+sudo usermod -aG docker $USER
+# log out log in again
+docker ps # check
 ```
-Type exit
 
-### Close all IDE windows  in your IDE and start again
+## install docker-compose
 ```shell
-cd
-cd jenkins-pic
-source venv/bin/activate
-docker --version  # should be version 25.0.x
-docker ps
-# see   CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose 
+docker-compose version 
+```
+
+
 ```

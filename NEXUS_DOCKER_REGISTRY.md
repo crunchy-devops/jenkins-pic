@@ -12,7 +12,7 @@ Enter name **myregistry**
 Set **HTTP port to 30999**  
 allow anonymous docker pull    
 Enable Docker v1 API  
-Tick **Allow anomymous** docker pull
+Tick **Allow anonymous** docker pull
 Deployment policy  to Allow redeploy
 Hit Create repository
 Go to Security -> Realms    
@@ -52,7 +52,7 @@ cd
 cd jenkins-pic 
 source venv/bin/activate
 docker-compose down 
- 
+ sudo systemctl restart docker
 docker-compose up -d 
 # wait a while
 docker login -u admin -p 12345678 nexus:30999

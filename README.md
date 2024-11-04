@@ -9,7 +9,7 @@ This Github Repo contains all relevant files for setting up an entirely CI/CD sa
 This sandbox is only available on Linux.
 
 ## Pre-requisite
-You need a server/VM  **Ubuntu 22.04, 16GB of RAM, 2/4 cores, and 40 GB of SSD.**
+You need a server/VM  **Ubuntu 24.04, 16GB of RAM, 4 cores, and 60 GB of SSD.**
 
 # How to proceed ?  
 ## First install Docker 
@@ -24,15 +24,11 @@ docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /
 Rapidly (there is a timeout), log on **https://<ip_address>:32126**    
 Set a password and activate portainer , you should see one container
 
-### Install docker-compose 
-```shell script
-  cd jenkins-pic
-  source venv/bin/activate
-  pip3 install pyyaml==5.3.1
-  pip3 install docker==6.1.3
-  pip3 install docker-compose # pip lib for docker-compose 
-  docker-compose --version  # check should be version 1.29.2
-```
+
+```shell
+git clone  https://github.com/<your github_account>/jenkins-pic.git
+cd jenkins-pic
+ ```
 I am using bitnami/version, for persistence the jenkins home is mapped to a docker volume  
 Edit and analyse the **docker-compose.yml file** and see the usage of volumes, services and network. 
 
