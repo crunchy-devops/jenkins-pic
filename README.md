@@ -38,7 +38,6 @@ Hit the following commands for starting up all containers
 docker-compose build # build all containers 
 docker-compose up -d  # launch all containers
 docker ps 
-# Verify 8 jenkins-pic_xxx containers should be up and running
 ```
 
 ## Jenkins container sanity tests
@@ -57,7 +56,7 @@ On the vm for fixing the sonarqube container
 Add ```sudo sysctl -w vm.max_map_count=262144```   
 or  
 add this line   
-```vm.max_map_count=262144```  
+```:```  
 in /etc/sysctl.conf  
 and run   
 ```sudo sysctl -p ```  
@@ -70,7 +69,7 @@ Log in  as user and password is password
 
 ## If you lost your password,  jenkins is secure so you must recreate the default user  
 Go to jenkins  
-Got to portainer and select jenkins-pic_jenkins_1  
+Go to portainer and select jenkins-pic_jenkins_1  
 edit /bitnami/jenkins/home/config.xml   
 change the ```<useSecurity>true</useSecurity>```  
 to  
@@ -87,7 +86,7 @@ Hit save and you go right away the user screen to fill in.
 Enter **admin** as user name   
 password : 12345678  
 confirm: 12345678  
-name : herve  
+name : john 
 
 ## Get an API token and set timezone
 click on user in right hand side on a top of a screen  
