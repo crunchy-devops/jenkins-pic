@@ -21,8 +21,7 @@ source <(kubectl completion bash | sed s/kubectl/ks/g)
 ```shell
 kind create cluster --name ansible --config kind-config-cluster.yml
 ks version # should be version  v1.31.1+
-ks get nodes
-
+ks get nodes # see one controle-plane and 3 workers
 ```
 
 ## install AWX
@@ -31,11 +30,11 @@ cd
 git clone https://github.com/ansible/awx-operator.git
 cd awx-operator/
 git checkout tags/2.19.1
-git log --oneline  # HEAD should be on tag 2.19.1
-EXPORT VERSION=2.19.1
+git log --oneline  # HEAD should be on tag 2.19.1 #hash dd37ebd
+export VERSION=2.19.1
 ```
 
-### Manually create file Kustomizeation.yaml
+### Manually create file kustomization.yaml
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -52,20 +51,26 @@ images:
 namespace: awx
 ```
 ```ks create ns awx```
-```ks apply -k . ```
+```ks apply -k . ```  run twice this command
 
 Wait 15 minutes
-And Check with ```ks get pod -A```
+And check with ```ks get pod -A``` # all K8s objects should be running, completed 
 
 ## User AWX
-useranme admin
-Password
+username admin
+Password uses the commande below
 ```shell
 kubectl get secret -n awx  awx-demo-admin-password -o jsonpath="{.data.password}" | base64 --decode ; echo
 ```
 ## Web access
 ```
 kubectl port-forward -n awx service/awx-demo-service 30880:80 --address='0.0.0.0'
+```
+access to AWX with http://<ip>:30880
+
+
+## Troubleshooting to prevent job template failure in AWX
+```shell
 echo fs.inotify.max_user_watches=655360 | sudo tee -a /etc/sysctl.conf
 echo fs.inotify.max_user_instances=1280 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
@@ -73,7 +78,7 @@ sudo sysctl -p
 
 ---
 
-## Latest Docker version of AWX
+## AWX INSTALL On docker Latest Docker version 
 ```shell    
 cd 
 git clone -b 24.0.0 https://github.com/ansible/awx.git # check awx tag stable version
@@ -113,7 +118,9 @@ Go to https://<vm_ip_address>:8043
 
 ## Results
 Go AWX in spring-framework-petclinic 
-------------------------------------------------------------------
+
+---
+
 ## Old install of AWX 17.1.0
 ```shell
 cd    # set to your home directory 
