@@ -1,5 +1,5 @@
 FROM bitnami/jenkins
-
+RUN mkdir -p /bitnami/jenkins/checkimages
 USER 0
 RUN apt update && \
     apt -y install curl wget sudo && \

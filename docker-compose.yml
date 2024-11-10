@@ -1,4 +1,4 @@
-version: '3.3'
+
 
 volumes:
   jmeter_dir:
@@ -58,6 +58,7 @@ services:
       - jenkins-home:/bitnami/jenkins
       - jmeter_dir:/jmeter
       #- liquibase_dir:/liquibase
+    #command: sudo chmod 777 /var/run/docker.sock
     links:
       - nexus
       - sonar
