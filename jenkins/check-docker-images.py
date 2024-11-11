@@ -51,8 +51,12 @@ def read_and_merge_file(filename):
     return name_dict, size_dict
 
 # Example usage
-directory = '/home/ubuntu/jenkins-pic/jenkins/build/'
+#directory = '/home/ubuntu/jenkins-pic/jenkins/build/'
+directory= '/bitnami/jenkins/home/checkimages/build/'
 sorted_files = get_sorted_files_by_date_desc(directory)
+if (len(sorted_files)) == 1:
+    print(f"only one file")
+    exit(0)
 last_file = sorted_files[0][0]
 previous_file = sorted_files[1][0]
 #print(f"{last_file}")
