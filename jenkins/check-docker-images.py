@@ -106,3 +106,7 @@ merged_df['percentage_change'] = ((merged_df['size_mb_current'] - merged_df['siz
 # If you want to see the entire DataFrame with changes
 #print("\nMerged DataFrame with Percentage Change:")
 print(merged_df[['name', 'size_mb_previous', 'size_mb_current', 'percentage_change']])
+last_column = merged_df.columns[-1]
+merged_df[last_column] = 'Value: ' + merged_df[last_column].astype(str)
+print(merged_df[['percentage_change']])
+
