@@ -64,7 +64,7 @@ kubectl get secret -n awx  awx-demo-admin-password -o jsonpath="{.data.password}
 ```
 ## Web access
 ```
-kubectl port-forward -n awx service/awx-demo-service 30880:80 --address='0.0.0.0'
+kubectl port-forward -n awx service/awx-demo-service 30880:80 --address='0.0.0.0' &
 ```
 access to AWX with http://<ip>:30880
 
@@ -78,7 +78,7 @@ sudo sysctl -p
 
 ---
 
-## AWX INSTALL On docker Latest Docker version 
+## If you want installing AWX using docker not kubernetes 
 ```shell    
 cd 
 git clone -b 24.0.0 https://github.com/ansible/awx.git # check awx tag stable version
