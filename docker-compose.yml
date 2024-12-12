@@ -58,7 +58,7 @@ services:
       - jenkins-home:/bitnami/jenkins
       - jmeter_dir:/jmeter
       #- liquibase_dir:/liquibase
-    #command: sudo chmod 777 /var/run/docker.sock
+    #command: chmod 664 /var/run/docker.sock
     links:
       - nexus
       - sonar
