@@ -49,6 +49,7 @@ services:
     build: ./jenkins
     ports:
       - "32500:8080"
+      - "32600:8443"
       - "32501:50000"
     networks:
       - prodnetwork
@@ -70,10 +71,12 @@ services:
       - jmeter
       - gitlab
     environment:
+      - JENKINS_KEYSTORE_PASSWORD=tcwowa12
       - JENKINS_PASSWORD=password
       - NEXUS_PORT=8081
       - SONAR_PORT=9000
       - SONAR_DB_PORT=5432
+
 
   postgresql:
     hostname: postgresql
