@@ -8,7 +8,7 @@ RUN apt update && \
     ln -s /jmeter/bin/jmeter /usr/bin/jmeter
 COPY jenkins.jks /bitnami/jenkins/home/jenkins.jks
     #chown -R jenkins:jenkins /bitnami/jenkins/home/checkimages
-#RUN curl -L "https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && \
-#    chmod +x /usr/bin/docker-compose  && \
+RUN curl -L "https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && \
+    chmod +x /usr/bin/docker-compose  && \
 
 
