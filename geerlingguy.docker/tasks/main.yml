@@ -65,6 +65,19 @@
   when: docker_daemon_options.keys() | length > 0
   notify: restart docker
 
+- name: Get private ip address
+  shell: hostname -I | awk ' { print  $2 } '
+  register: ip_nexus
+- name: debug
+  debug:
+    msg: "ip '{{ ip_nexus.stdout }} "
+
+- name: Add nexus entry in /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ ip_nexus.stdout }} nexus"
+    state: present
+
 - name: Ensure Docker is started and enabled at boot.
   service:
     name: docker

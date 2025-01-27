@@ -62,4 +62,4 @@ docker_yum_gpg_key: "{{ docker_repo_url }}/centos/gpg"
 docker_users: ["{{ ansible_ssh_user }}"]
 
 # Docker daemon options as a dict
-docker_daemon_options: {}
+docker_daemon_options: { "insecure-registries":["nexus:30999"]}
