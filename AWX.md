@@ -15,11 +15,13 @@ chmod +x kubectl
 sudo mv kubectl /usr/local/bin/kubectl
 alias ks='kubectl'
 source <(kubectl completion bash | sed s/kubectl/ks/g)
+kubectl version
 ```
 
 ## Create a cluster
 ```shell
-kind create cluster --name ansible --config kind-config-cluster.yml
+cd /home/ubuntu/jenkins-pic/kind
+kind create cluster --name awx --config kind-config-cluster.yml
 ks version # should be version  v1.31.1+
 ks get nodes # see one controle-plane and 3 workers
 ```
@@ -51,22 +53,22 @@ images:
 namespace: awx
 ```
 ```ks create ns awx```
-```ks apply -k . ```  run twice this command
+```ks apply -k . ```  run twice(??) this command
 
 Wait 15 minutes
 And check with ```ks get pod -A``` # all K8s objects should be running, completed 
 
 ## User AWX
 username admin
-Password uses the commande below
+Password uses the command below
 ```shell
 kubectl get secret -n awx  awx-demo-admin-password -o jsonpath="{.data.password}" | base64 --decode ; echo
 ```
 ## Web access
 ```
-kubectl port-forward -n awx service/awx-demo-service 30880:80 --address='0.0.0.0' &
+kubectl port-forward -n awx service/awx-demo-service 30540:80 --address='0.0.0.0' &
 ```
-access to AWX with http://<ip>:30880
+access to AWX with http://<ip>:30540
 
 
 ## Troubleshooting to prevent job template failure in AWX

@@ -21,7 +21,7 @@ docker volume create portainer_data
 docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock \
  -v portainer_data:/data portainer/portainer-ce:latest
 ``` 
-Rapidly (there is a timeout), log on **https://<ip_address>:32126**    
+Quickly (there is a timeout), log on **https://<ip_address>:32126**    
 Set a password and activate portainer , you should see one container
 
 
@@ -46,7 +46,7 @@ Select the container jenkins-pic_jenkins_1
 Open a console on it     
 type ```docker ps``` , you should see all containers running on your vm     
 type ```jmeter --version``` , you should see jmeter prompt characters  
-
+type ```docker-compose --version``` , you should see version v2.29.1
 
 ![check_docker_jmeter](screenshots/check_docker_jmeter.png)
 

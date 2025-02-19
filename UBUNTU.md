@@ -21,3 +21,19 @@ sudo chmod +x /usr/bin/docker-compose
 docker-compose version 
 ```
 
+## install with python venv
+```shell
+sudo apt update
+sudo apt -y install python3-venv
+cd jenkins-pic/
+python3 -m venv venv
+source venv/bin/activate
+pip3 install wheel
+pip3 install ansible
+pip3 install setuptools
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.4/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+#pip3 install "cython<3.0.0" wheel && pip3 install pyyaml==5.4.1 --no-build-isolation
+#pip3 install docker-compose
+```
