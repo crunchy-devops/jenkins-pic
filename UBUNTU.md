@@ -21,7 +21,7 @@ sudo chmod +x /usr/bin/docker-compose
 docker-compose version 
 ```
 
-## install with python venv
+## install docker + docker-compose with python venv and Ansible
 ```shell
 sudo apt update
 sudo apt -y install python3-venv
@@ -31,6 +31,7 @@ source venv/bin/activate
 pip3 install wheel
 pip3 install ansible
 pip3 install setuptools
+ansible-playbook -i inventory install_docker_ubuntu.yml
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.4/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
