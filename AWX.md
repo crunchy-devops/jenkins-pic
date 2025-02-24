@@ -55,7 +55,7 @@ images:
 namespace: awx
 ```
 ```ks create ns awx```
-```ks apply -k . ```  run twice(??) this command
+```ks apply -k . ```  # run twice(??) this command
 
 Wait 15 minutes
 And check with ```ks get pod -A``` # all K8s objects should be running, completed 
@@ -77,6 +77,7 @@ access to AWX with http://<ip>:30540
 ```shell
 echo fs.inotify.max_user_watches=655360 | sudo tee -a /etc/sysctl.conf
 echo fs.inotify.max_user_instances=1280 | sudo tee -a /etc/sysctl.conf
+echo fs.file-max = 2097152 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
