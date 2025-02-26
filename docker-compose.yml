@@ -16,6 +16,7 @@ networks:
 services:
   gitlab:
     hostname: gitlab
+    container_name: gitlab
     image: gitlab/gitlab-ce:latest
     ports:
       - "443:443"
@@ -31,7 +32,9 @@ services:
       - /opt/gitlab/data:/var/opt/gitlab
   nexus:
     hostname: nexus
-    image: sonatype/nexus3
+    container_name: nexus
+    image: sonatype/nexus3:3.76.1-java17-ubi
+    #image: sonatype/nexus3
     #build: ./nexus
     ports:
       - "32510:8081"
@@ -40,10 +43,9 @@ services:
       - nexus_data:/nexus-data
     networks:
       - prodnetwork
-
-
   jenkins:
     hostname: jenkins
+    container_name: jenkins
     ##image: bitnami/jenkins
     #image: systemdevformations/jenkins-sonar:v3
     build: ./jenkins
@@ -80,6 +82,7 @@ services:
 
   postgresql:
     hostname: postgresql
+    container_name: postgresql
     image: bitnami/postgresql
     ports:
       - "32431:5432"
@@ -95,6 +98,7 @@ services:
 
   sonar:
     hostname: sonar
+    container_name: sonar
     #image: systemdevformations/sonar-cicd:v1
     #image: sonarqube
     image: bitnami/sonarqube
@@ -117,6 +121,7 @@ services:
 
   jmeter:
     hostname: jmeter
+    container_name: jmeter
     build: ./jmeter
     command: tail -f /dev/null
     networks:
@@ -131,6 +136,7 @@ services:
   # To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
   chrome:
     #image: selenium/node-chrome:4.5.0-20221004
+    container_name: chrome
     image: selenium/node-chrome
     shm_size: 2gb
     depends_on:
@@ -143,6 +149,7 @@ services:
       - prodnetwork
 
   firefox:
+    container_name: firefox
     #image: selenium/node-firefox:4.5.0-20221004
     image: selenium/node-firefox
     shm_size: 2gb

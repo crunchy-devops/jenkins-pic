@@ -19,7 +19,7 @@ Go to **UBUNTU.md** markdown file and follow the instructions.
 ```shell
 docker volume create portainer_data
 docker run -d -p 32125:8000 -p 32126:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock \
- -v portainer_data:/data portainer/portainer-ce:latest
+ -v portainer_data:/data portainer/portainer-ce:2.27.0-alpine
 ``` 
 Quickly (there is a timeout), log on **https://<ip_address>:32126**    
 Set a password and activate portainer , you should see one container
@@ -42,7 +42,9 @@ docker ps
 
 ## Jenkins container sanity tests
 Go to portainer    
-Select the container jenkins-pic_jenkins_1    
+Select the container jenkins-pic-jenkins-1  
+```docker logs jenkins-pic-jenkins-1```
+Get the initial admin password
 Open a console on it     
 type ```docker ps``` , you should see all containers running on your vm     
 type ```jmeter --version``` , you should see jmeter prompt characters  
@@ -55,21 +57,26 @@ type ```docker-compose --version``` , you should see version v2.29.1
 On the vm for fixing the sonarqube container  
 Add ```sudo sysctl -w vm.max_map_count=262144```   
 or  
-add this line   
-```:```  
-in /etc/sysctl.conf  
+Type this line   
+```echo  vm.max_map_count=262144 | sudo tee -a /etc/sysctl.conf``` 
+the variable is inserted in /etc/sysctl.conf  
 and run   
 ```sudo sysctl -p ```  
 to reload configuration with this new value
-go to portainer web site and restart the container jenkins-pic_sonar_1
+go to portainer web site and restart the container jenkins-pic-sonar-1
 
 
-## Log in in Jenkins
-Log in  as user and password is password 
+## In some version of bitnami jenkins 
+You have to use the initial admin password
+that is available in container log
+```docker logs  jenkins-pic-jenkins-1 ```
 
-## If you lost your password,  jenkins is secure so you must recreate the default user  
+## Sometimes bitnami default credential are
+Log in  as **user** and password is **password** 
+
+## If you lost your password, jenkins is secure so you must recreate the default user  
 Go to jenkins  
-Go to portainer and select jenkins-pic_jenkins_1  
+Go to portainer and select jenkins-pic-jenkins-1  
 edit /bitnami/jenkins/home/config.xml   
 change the ```<useSecurity>true</useSecurity>```  
 to  
