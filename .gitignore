@@ -133,3 +133,8 @@ venv.bak/
 .retry
 
 
+# project
+SOLUTION_FILE_ROUGE.md
+token.txt
+id_rsa
+jenkins.jks

@@ -85,15 +85,16 @@ sudo sysctl -p
 
 ## If you want installing AWX using docker not kubernetes 
 ```shell    
-cd 
-git clone -b 24.0.0 https://github.com/ansible/awx.git # check awx tag stable version
+cd
+git clone https://github.com/crunchy-devops/awx.git 
+#git clone -b 24.6.1 https://github.com/ansible/awx.git # check awx tag stable version
 source jenkins-pic/venv/bin/activate
 cd awx
-sudo apt install make ansible
+sudo apt -y install make ansible
 make docker-compose-build
 make docker-compose COMPOSE_UP_OPTS=-d
 # use shell or portainer
-docker exec -it tools_awx_1 awx-manage createsuperuser
+docker exec -it tools_awx_1 awx-manage createsuperuser  # error but it's ok ?? carry on
 docker exec tools_awx_1 make clean-ui ui-devel
 ```
 
