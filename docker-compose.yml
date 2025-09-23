@@ -83,7 +83,7 @@ services:
   postgresql:
     hostname: postgresql
     container_name: postgresql
-    image: bitnami/postgresql
+    image: bitnamilegacy/postgresql:17.6.0-debian-12-r4
     ports:
       - "32431:5432"
     environment:
@@ -101,7 +101,7 @@ services:
     container_name: sonar
     #image: systemdevformations/sonar-cicd:v1
     #image: sonarqube
-    image: bitnami/sonarqube
+    image: bitnamilegacy/sonarqube:25.8.0-debian-12-r2
     #image: sonarqube:8.9.7-community
     ports:
       - "32520:9000"
