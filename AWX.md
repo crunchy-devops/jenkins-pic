@@ -2,11 +2,11 @@
 
 ## install on kubernetes kind
 ```shell
-wget https://github.com/kubernetes-sigs/kind/releases/download/v0.27.0/kind-linux-amd64
+wget https://github.com/kubernetes-sigs/kind/releases/download/v0.30.0/kind-linux-amd64
 mv kind-linux-amd64 kind
 chmod +x kind
 sudo mv kind /usr/local/bin/kind
-kind version # should be  version 0.27.0
+kind version # should be  version 0.30.0
 ```
 ## install kubectl
 ```shell
@@ -18,13 +18,14 @@ alias ks='kubectl'
 source <(kubectl completion bash | sed s/kubectl/ks/g)
 # check 
 kubectl version
+# should be version 1.34.1
 ```
 
 ## Create a cluster
 ```shell
 cd /home/ubuntu/jenkins-pic/kind
 kind create cluster --name awx --config kind-config-cluster.yml
-ks version # should be version  v1.32.2+
+ks version # should be version  v1.34.1+
 ks get nodes # see one controle-plane and 3 workers
 ```
 
@@ -35,7 +36,7 @@ git clone https://github.com/ansible/awx-operator.git
 cd awx-operator/
 git checkout tags/2.19.1
 git log --oneline  # HEAD should be on tag 2.19.1 #hash dd37ebd
-export VERSION=2.19.1
+
 ```
 
 ### Manually create file kustomization.yaml
