@@ -4,7 +4,7 @@ FROM alpine:3.11
 
 MAINTAINER modified by HMeftah <dockerlite@gmail.com> initialed by Just van den Broecke<just@justobjects.nl>
 
-ARG JMETER_VERSION="5.2.1"
+ARG JMETER_VERSION="5.6.3"
 ENV JMETER_HOME  /jmeter
 ENV	JMETER_BIN	/jmeter/bin
 ENV	JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
