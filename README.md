@@ -43,7 +43,7 @@ docker ps
 ## Jenkins container sanity tests
 Go to portainer    
 Select the container jenkins-pic-jenkins-1  
-```docker logs jenkins-pic-jenkins-1```
+```docker logs jenkins```
 Get the initial admin password
 Open a console on it     
 type ```docker ps``` , you should see all containers running on your vm     
@@ -81,13 +81,13 @@ edit /bitnami/jenkins/home/config.xml
 change the ```<useSecurity>true</useSecurity>```  
 to  
 ```<useSecurity>false</useSecurity>```  
-In portainer **Restart** the container jenkins-pic_jenkins_1  
+In portainer **Restart** the container jenkins
 Open your Chrome Browser          
 type the URL  http://<your_vm_ip_address>:32500        
 Go to People on the left menu , and delete the current people named **user**     
 Go to Dashboard->Manage Jenkins, choose Security , see the image below  
 
-![Security](screenshots/security.png)  
+![Security](screenshots/security.png)
 
 Hit save and you go right away the user screen to fill in.    
 Enter **admin** as user name   

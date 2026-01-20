@@ -96,7 +96,7 @@ copy from petclinic-maven
 hit ok  
 in **Build Environment**
 Tick in 'Prepare SonarQube Scanner environment'**      
-Change Goals as ``` clean package sonar:sonar -Dsonar.host_url=$SONAR_HOST_URL```      
+Change Goals as ``` clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.host_url=$SONAR_HOST_URL```      
 Press apply and save
 Hit Build Now  
 
