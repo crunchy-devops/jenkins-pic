@@ -138,3 +138,4 @@ SOLUTION_FIL_ROUGE.md
 token.txt
 id_rsa
 jenkins.jks
+postfix.yml

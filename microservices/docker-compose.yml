@@ -1,0 +1,23 @@
+networks:
+  prodnetwork:
+    name: jenkins-pic_prodnetwork
+    external: true
+
+
+services:
+  database:
+    image: postgres:17-alpine
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_db
+    ports:
+      - "5432:5432"
+    healthcheck: # Important pour que le backend attende la BDD
+      test: ["CMD-SHELL", "pg_isready -U user -d app_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - prodnetwork
