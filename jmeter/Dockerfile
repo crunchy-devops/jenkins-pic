@@ -19,8 +19,10 @@ RUN apk update \
 	&& update-ca-certificates \
 	&& apk add --update openjdk8-jre tzdata curl unzip bash \
 	&& apk add --no-cache nss \
-	&& rm -rf /var/cache/apk/* \
-	&& mkdir -p /tmp/dependencies  \
+	&& rm -rf /var/cache/apk/*
+
+
+RUN mkdir -p /tmp/dependencies  \
 	&& cd / \
 	&& wget -O jmeter.tgz $JMETER_DOWNLOAD_URL \
 	&& tar -zxvf jmeter.tgz \
