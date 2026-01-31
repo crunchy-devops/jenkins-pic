@@ -1,8 +1,9 @@
 #FROM bitnami/jenkins
 FROM bitnamilegacy/jenkins:2.516.2-debian-12-r0
-RUN mkdir -p /bitnami/jenkins/home/checkimages/build
-COPY check-docker-images.py /bitnami/jenkins/home/checkimages
-COPY jenkins.jks /bitnami/jenkins/home/jenkins.jks
+FROM jenkins/jenkins:lts-jdk21
+#RUN mkdir -p /bitnami/jenkins/home/checkimages/build
+#COPY check-docker-images.py /bitnami/jenkins/home/checkimages
+#COPY jenkins.jks /bitnami/jenkins/home/jenkins.jks
 USER 0
 RUN apt update && \
     apt -y install curl wget sudo && \

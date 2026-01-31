@@ -6,6 +6,11 @@ volumes:
   postgresql_data:
   sonarqube_data:
   nexus_data:
+  mantis_config:
+  mantis_custom:
+  mysql_data:
+  postgresql-mantis:
+  sonarqube:
   #elasticsearch:
   #liquibase_dir:
 
@@ -58,7 +63,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-      - jenkins-home:/bitnami/jenkins
+      - jenkins-home:/var/jenkins_home
+      #- jenkins-home:/bitnami/jenkins
       - jmeter_dir:/jmeter
       #- liquibase_dir:/liquibase
     #command: chmod 664 /var/run/docker.sock
@@ -73,6 +79,7 @@ services:
       - jmeter
       - gitlab
     environment:
+      - JAVA_OPTS=-Xms1024m -Xmx4096m
       - JENKINS_KEYSTORE_PASSWORD=tcwowa12
       - JENKINS_PASSWORD=password
       - NEXUS_PORT=8081
@@ -173,3 +180,23 @@ services:
     networks:
       - prodnetwork
 
+  mantisbt:
+    image: vimagick/mantisbt:latest
+    ports:
+      - "30800:80"
+    links:
+      - mysql
+    networks:
+      - prodnetwork
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bugtracker
+      - MYSQL_USER=mantisbt
+      - MYSQL_PASSWORD=mantisbt
+    networks:
+      - prodnetwork

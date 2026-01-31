@@ -1,0 +1,28 @@
+services:
+
+  mantisbt:
+    image: xlrl/mantisbt:latest
+    container_name: mantisbt
+    environment:
+      MANTIS_TIMEZONE: Europe/Paris
+      MANTIS_ENABLE_ADMIN: 1
+    ports:
+      - "8989:80"
+    links:
+      - mysql
+    volumes:
+      - ./config:/var/www/html/config
+      - ./custom:/var/www/html/custom
+
+
+  mysql:
+    image: mariadb:latest
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bugtracker
+      - MYSQL_USER=mantisbt
+      - MYSQL_PASSWORD=mantisbt
+    volumes:
+      - ./mysql:/var/lib/mysql
+
