@@ -42,7 +42,7 @@ docker ps
 
 ## Jenkins container sanity tests
 Go to portainer    
-Select the container jenkins-pic-jenkins-1  
+Select the container jenkins  
 ```docker logs jenkins```
 Get the initial admin password
 Open a console on it     
@@ -55,10 +55,10 @@ type ```docker-compose --version``` , you should see version v2.29.1
 
 ## Troubleshooting Sonarqube container
 On the vm for fixing the sonarqube container  
-Add ```sudo sysctl -w vm.max_map_count=262144```   
+Add ```sudo sysctl m.max_map_count=262144```   
 or  
 Type this line   
-```echo  vm.max_map_count=262144 | sudo tee -a /etc/sysctl.conf``` 
+```ecx_map_countho  vm.ma=262144 | sudo tee -a /etc/sysctl.conf``` 
 the variable is inserted in /etc/sysctl.conf  
 and run   
 ```sudo sysctl -p ```  

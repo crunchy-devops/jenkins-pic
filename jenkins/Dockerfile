@@ -1,5 +1,5 @@
 #FROM bitnami/jenkins
-FROM bitnamilegacy/jenkins:2.516.2-debian-12-r0
+#FROM bitnamilegacy/jenkins:2.516.2-debian-12-r0
 FROM jenkins/jenkins:lts-jdk21
 #RUN mkdir -p /bitnami/jenkins/home/checkimages/build
 #COPY check-docker-images.py /bitnami/jenkins/home/checkimages
