@@ -11,7 +11,6 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo systemctl status docker
 docker --version
-id
 sudo usermod -aG docker $USER
 # restart pycharm 
 id 
