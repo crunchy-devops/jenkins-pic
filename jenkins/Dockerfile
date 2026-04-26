@@ -8,8 +8,8 @@ USER 0
 RUN apt update && \
     apt -y install curl wget sudo && \
     apt -y install python3 python3-pip python3-pandas vim && \
-    ln -s /jmeter/bin/jmeter /usr/bin/jmeter \
-    wget https://go.dev/dl/go1.26.2.linux-amd64.tar.gz \
+    ln -s /jmeter/bin/jmeter /usr/bin/jmeter  && \
+    wget https://go.dev/dl/go1.26.2.linux-amd64.tar.gz &&  \
     tar -xzvf go1.26.2.linux-amd64.tar.gz -C /usr/local
     # acces to jenkins https
     #chown -R jenkins:jenkins /bitnami/jenkins/home/checkimages
