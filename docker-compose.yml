@@ -106,9 +106,10 @@ services:
   sonar:
     hostname: sonar
     container_name: sonar
+    image: sonarqube:26.5.0.122743-community
     #image: systemdevformations/sonar-cicd:v1
     #image: sonarqube
-    image: bitnamilegacy/sonarqube:25.8.0-debian-12-r2
+    #image: bitnamilegacy/sonarqube:25.8.0-debian-12-r2
     #image: sonarqube:8.9.7-community
     ports:
       - "32520:9000"
